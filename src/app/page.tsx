@@ -6,6 +6,8 @@ import { client } from "@/sanity/lib/client";
 import { FEATURED_HOUSEBOATS_QUERY, HOME_PAGE_QUERY, SITE_SETTINGS_QUERY } from "@/sanity/lib/queries";
 import { urlFor } from "@/sanity/lib/image";
 
+export const revalidate = 30;
+
 export default async function Home() {
   const [featuredBoats, homePage, siteSettings] = await Promise.all([
     client.fetch(FEATURED_HOUSEBOATS_QUERY),

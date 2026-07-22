@@ -6,6 +6,8 @@ import { client } from "@/sanity/lib/client";
 import { ALL_HOUSEBOATS_QUERY } from "@/sanity/lib/queries";
 import { urlFor } from "@/sanity/lib/image";
 
+export const revalidate = 30;
+
 export default async function HouseboatsListing() {
   const houseboats = await client.fetch(ALL_HOUSEBOATS_QUERY);
   return (
