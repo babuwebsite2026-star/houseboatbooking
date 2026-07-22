@@ -55,3 +55,19 @@ export const ALL_PACKAGES_QUERY = groq`*[_type == "tourPackage"] | order(price a
   highlights,
   itinerary
 }`
+
+export const SITE_SETTINGS_QUERY = groq`*[_type == "siteSettings"][0] {
+  whatsappNumber,
+  phoneNumber,
+  locationAddress,
+  contactDescription
+}`
+
+export const HOME_PAGE_QUERY = groq`*[_type == "homePage"][0] {
+  heroTitle,
+  heroSubtitle,
+  heroImage,
+  galleryTitle,
+  gallerySubtitle,
+  galleryImages
+}`

@@ -3,11 +3,16 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Check, Clock } from "lucide-react";
 import { client } from "@/sanity/lib/client";
-import { ALL_PACKAGES_QUERY } from "@/sanity/lib/queries";
+import { ALL_PACKAGES_QUERY, SITE_SETTINGS_QUERY } from "@/sanity/lib/queries";
 import { urlFor } from "@/sanity/lib/image";
 
 export default async function Packages() {
-  const packages = await client.fetch(ALL_PACKAGES_QUERY);
+  const [packages, siteSettings] = await Promise.all([
+    client.fetch(ALL_PACKAGES_QUERY),
+    client.fetch(SITE_SETTINGS_QUERY)
+  ]);
+  
+  const whatsappNumber = siteSettings?.whatsappNumber || "919876543210";
   return (
     <div className="pt-24 pb-20 bg-gray-50 min-h-screen">
       <div className="bg-ocean-blue text-white py-16 mb-12">
@@ -48,7 +53,7 @@ export default async function Packages() {
                   )}
 
                   <div className="mt-auto pt-6 border-t border-gray-200">
-                    <Link href={`https://wa.me/919876543210?text=Hi, I want to book ${encodeURIComponent(pkg.name)}`}>
+                    <Link href={`https://wa.me/${whatsappNumber}?text=Hi, I want to book ${encodeURIComponent(pkg.name)}`}>
                       <Button className="bg-ocean-blue hover:bg-ocean-blue/90 text-white font-bold px-8 py-6 rounded-xl shadow-md text-lg">
                         Book Now
                       </Button>

@@ -3,11 +3,15 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Calendar, Search, Users } from "lucide-react";
 import { client } from "@/sanity/lib/client";
-import { FEATURED_HOUSEBOATS_QUERY } from "@/sanity/lib/queries";
+import { FEATURED_HOUSEBOATS_QUERY, HOME_PAGE_QUERY, SITE_SETTINGS_QUERY } from "@/sanity/lib/queries";
 import { urlFor } from "@/sanity/lib/image";
 
 export default async function Home() {
-  const featuredBoats = await client.fetch(FEATURED_HOUSEBOATS_QUERY);
+  const [featuredBoats, homePage, siteSettings] = await Promise.all([
+    client.fetch(FEATURED_HOUSEBOATS_QUERY),
+    client.fetch(HOME_PAGE_QUERY),
+    client.fetch(SITE_SETTINGS_QUERY)
+  ]);
 
   return (
     <>
@@ -15,7 +19,7 @@ export default async function Home() {
       <section className="relative h-screen flex items-center justify-center pt-20">
         <div className="absolute inset-0 z-0">
           <Image
-            src="https://images.unsplash.com/photo-1593693397690-3628073262ce?auto=format&fit=crop&w=1920&q=80"
+            src={homePage?.heroImage ? urlFor(homePage.heroImage).url() : "https://images.unsplash.com/photo-1593693397690-3628073262ce?auto=format&fit=crop&w=1920&q=80"}
             alt="Kerala Backwaters"
             fill
             className="object-cover"
@@ -25,12 +29,12 @@ export default async function Home() {
         </div>
 
         <div className="relative z-10 container mx-auto px-4 md:px-8 text-center text-white">
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">
-            Experience the Magic of <br className="hidden md:block" />
-            <span className="text-gold">Kerala Backwaters</span>
-          </h1>
+          <h1 
+            className="text-5xl md:text-7xl font-bold tracking-tight mb-6" 
+            dangerouslySetInnerHTML={{ __html: homePage?.heroTitle || 'Experience the Magic of <br class="hidden md:block" /><span class="text-gold">Kerala Backwaters</span>' }}
+          />
           <p className="text-lg md:text-2xl text-gray-200 mb-12 max-w-2xl mx-auto">
-            Book premium and luxury houseboats for an unforgettable journey through the serene waters of Alleppey.
+            {homePage?.heroSubtitle || "Book premium and luxury houseboats for an unforgettable journey through the serene waters of Alleppey."}
           </p>
 
           {/* Search Bar UI */}
@@ -168,24 +172,24 @@ export default async function Home() {
       <section className="py-24 bg-gray-50">
         <div className="container mx-auto px-4 md:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-ocean-blue mb-4">Glimpses of Paradise</h2>
+            <h2 className="text-4xl font-bold text-ocean-blue mb-4">{homePage?.galleryTitle || "Glimpses of Paradise"}</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Take a visual journey through our luxurious houseboats and the breathtaking Alleppey backwaters.
+              {homePage?.gallerySubtitle || "Take a visual journey through our luxurious houseboats and the breathtaking Alleppey backwaters."}
             </p>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             <div className="col-span-2 row-span-2 relative h-64 md:h-full rounded-2xl overflow-hidden group">
-              <Image src="https://images.unsplash.com/photo-1593693397690-3628073262ce?auto=format&fit=crop&w=1920&q=80" alt="Gallery 1" fill className="object-cover group-hover:scale-110 transition-transform duration-700" />
+              <Image src={homePage?.galleryImages?.[0] ? urlFor(homePage.galleryImages[0]).url() : "https://images.unsplash.com/photo-1593693397690-3628073262ce?auto=format&fit=crop&w=1920&q=80"} alt="Gallery 1" fill className="object-cover group-hover:scale-110 transition-transform duration-700" />
             </div>
             <div className="relative h-48 md:h-64 rounded-2xl overflow-hidden group">
-              <Image src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80" alt="Gallery 2" fill className="object-cover group-hover:scale-110 transition-transform duration-700" />
+              <Image src={homePage?.galleryImages?.[1] ? urlFor(homePage.galleryImages[1]).url() : "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80"} alt="Gallery 2" fill className="object-cover group-hover:scale-110 transition-transform duration-700" />
             </div>
             <div className="relative h-48 md:h-64 rounded-2xl overflow-hidden group">
-              <Image src="https://images.unsplash.com/photo-1596701062351-8c2c14d1fdd0?auto=format&fit=crop&w=800&q=80" alt="Gallery 3" fill className="object-cover group-hover:scale-110 transition-transform duration-700" />
+              <Image src={homePage?.galleryImages?.[2] ? urlFor(homePage.galleryImages[2]).url() : "https://images.unsplash.com/photo-1596701062351-8c2c14d1fdd0?auto=format&fit=crop&w=800&q=80"} alt="Gallery 3" fill className="object-cover group-hover:scale-110 transition-transform duration-700" />
             </div>
             <div className="col-span-2 relative h-48 md:h-64 rounded-2xl overflow-hidden group">
-              <Image src="https://images.unsplash.com/photo-1629851416480-16b7f9d85420?auto=format&fit=crop&w=800&q=80" alt="Gallery 4" fill className="object-cover group-hover:scale-110 transition-transform duration-700" />
+              <Image src={homePage?.galleryImages?.[3] ? urlFor(homePage.galleryImages[3]).url() : "https://images.unsplash.com/photo-1629851416480-16b7f9d85420?auto=format&fit=crop&w=800&q=80"} alt="Gallery 4" fill className="object-cover group-hover:scale-110 transition-transform duration-700" />
             </div>
           </div>
           
@@ -206,7 +210,7 @@ export default async function Home() {
             <div className="w-full md:w-1/2">
               <h2 className="text-4xl font-bold text-ocean-blue mb-6">Need Help Planning Your Trip?</h2>
               <p className="text-gray-600 mb-8 leading-relaxed">
-                Our local experts are here to help you customize the perfect backwater experience. Reach out to us for any queries, special requests, or immediate bookings.
+                {siteSettings?.contactDescription || "Our local experts are here to help you customize the perfect backwater experience. Reach out to us for any queries, special requests, or immediate bookings."}
               </p>
               
               <div className="space-y-6">
@@ -216,7 +220,7 @@ export default async function Home() {
                   </div>
                   <div>
                     <p className="text-sm text-gray-500 font-semibold uppercase">Call Us</p>
-                    <p className="text-lg font-bold text-gray-900">+91 98765 43210</p>
+                    <p className="text-lg font-bold text-gray-900">{siteSettings?.phoneNumber || "+91 98765 43210"}</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
@@ -225,7 +229,7 @@ export default async function Home() {
                   </div>
                   <div>
                     <p className="text-sm text-gray-500 font-semibold uppercase">Location</p>
-                    <p className="text-lg font-bold text-gray-900">Finishing Point, Alleppey, Kerala</p>
+                    <p className="text-lg font-bold text-gray-900">{siteSettings?.locationAddress || "Finishing Point, Alleppey, Kerala"}</p>
                   </div>
                 </div>
               </div>

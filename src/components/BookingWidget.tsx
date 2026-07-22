@@ -9,16 +9,16 @@ interface BookingWidgetProps {
     name: string;
     startingPrice: number;
   };
+  whatsappNumber?: string;
 }
 
-export function BookingWidget({ boat }: BookingWidgetProps) {
+export function BookingWidget({ boat, whatsappNumber = "919876543210" }: BookingWidgetProps) {
   const [date, setDate] = useState("");
   const [duration, setDuration] = useState("1 Night / 2 Days");
   const [adults, setAdults] = useState("2");
   const [kids, setKids] = useState("0");
 
   const generateWhatsAppLink = () => {
-    const phoneNumber = "919876543210";
     const text = `Hi, I would like to check availability for ${boat.name}.
     
 Details:
@@ -27,7 +27,7 @@ Details:
 - Adults: ${adults}
 - Kids: ${kids}`;
     
-    return `https://wa.me/${phoneNumber}?text=${encodeURIComponent(text)}`;
+    return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
   };
 
   return (

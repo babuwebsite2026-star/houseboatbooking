@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { BookingWidget } from "@/components/BookingWidget";
 import { client } from "@/sanity/lib/client";
-import { SINGLE_HOUSEBOAT_QUERY } from "@/sanity/lib/queries";
+import { SINGLE_HOUSEBOAT_QUERY, SITE_SETTINGS_QUERY } from "@/sanity/lib/queries";
 import { urlFor } from "@/sanity/lib/image";
 import { 
   Users, BedDouble, Check, Calendar, Star, Info, 
@@ -15,7 +15,10 @@ export default async function HouseboatDetails({ params }: { params: Promise<{ i
   const resolvedParams = await params;
   const id = resolvedParams.id;
   
-  const boat = await client.fetch(SINGLE_HOUSEBOAT_QUERY, { slug: id });
+  const [boat, siteSettings] = await Promise.all([
+    client.fetch(SINGLE_HOUSEBOAT_QUERY, { slug: id }),
+    client.fetch(SITE_SETTINGS_QUERY)
+  ]);
 
   if (!boat) {
     notFound();
@@ -37,19 +40,11 @@ export default async function HouseboatDetails({ params }: { params: Promise<{ i
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 p-8">
           <div className="container mx-auto px-4 md:px-8">
-            <div className="inline-block bg-gold text-ocean-blue px-3 py-1 rounded-full text-sm font-bold mb-3 shadow-md">
-              {boat.category}
-            </div>
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-4 drop-shadow-md">
-              {boat.name}
-            </h1>
-            <div className="flex flex-wrap items-center gap-6 text-white/90">
               <span className="flex items-center gap-1.5"><Star className="h-5 w-5 text-gold fill-gold" /> {boat.rating} ({boat.reviews} reviews)</span>
               <span className="flex items-center gap-1.5"><MapPin className="h-5 w-5 text-gold" /> Alleppey Backwaters</span>
             </div>
           </div>
         </div>
-      </div>
 
       <div className="container mx-auto px-4 md:px-8">
         <div className="flex flex-col lg:flex-row gap-8">
@@ -193,7 +188,7 @@ export default async function HouseboatDetails({ params }: { params: Promise<{ i
 
           {/* Sticky Booking Widget */}
           <div className="lg:col-span-1">
-            <BookingWidget boat={boat} />
+            <BookingWidget boat={boat} whatsappNumber={siteSettings?.whatsappNumber} />
           </div>
 
         </div>
