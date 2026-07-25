@@ -131,19 +131,6 @@ export default function Packages() {
               </div>
             </a>
 
-            {/* Video Tile */}
-            <div className="relative min-h-[210px] rounded-2xl overflow-hidden ring-1 ring-gold/25 shadow-sm bg-forest-deep">
-              <video src="https://jfj4iebfwyck7oka.public.blob.vercel-storage.com/media/1769860892259-1ea33515-4da7-4f41-8b8f-bec189304b04-copy_681B1836-E1B6-41B8-915C-E47283EFC1AD-MhCFx5PWeSXyW1q8JXdVX8rB83Mklg.mov" autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover"></video>
-              <div className="absolute inset-0 bg-gradient-to-t from-forest-deep/80 via-transparent to-transparent"></div>
-              <div className="absolute inset-x-0 bottom-0 p-4 md:p-5 flex items-end justify-between gap-2">
-                <div className="min-w-0">
-                  <span className="inline-flex items-center gap-1.5 text-gold text-[9px] font-semibold uppercase tracking-[0.2em] mb-1.5">
-                    <Play className="w-2.5 h-2.5 fill-current" /> Real footage
-                  </span>
-                  <h3 className="text-white font-serif font-light text-base leading-tight">Kerala, in motion</h3>
-                </div>
-              </div>
-            </div>
 
             {/* Corporate */}
             <Link href="/corporate" className="group relative block min-h-[210px] rounded-2xl overflow-hidden ring-1 ring-gold/25 hover:ring-gold shadow-sm hover:shadow-xl transition-all duration-300 bg-forest-deep flex flex-col justify-center p-6">
