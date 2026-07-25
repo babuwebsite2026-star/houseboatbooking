@@ -97,7 +97,7 @@ export function Footer() {
           {/* Decorative Kathakali Left */}
           <div className="absolute left-4 md:left-24 bottom-0 opacity-90 w-32 h-48 md:w-48 md:h-72">
             <Image 
-              src="/kathakali.png" 
+              src="/Get_Free_PNG_image_Kathakali___AjuDimple-removebg-preview.svg" 
               alt="Kathakali" 
               fill 
               className="object-contain object-bottom" 
