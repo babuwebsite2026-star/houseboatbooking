@@ -95,12 +95,12 @@ export function Footer() {
         <div className="container mx-auto px-4 flex justify-center items-center relative">
           
           {/* Decorative Kathakali Left */}
-          <div className="absolute left-4 md:left-24 bottom-0 opacity-90 w-32 h-48 md:w-48 md:h-72">
+          <div className="absolute left-4 md:left-24 bottom-0 opacity-100 w-40 h-56 md:w-64 md:h-96">
             <Image 
               src="/Get_Free_PNG_image_Kathakali___AjuDimple-removebg-preview.svg" 
               alt="Kathakali" 
               fill 
-              className="object-contain object-bottom" 
+              className="object-contain object-bottom drop-shadow-xl" 
             />
           </div>
 
@@ -115,12 +115,12 @@ export function Footer() {
           </div>
 
           {/* Decorative Mohiniyattam Right */}
-          <div className="absolute right-4 md:right-24 bottom-0 opacity-90 w-32 h-48 md:w-48 md:h-72">
+          <div className="absolute right-4 md:right-24 bottom-0 opacity-100 w-40 h-56 md:w-64 md:h-96">
             <Image 
               src="/mohiniyattam.png" 
               alt="Mohiniyattam" 
               fill 
-              className="object-contain object-bottom" 
+              className="object-contain object-bottom drop-shadow-xl" 
             />
           </div>
 
