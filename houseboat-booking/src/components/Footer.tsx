@@ -114,11 +114,11 @@ export function Footer() {
             </h2>
           </div>
 
-          {/* Decorative Kathakali Right */}
-          <div className="absolute right-4 md:right-24 bottom-0 opacity-90 w-32 h-48 md:w-48 md:h-72" style={{ transform: 'scaleX(-1)' }}>
+          {/* Decorative Mohiniyattam Right */}
+          <div className="absolute right-4 md:right-24 bottom-0 opacity-90 w-32 h-48 md:w-48 md:h-72">
             <Image 
-              src="/kathakali.png" 
-              alt="Kathakali" 
+              src="/mohiniyattam.png" 
+              alt="Mohiniyattam" 
               fill 
               className="object-contain object-bottom" 
             />
