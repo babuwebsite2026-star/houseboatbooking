@@ -62,7 +62,7 @@ export default function Packages() {
               { name: "Kovalam", journeys: 1, image: "https://images.unsplash.com/photo-1623512860431-137a85d3df1b?q=80&w=500&auto=format&fit=crop" },
               { name: "Malaysia", journeys: 3, image: "/malaysia.jpg" },
             ].map((dest, i) => (
-              <Link href={`/packages?destination=${dest.name.toLowerCase()}`} key={i} className="flex flex-col items-center gap-4 group snap-center shrink-0 w-28 md:w-36">
+              <Link href={`/packages/${dest.name.toLowerCase()}`} key={i} className="flex flex-col items-center gap-4 group snap-center shrink-0 w-28 md:w-36">
                 <div className="relative w-28 h-28 md:w-36 md:h-36 rounded-2xl overflow-hidden shadow-sm ring-4 ring-transparent group-hover:ring-gold/30 transition-all duration-300">
                   <Image src={dest.image} alt={dest.name} fill className="object-cover transition-transform duration-500 group-hover:scale-110" />
                   <div className="absolute inset-0 bg-primary/20 group-hover:bg-primary/0 transition-colors duration-300"></div>
