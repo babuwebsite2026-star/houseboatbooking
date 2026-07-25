@@ -1,122 +1,183 @@
 "use client";
 
 import { useState } from "react";
-import { Calendar } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Calendar, Phone, Sparkles, Star, ShieldCheck } from "lucide-react";
 
 interface BookingWidgetProps {
   boat: {
     name: string;
     startingPrice: number;
+    rating?: number;
   };
   whatsappNumber?: string;
 }
 
 export function BookingWidget({ boat, whatsappNumber = "919876543210" }: BookingWidgetProps) {
   const [date, setDate] = useState("");
-  const [duration, setDuration] = useState("1 Night / 2 Days");
-  const [adults, setAdults] = useState("2");
-  const [kids, setKids] = useState("0");
+  const [cruiseType, setCruiseType] = useState<"day" | "overnight">("day");
+  const [guests, setGuests] = useState(2);
 
-  const generateWhatsAppLink = () => {
-    const text = `Hi, I would like to check availability for ${boat.name}.
+  // Pricing Logic
+  // Assuming startingPrice is for Day Cruise, and Overnight is +500.
+  const dayCruisePrice = boat.startingPrice;
+  const overnightPrice = boat.startingPrice + 500;
+  
+  const basePrice = cruiseType === "day" ? dayCruisePrice : overnightPrice;
+  const extraGuestPrice = Math.max(0, guests - 2) * 1000;
+  const totalPrice = basePrice + extraGuestPrice;
+  const originalPrice = totalPrice + 501; // Fake original price for strikethrough
+
+  const formatPrice = (price: number) => {
+    return "₹" + price.toLocaleString('en-IN');
+  };
+
+  const handleBookNow = () => {
+    const text = `Hi, I would like to book ${boat.name}.
     
 Details:
 - Date: ${date || "Not selected"}
-- Duration: ${duration}
-- Adults: ${adults}
-- Kids: ${kids}`;
+- Type: ${cruiseType === 'day' ? 'Day Cruise' : 'Overnight Stay'}
+- Guests: ${guests}
+- Estimated Price: ${formatPrice(totalPrice)}`;
     
-    return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
+    window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`, '_blank');
+  };
+
+  const handleCall = () => {
+    window.open(`tel:+${whatsappNumber}`, '_self');
   };
 
   return (
-    <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden sticky top-32">
-      <div className="p-6 bg-ocean-blue text-white">
-        <p className="text-ocean-blue-100 text-sm font-medium mb-1">Starting from</p>
-        <div className="flex items-end gap-2">
-          <span className="text-3xl font-bold text-gold">₹{boat.startingPrice.toLocaleString('en-IN')}</span>
-          <span className="text-ocean-blue-100 mb-1">/ Night</span>
+    <div className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden sticky top-32 p-6">
+      {/* Header */}
+      <div className="flex justify-between items-start mb-4">
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-green-50 text-green-600 rounded-full border border-green-100 text-xs font-semibold">
+          <Sparkles className="w-3.5 h-3.5" />
+          Best price guaranteed
+        </div>
+        <div className="flex items-center gap-1 font-bold text-gray-800">
+          <Star className="w-4 h-4 text-gold fill-gold" />
+          {boat.rating || 4.8}
         </div>
       </div>
-      
-      <div className="p-6">
-        {/* Form UI */}
-        <div className="space-y-4 mb-6">
-          <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">Check-in Date</label>
-            <div className="relative">
-              <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
-              <input 
-                type="date" 
-                value={date}
-                onChange={(e) => setDate(e.target.value)}
-                className="w-full pl-9 pr-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-ocean-blue/50"
-              />
-            </div>
-          </div>
-          
-          <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">Duration</label>
-            <select 
-              value={duration}
-              onChange={(e) => setDuration(e.target.value)}
-              className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-ocean-blue/50"
-            >
-              <option>1 Night / 2 Days</option>
-              <option>2 Nights / 3 Days</option>
-              <option>Day Cruise Only</option>
-            </select>
-          </div>
 
-          <div className="grid grid-cols-2 gap-4">
-            <div>
-              <label className="block text-sm font-semibold text-gray-700 mb-2">Adults</label>
-              <select 
-                value={adults}
-                onChange={(e) => setAdults(e.target.value)}
-                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-ocean-blue/50"
-              >
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5+</option>
-              </select>
-            </div>
-            <div>
-              <label className="block text-sm font-semibold text-gray-700 mb-2">Kids (Below 5)</label>
-              <select 
-                value={kids}
-                onChange={(e) => setKids(e.target.value)}
-                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-ocean-blue/50"
-              >
-                <option>0</option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-              </select>
-            </div>
-          </div>
-        </div>
+      {/* Price */}
+      <div className="mb-1">
+        <span className="text-4xl font-extrabold text-gray-900 tracking-tight">{formatPrice(totalPrice)}</span>
+        <span className="text-gray-400 line-through ml-2 font-medium text-lg">{formatPrice(originalPrice)}</span>
+      </div>
+      <p className="text-gray-500 text-sm mb-6 font-medium">Two person • all meals included</p>
 
-        <div className="mb-6">
-           <div className="flex items-center gap-2 text-sm text-green-700 bg-green-50 p-3 rounded-lg border border-green-100 font-medium mb-4">
-             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10.003 10.003 0 0 1-5.9 9.14"/><path d="m9 11 3 3L22 4"/><path d="M4.15 15.54A10 10 0 0 1 12 2"/></svg>
-             All Meals Included (Lunch, Dinner, Breakfast)
-           </div>
-        </div>
+      <hr className="border-gray-100 mb-6" />
 
-        <a 
-          href={generateWhatsAppLink()}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="w-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold py-4 text-lg rounded-xl shadow-md flex items-center justify-center gap-2 transition-colors"
+      {/* Cruise Type Section */}
+      <div className="mb-6">
+        <h3 className="text-xs font-bold text-gray-400 tracking-wider mb-3 uppercase">Cruise Type</h3>
+        
+        {/* Day Cruise Option */}
+        <div 
+          onClick={() => setCruiseType("day")}
+          className={`cursor-pointer rounded-xl border-2 p-4 mb-3 transition-colors ${
+            cruiseType === "day" ? "border-green-500 bg-green-50/30" : "border-gray-200 hover:border-gray-300"
+          }`}
         >
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-          Check Availability
-        </a>
-        <p className="text-center text-xs text-gray-500 mt-4">We will reply instantly on WhatsApp with best prices</p>
+          <div className="flex items-center justify-between mb-1">
+            <div className="flex items-center gap-3">
+              <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${cruiseType === 'day' ? 'border-green-500' : 'border-gray-300'}`}>
+                {cruiseType === "day" && <div className="w-2.5 h-2.5 rounded-full bg-green-500" />}
+              </div>
+              <span className="font-bold text-gray-900">Day Cruise</span>
+            </div>
+            <span className="font-bold text-gray-900">{formatPrice(dayCruisePrice)}</span>
+          </div>
+          <p className="text-gray-400 text-sm ml-8">1:30 PM – 5 PM</p>
+        </div>
+
+        {/* Overnight Option */}
+        <div 
+          onClick={() => setCruiseType("overnight")}
+          className={`cursor-pointer rounded-xl border-2 p-4 transition-colors ${
+            cruiseType === "overnight" ? "border-green-500 bg-green-50/30" : "border-gray-200 hover:border-gray-300"
+          }`}
+        >
+          <div className="flex items-center justify-between mb-1">
+            <div className="flex items-center gap-3">
+              <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${cruiseType === 'overnight' ? 'border-green-500' : 'border-gray-300'}`}>
+                {cruiseType === "overnight" && <div className="w-2.5 h-2.5 rounded-full bg-green-500" />}
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="font-bold text-gray-900">Overnight Stay</span>
+                <span className="px-2 py-0.5 bg-green-500 text-white text-[10px] font-bold rounded uppercase tracking-wide">Popular</span>
+              </div>
+            </div>
+            <span className="font-bold text-gray-900">{formatPrice(overnightPrice)}</span>
+          </div>
+          <p className="text-gray-400 text-sm ml-8">Check-in 1:30 PM • Check-out 8:30 AM</p>
+        </div>
+      </div>
+
+      {/* Check-in Date */}
+      <div className="mb-6">
+        <h3 className="text-xs font-bold text-gray-400 tracking-wider mb-3 uppercase">Check-in Date</h3>
+        <div className="relative border border-gray-200 rounded-xl overflow-hidden focus-within:border-green-500 focus-within:ring-1 focus-within:ring-green-500 transition-all">
+          <input 
+            type="date" 
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
+            className="w-full py-4 px-4 pr-12 text-gray-700 font-medium focus:outline-none bg-transparent"
+            style={{ colorScheme: "light" }}
+          />
+        </div>
+      </div>
+
+      {/* Guests */}
+      <div className="mb-8">
+        <h3 className="text-xs font-bold text-gray-400 tracking-wider mb-3 uppercase">Guests</h3>
+        <div className="border border-gray-200 rounded-xl p-4 flex items-center justify-between">
+          <div>
+            <div className="font-bold text-gray-900 mb-0.5">Guests <span className="text-gray-500 font-normal text-sm">(5+ yrs)</span></div>
+            <div className="text-gray-500 text-sm mb-1">2 included • ₹1,000/extra</div>
+            <div className="text-green-600 text-xs font-semibold">Kids below 5 stay free</div>
+          </div>
+          <div className="flex items-center gap-4">
+            <button 
+              onClick={() => setGuests(Math.max(1, guests - 1))}
+              className="w-9 h-9 rounded-full border border-gray-200 flex items-center justify-center text-gray-500 hover:border-gray-300 hover:bg-gray-50 transition-colors"
+            >
+              <svg width="12" height="2" viewBox="0 0 12 2" fill="currentColor"><path d="M0 0h12v2H0z"/></svg>
+            </button>
+            <span className="font-bold text-gray-900 w-3 text-center">{guests}</span>
+            <button 
+              onClick={() => setGuests(guests + 1)}
+              className="w-9 h-9 rounded-full border border-gray-200 flex items-center justify-center text-gray-500 hover:border-gray-300 hover:bg-gray-50 transition-colors"
+            >
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor"><path d="M5 0h2v12H5z"/><path d="M0 5h12v2H0z"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Action Buttons */}
+      <div className="flex gap-3 mb-4">
+        <button 
+          onClick={handleCall}
+          className="flex items-center justify-center gap-2 px-6 py-4 rounded-xl border border-gray-200 text-gray-900 font-bold hover:bg-gray-50 transition-colors"
+        >
+          <Phone className="w-5 h-5" />
+          Call
+        </button>
+        <button 
+          onClick={handleBookNow}
+          className="flex-1 bg-[#22C55E] hover:bg-[#1fb355] text-white font-bold py-4 rounded-xl shadow-sm transition-colors text-lg"
+        >
+          Book Now
+        </button>
+      </div>
+
+      {/* Footer */}
+      <div className="flex items-center justify-center gap-1.5 text-gray-400 text-sm font-medium">
+        <ShieldCheck className="w-4 h-4" />
+        No payment now • Pay at check-in
       </div>
     </div>
   );
