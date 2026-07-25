@@ -8,9 +8,11 @@ interface PageProps {
   };
 }
 
-export default function DestinationPackagePage({ params }: PageProps) {
+export default async function DestinationPackagePage({ params }: PageProps) {
+  const { destination } = await params;
+  
   // Format destination name for display (e.g. "alleppey" -> "Alleppey")
-  const destinationName = params.destination.charAt(0).toUpperCase() + params.destination.slice(1);
+  const destinationName = destination.charAt(0).toUpperCase() + destination.slice(1);
   
   // WhatsApp link for booking
   const whatsappNumber = "919846046322";
