@@ -113,29 +113,15 @@ export default function ContactPage() {
 
               {/* Direct Line 2 */}
               <div className="group p-5 rounded-2xl border border-gray-100 bg-white hover:border-[#d4af37]/40 hover:shadow-lg hover:shadow-[#d4af37]/5 flex items-center gap-5 transition-all duration-300 cursor-pointer">
-                <div className="w-12 h-12 rounded-xl bg-[#faf9f6] flex items-center justify-center shrink-0 group-hover:bg-[#0f3d3e] transition-colors duration-300">
-                  <Phone className="w-5 h-5 text-[#d4af37]" />
+                <div className="w-12 h-12 rounded-xl bg-[#faf9f6] flex items-center justify-center shrink-0 group-hover:bg-[#25D366]/10 transition-colors duration-300">
+                  <MessageCircle className="w-5 h-5 text-[#25D366]" />
                 </div>
                 <div className="flex-1">
                   <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-1">Enquiries</p>
                   <p className="text-lg font-black text-[#0f3d3e]">+91 62824 47261</p>
                 </div>
-                <a href="tel:+916282447261" className="flex items-center gap-1.5 text-sm font-bold text-[#d4af37] px-4 py-2 rounded-lg hover:bg-[#d4af37]/10 transition-colors">
-                  Call <ChevronRight className="w-4 h-4" />
-                </a>
-              </div>
-
-              {/* Direct Line 3 */}
-              <div className="group p-5 rounded-2xl border border-gray-100 bg-white hover:border-[#d4af37]/40 hover:shadow-lg hover:shadow-[#d4af37]/5 flex items-center gap-5 transition-all duration-300 cursor-pointer">
-                <div className="w-12 h-12 rounded-xl bg-[#faf9f6] flex items-center justify-center shrink-0 group-hover:bg-[#0f3d3e] transition-colors duration-300">
-                  <Phone className="w-5 h-5 text-[#d4af37]" />
-                </div>
-                <div className="flex-1">
-                  <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-1">Support</p>
-                  <p className="text-lg font-black text-[#0f3d3e]">+91 62824 47261</p>
-                </div>
-                <a href="tel:+916282447261" className="flex items-center gap-1.5 text-sm font-bold text-[#d4af37] px-4 py-2 rounded-lg hover:bg-[#d4af37]/10 transition-colors">
-                  Call <ChevronRight className="w-4 h-4" />
+                <a href="https://wa.me/916282447261" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-sm font-bold text-white bg-[#25D366] px-4 py-2 rounded-lg hover:bg-[#20bd5a] transition-colors shadow-sm">
+                  <MessageCircle className="w-4 h-4 fill-current" /> Chat
                 </a>
               </div>
 
