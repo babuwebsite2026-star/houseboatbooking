@@ -26,7 +26,7 @@ export default function ContactPage() {
           </p>
           
           <div className="flex flex-wrap items-center justify-center gap-4">
-            <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-8 py-4 text-sm font-bold text-[#0f3d3e] bg-[#d4af37] rounded-full hover:bg-[#c4a132] hover:scale-105 active:scale-95 transition-all shadow-lg shadow-[#d4af37]/30">
+            <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-8 py-4 text-sm font-bold text-white bg-[#25D366] rounded-full hover:bg-[#20bd5a] hover:scale-105 active:scale-95 transition-all shadow-lg shadow-[#25D366]/30">
               <MessageCircle className="w-5 h-5 fill-current" />
               Chat on WhatsApp
             </a>
