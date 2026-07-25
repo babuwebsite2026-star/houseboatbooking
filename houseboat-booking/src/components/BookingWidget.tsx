@@ -7,6 +7,8 @@ interface BookingWidgetProps {
   boat: {
     name: string;
     startingPrice: number;
+    dayCruisePrice?: number;
+    overnightPrice?: number;
     rating?: number;
   };
   whatsappNumber?: string;
@@ -18,9 +20,9 @@ export function BookingWidget({ boat, whatsappNumber = "919876543210" }: Booking
   const [guests, setGuests] = useState(2);
 
   // Pricing Logic
-  // Assuming startingPrice is for Day Cruise, and Overnight is +500.
-  const dayCruisePrice = boat.startingPrice;
-  const overnightPrice = boat.startingPrice + 500;
+  // Uses specific prices from Sanity if set, otherwise falls back to legacy calculation.
+  const dayCruisePrice = boat.dayCruisePrice ?? boat.startingPrice;
+  const overnightPrice = boat.overnightPrice ?? (boat.startingPrice + 500);
   
   const basePrice = cruiseType === "day" ? dayCruisePrice : overnightPrice;
   const extraGuestPrice = Math.max(0, guests - 2) * 1000;

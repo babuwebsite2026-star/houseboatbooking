@@ -43,9 +43,21 @@ export default defineType({
     }),
     defineField({
       name: 'startingPrice',
-      title: 'Starting Price (₹)',
+      title: 'Starting Price (₹) - Legacy',
       type: 'number',
       validation: (Rule) => Rule.required().min(0),
+    }),
+    defineField({
+      name: 'dayCruisePrice',
+      title: 'Day Cruise Price (₹)',
+      type: 'number',
+      validation: (Rule) => Rule.min(0),
+    }),
+    defineField({
+      name: 'overnightPrice',
+      title: 'Overnight Stay Price (₹)',
+      type: 'number',
+      validation: (Rule) => Rule.min(0),
     }),
     defineField({
       name: 'guestCapacity',
