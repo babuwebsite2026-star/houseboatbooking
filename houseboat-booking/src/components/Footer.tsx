@@ -91,11 +91,11 @@ export function Footer() {
       </div>
 
       {/* Custom Banner Model */}
-      <div className="w-full bg-white border-b-8 border-[#1fb355] py-8 md:py-16 overflow-hidden relative border-t border-gray-100">
+      <div className="w-full bg-white border-b-8 border-[#1fb355] py-16 md:py-24 overflow-hidden relative border-t border-gray-100">
         <div className="container mx-auto px-4 flex justify-center items-center relative">
           
           {/* Decorative Kathakali Left */}
-          <div className="absolute left-4 md:left-24 bottom-0 opacity-100 w-40 h-56 md:w-64 md:h-96">
+          <div className="absolute left-2 md:left-12 top-1/2 -translate-y-1/2 opacity-100 w-32 h-48 md:w-56 md:h-80">
             <Image 
               src="/Get_Free_PNG_image_Kathakali___AjuDimple-removebg-preview.svg" 
               alt="Kathakali" 
@@ -115,7 +115,7 @@ export function Footer() {
           </div>
 
           {/* Decorative Mohiniyattam Right */}
-          <div className="absolute right-4 md:right-24 bottom-0 opacity-100 w-40 h-56 md:w-64 md:h-96">
+          <div className="absolute right-2 md:right-12 top-1/2 -translate-y-1/2 opacity-100 w-32 h-48 md:w-56 md:h-80">
             <Image 
               src="/mohiniyattam.png" 
               alt="Mohiniyattam" 
