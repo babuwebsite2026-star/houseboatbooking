@@ -109,7 +109,7 @@ export function Footer() {
             <h2 className="text-4xl md:text-7xl font-black uppercase tracking-tight text-[#1fb355]">
               KERALA
             </h2>
-            <h2 className="text-4xl md:text-7xl font-black uppercase tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-yellow-400 to-yellow-600">
+            <h2 className="text-4xl md:text-7xl font-black uppercase tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-gray-800 to-gray-400">
               HOUSEBOATS
             </h2>
           </div>
