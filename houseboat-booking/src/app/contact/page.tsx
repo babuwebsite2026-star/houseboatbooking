@@ -26,11 +26,11 @@ export default function ContactPage() {
           </p>
           
           <div className="flex flex-wrap items-center justify-center gap-4">
-            <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-8 py-4 text-sm font-bold text-white bg-[#25D366] rounded-full hover:bg-[#20bd5a] hover:scale-105 active:scale-95 transition-all shadow-lg shadow-[#25D366]/30">
+            <a href="https://wa.me/919846046322" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-8 py-4 text-sm font-bold text-white bg-[#25D366] rounded-full hover:bg-[#20bd5a] hover:scale-105 active:scale-95 transition-all shadow-lg shadow-[#25D366]/30">
               <MessageCircle className="w-5 h-5 fill-current" />
               Chat on WhatsApp
             </a>
-            <a href="tel:+919876543210" className="flex items-center gap-2 px-8 py-4 text-sm font-bold text-[#0f3d3e] bg-white border-2 border-gray-100 rounded-full hover:border-[#d4af37] hover:shadow-md hover:scale-105 active:scale-95 transition-all">
+            <a href="tel:+919846046322" className="flex items-center gap-2 px-8 py-4 text-sm font-bold text-[#0f3d3e] bg-white border-2 border-gray-100 rounded-full hover:border-[#d4af37] hover:shadow-md hover:scale-105 active:scale-95 transition-all">
               <Phone className="w-5 h-5" />
               Call Us Now
             </a>
@@ -51,7 +51,7 @@ export default function ContactPage() {
                 <MessageCircle className="w-6 h-6 text-[#d4af37]" />
               </div>
               <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-gray-500 group-hover:text-gray-300 mb-1 transition-colors">WhatsApp</p>
-              <p className="text-base font-black text-[#0f3d3e] group-hover:text-white transition-colors">+91 98765 43210</p>
+              <p className="text-base font-black text-[#0f3d3e] group-hover:text-white transition-colors">+91 98460 46322</p>
               <p className="text-xs text-gray-400 group-hover:text-gray-400 mt-1 transition-colors">Instant reply · 7 AM – 9 PM</p>
             </div>
 
@@ -61,7 +61,7 @@ export default function ContactPage() {
                 <Phone className="w-6 h-6 text-[#d4af37]" />
               </div>
               <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-gray-500 group-hover:text-gray-300 mb-1 transition-colors">Call Us</p>
-              <p className="text-base font-black text-[#0f3d3e] group-hover:text-white transition-colors">+91 98765 43210</p>
+              <p className="text-base font-black text-[#0f3d3e] group-hover:text-white transition-colors">+91 98460 46322</p>
               <p className="text-xs text-gray-400 group-hover:text-gray-400 mt-1 transition-colors">Available 24/7 for bookings</p>
             </div>
 
@@ -104,9 +104,9 @@ export default function ContactPage() {
                 </div>
                 <div className="flex-1">
                   <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-1">Primary Booking</p>
-                  <p className="text-lg font-black text-[#0f3d3e]">+91 98765 43210</p>
+                  <p className="text-lg font-black text-[#0f3d3e]">+91 98460 46322</p>
                 </div>
-                <a href="tel:+919876543210" className="flex items-center gap-1.5 text-sm font-bold text-[#d4af37] px-4 py-2 rounded-lg hover:bg-[#d4af37]/10 transition-colors">
+                <a href="tel:+919846046322" className="flex items-center gap-1.5 text-sm font-bold text-[#d4af37] px-4 py-2 rounded-lg hover:bg-[#d4af37]/10 transition-colors">
                   Call <ChevronRight className="w-4 h-4" />
                 </a>
               </div>
@@ -118,9 +118,9 @@ export default function ContactPage() {
                 </div>
                 <div className="flex-1">
                   <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-1">Enquiries</p>
-                  <p className="text-lg font-black text-[#0f3d3e]">+91 98765 43211</p>
+                  <p className="text-lg font-black text-[#0f3d3e]">+91 62824 47261</p>
                 </div>
-                <a href="tel:+919876543211" className="flex items-center gap-1.5 text-sm font-bold text-[#d4af37] px-4 py-2 rounded-lg hover:bg-[#d4af37]/10 transition-colors">
+                <a href="tel:+916282447261" className="flex items-center gap-1.5 text-sm font-bold text-[#d4af37] px-4 py-2 rounded-lg hover:bg-[#d4af37]/10 transition-colors">
                   Call <ChevronRight className="w-4 h-4" />
                 </a>
               </div>
@@ -132,9 +132,9 @@ export default function ContactPage() {
                 </div>
                 <div className="flex-1">
                   <p className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-1">Support</p>
-                  <p className="text-lg font-black text-[#0f3d3e]">+91 98765 43212</p>
+                  <p className="text-lg font-black text-[#0f3d3e]">+91 62824 47261</p>
                 </div>
-                <a href="tel:+919876543212" className="flex items-center gap-1.5 text-sm font-bold text-[#d4af37] px-4 py-2 rounded-lg hover:bg-[#d4af37]/10 transition-colors">
+                <a href="tel:+916282447261" className="flex items-center gap-1.5 text-sm font-bold text-[#d4af37] px-4 py-2 rounded-lg hover:bg-[#d4af37]/10 transition-colors">
                   Call <ChevronRight className="w-4 h-4" />
                 </a>
               </div>

@@ -279,7 +279,7 @@ export default async function Home() {
                   </div>
                   <div>
                     <p className="text-sm text-gray-500 font-semibold uppercase">Call Us</p>
-                    <p className="text-lg font-bold text-gray-900">{siteSettings?.phoneNumber || "+91 98765 43210"}</p>
+                    <p className="text-lg font-bold text-gray-900">{siteSettings?.phoneNumber || "+91 98460 46322"}</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">

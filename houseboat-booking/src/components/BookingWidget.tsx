@@ -16,7 +16,7 @@ interface BookingWidgetProps {
   whatsappNumber?: string;
 }
 
-export function BookingWidget({ boat, whatsappNumber = "919876543210" }: BookingWidgetProps) {
+export function BookingWidget({ boat, whatsappNumber = "919846046322" }: BookingWidgetProps) {
   const [date, setDate] = useState("");
   const [cruiseType, setCruiseType] = useState<"day" | "overnight">("day");
   const [guests, setGuests] = useState(2);

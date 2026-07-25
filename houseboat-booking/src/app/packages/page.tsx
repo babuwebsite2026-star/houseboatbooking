@@ -117,7 +117,7 @@ export default function Packages() {
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
             {/* Custom Itinerary */}
-            <a href="https://wa.me/919995672575" target="_blank" rel="noopener noreferrer" className="group relative min-h-[210px] rounded-2xl overflow-hidden bg-forest-deep ring-1 ring-gold/25 hover:ring-gold shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-center p-5 md:p-6 block">
+            <a href="https://wa.me/919846046322" target="_blank" rel="noopener noreferrer" className="group relative min-h-[210px] rounded-2xl overflow-hidden bg-forest-deep ring-1 ring-gold/25 hover:ring-gold shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-center p-5 md:p-6 block">
               <div className="absolute inset-0 opacity-[0.06]" style={{ backgroundImage: 'radial-gradient(circle, #fff 1px, transparent 1px)', backgroundSize: '22px 22px' }}></div>
               <div className="relative z-10">
                 <span className="inline-flex items-center gap-1.5 w-fit bg-gold/15 border border-gold/40 text-gold text-[9px] font-semibold uppercase tracking-[0.2em] px-2.5 py-1 rounded-full mb-3">
