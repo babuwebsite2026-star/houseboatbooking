@@ -66,7 +66,7 @@ export default function Packages() {
               { name: "Cochin", journeys: 6, image: "https://images.unsplash.com/photo-1598322616259-269bf39cc03f?q=80&w=500&auto=format&fit=crop" },
               { name: "Kanyakumari", journeys: 1, image: "https://images.unsplash.com/photo-1596706917637-23f2f811de52?q=80&w=500&auto=format&fit=crop" },
               { name: "Kovalam", journeys: 1, image: "https://images.unsplash.com/photo-1623512860431-137a85d3df1b?q=80&w=500&auto=format&fit=crop" },
-              { name: "Malaysia", journeys: 3, image: "https://images.unsplash.com/photo-1558015382-91941d28e892?q=80&w=500&auto=format&fit=crop" },
+              { name: "Malaysia", journeys: 3, image: "/malaysia.jpg" },
             ].map((dest, i) => (
               <Link href={`/packages?destination=${dest.name.toLowerCase()}`} key={i} className="flex flex-col items-center gap-4 group snap-center shrink-0 w-28 md:w-36">
                 <div className="relative w-28 h-28 md:w-36 md:h-36 rounded-full overflow-hidden shadow-sm ring-4 ring-transparent group-hover:ring-gold/30 transition-all duration-300">
@@ -99,7 +99,7 @@ export default function Packages() {
             <Link href="/packages/malaysia-tour-package-10d9n" className="group relative block rounded-2xl overflow-hidden ring-1 ring-gold/25 hover:ring-gold shadow-sm hover:shadow-xl transition-all duration-300 aspect-[16/11] md:aspect-[16/9]">
               <Image 
                 alt="Malaysia Grand Tour" 
-                src="https://images.unsplash.com/photo-1558015382-91941d28e892?q=80&w=2070&auto=format&fit=crop" 
+                src="/malaysia.jpg" 
                 fill 
                 className="object-cover transition-transform duration-700 group-hover:scale-105" 
               />
@@ -164,7 +164,7 @@ export default function Packages() {
             <Link href="/packages/malaysia-tour-package-7d6n" className="group relative block rounded-2xl overflow-hidden ring-1 ring-gold/25 hover:ring-gold shadow-sm hover:shadow-xl transition-all duration-300 min-h-[210px]">
               <Image 
                 alt="Malaysia Discovery Tour" 
-                src="https://images.unsplash.com/photo-1558015382-91941d28e892?q=80&w=2070&auto=format&fit=crop" 
+                src="/malaysia.jpg" 
                 fill 
                 className="object-cover transition-transform duration-700 group-hover:scale-105" 
               />
