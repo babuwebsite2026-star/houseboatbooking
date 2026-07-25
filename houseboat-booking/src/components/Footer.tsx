@@ -90,42 +90,6 @@ export function Footer() {
         </div>
       </div>
 
-      {/* Custom Banner Model */}
-      <div className="w-full bg-white border-b-8 border-[#1fb355] py-16 md:py-24 overflow-hidden relative border-t border-gray-100">
-        <div className="container mx-auto px-4 flex justify-center items-center relative">
-          
-          {/* Decorative Kathakali Left */}
-          <div className="absolute left-2 md:left-12 top-1/2 -translate-y-1/2 opacity-100 w-32 h-48 md:w-56 md:h-80">
-            <Image 
-              src="/Get_Free_PNG_image_Kathakali___AjuDimple-removebg-preview.svg" 
-              alt="Kathakali" 
-              fill 
-              className="object-contain object-bottom drop-shadow-xl" 
-            />
-          </div>
-
-          {/* Banner Text */}
-          <div className="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 text-center z-10 px-16">
-            <h2 className="text-4xl md:text-7xl font-black uppercase tracking-tight text-[#1fb355]">
-              KERALA
-            </h2>
-            <h2 className="text-4xl md:text-7xl font-black uppercase tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-gray-800 to-gray-400">
-              HOUSEBOATS
-            </h2>
-          </div>
-
-          {/* Decorative Mohiniyattam Right */}
-          <div className="absolute right-2 md:right-12 top-1/2 -translate-y-1/2 opacity-100 w-32 h-48 md:w-56 md:h-80">
-            <Image 
-              src="/mohiniyattam.png" 
-              alt="Mohiniyattam" 
-              fill 
-              className="object-contain object-bottom drop-shadow-xl" 
-            />
-          </div>
-
-        </div>
-      </div>
     </footer>
   );
 }
