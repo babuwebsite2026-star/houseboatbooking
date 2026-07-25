@@ -8,21 +8,15 @@ export default function Packages() {
       {/* Hero Section */}
       <div className="relative h-[62vh] min-h-[480px] md:h-[68vh] w-full overflow-hidden flex flex-col pt-20">
         <div className="absolute inset-0 z-0">
-          <video 
-            autoPlay 
-            loop 
-            muted 
-            playsInline 
-            className="absolute inset-0 w-full h-full object-cover"
-          >
-            <source src="https://jfj4iebfwyck7oka.public.blob.vercel-storage.com/media/1769860892259-1ea33515-4da7-4f41-8b8f-bec189304b04-copy_681B1836-E1B6-41B8-915C-E47283EFC1AD-MhCFx5PWeSXyW1q8JXdVX8rB83Mklg.mov" type="video/mp4" />
-          </video>
+          <Image
+            src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?q=80&w=2070&auto=format&fit=crop"
+            alt="Kerala Packages"
+            fill
+            className="object-cover"
+            priority
+          />
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/25 to-black/60"></div>
         </div>
-        
-        <button className="absolute bottom-8 right-6 z-30 p-3 rounded-full bg-black/30 hover:bg-black/50 backdrop-blur-md text-white transition-all duration-300 group" aria-label="Unmute video">
-          <VolumeX className="w-6 h-6" />
-        </button>
 
         <div className="relative z-10 container mx-auto px-4 flex-grow flex flex-col items-center justify-center text-center pb-16 md:pb-20">
           <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/20 text-white text-[11px] md:text-xs font-semibold tracking-[0.2em] uppercase mb-5">
@@ -69,7 +63,7 @@ export default function Packages() {
               { name: "Malaysia", journeys: 3, image: "/malaysia.jpg" },
             ].map((dest, i) => (
               <Link href={`/packages?destination=${dest.name.toLowerCase()}`} key={i} className="flex flex-col items-center gap-4 group snap-center shrink-0 w-28 md:w-36">
-                <div className="relative w-28 h-28 md:w-36 md:h-36 rounded-full overflow-hidden shadow-sm ring-4 ring-transparent group-hover:ring-gold/30 transition-all duration-300">
+                <div className="relative w-28 h-28 md:w-36 md:h-36 rounded-2xl overflow-hidden shadow-sm ring-4 ring-transparent group-hover:ring-gold/30 transition-all duration-300">
                   <Image src={dest.image} alt={dest.name} fill className="object-cover transition-transform duration-500 group-hover:scale-110" />
                   <div className="absolute inset-0 bg-primary/20 group-hover:bg-primary/0 transition-colors duration-300"></div>
                 </div>
