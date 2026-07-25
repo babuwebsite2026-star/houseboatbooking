@@ -109,16 +109,16 @@ export function Footer() {
             <h2 className="text-4xl md:text-7xl font-black uppercase tracking-tight text-[#1fb355]">
               KERALA
             </h2>
-            <h2 className="text-4xl md:text-7xl font-black uppercase tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-gray-800 to-gray-400">
+            <h2 className="text-4xl md:text-7xl font-black uppercase tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-yellow-400 to-yellow-600">
               HOUSEBOATS
             </h2>
           </div>
 
-          {/* Decorative Mohiniyattam Right */}
-          <div className="absolute right-4 md:right-24 bottom-0 opacity-90 w-32 h-48 md:w-48 md:h-72">
+          {/* Decorative Kathakali Right */}
+          <div className="absolute right-4 md:right-24 bottom-0 opacity-90 w-32 h-48 md:w-48 md:h-72" style={{ transform: 'scaleX(-1)' }}>
             <Image 
-              src="/mohiniyattam.png" 
-              alt="Mohiniyattam" 
+              src="/kathakali.png" 
+              alt="Kathakali" 
               fill 
               className="object-contain object-bottom" 
             />
