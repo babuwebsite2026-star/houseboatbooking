@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { BookingWidget } from "@/components/BookingWidget";
+import { HouseboatGallery } from "@/components/HouseboatGallery";
 import { client } from "@/sanity/lib/client";
 import { SINGLE_HOUSEBOAT_QUERY, SITE_SETTINGS_QUERY } from "@/sanity/lib/queries";
 import { urlFor } from "@/sanity/lib/image";
@@ -25,26 +26,8 @@ export default async function HouseboatDetails({ params }: { params: Promise<{ i
   }
 
   return (
-    <div className="pt-20 pb-20 bg-gray-50">
-      {/* Full Width Gallery Hero */}
-      <div className="relative h-[50vh] md:h-[70vh] w-full mb-8">
-        {boat.image && (
-          <Image
-            src={urlFor(boat.image).url()}
-            alt={boat.name}
-            fill
-            className="object-cover"
-            priority
-          />
-        )}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-        <div className="absolute bottom-0 left-0 right-0 p-8">
-          <div className="container mx-auto px-4 md:px-8">
-              <span className="flex items-center gap-1.5"><Star className="h-5 w-5 text-gold fill-gold" /> {boat.rating} ({boat.reviews} reviews)</span>
-              <span className="flex items-center gap-1.5"><MapPin className="h-5 w-5 text-gold" /> Alleppey Backwaters</span>
-            </div>
-          </div>
-        </div>
+    <div className="pb-20 bg-gray-50 min-h-screen">
+      <HouseboatGallery boat={boat} />
 
       <div className="container mx-auto px-4 md:px-8">
         <div className="flex flex-col lg:flex-row gap-8">

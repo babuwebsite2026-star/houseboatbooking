@@ -6,11 +6,23 @@ import { Clock } from "lucide-react";
 
 export default function Activities() {
   return (
-    <div className="pt-24 pb-20 bg-gray-50 min-h-screen">
-      <div className="bg-emerald text-white py-12 mb-12">
-        <div className="container mx-auto px-4 md:px-8 text-center">
-          <h1 className="text-3xl md:text-5xl font-bold mb-4">Activities & Experiences</h1>
-          <p className="text-emerald-100 max-w-2xl mx-auto text-lg">
+    <div className="pb-20 bg-gray-50 min-h-screen">
+      {/* Hero Section */}
+      <div className="relative h-[40vh] md:h-[50vh] flex items-center justify-center mb-16 mt-0">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=1920&q=80"
+            alt="Activities & Experiences"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/80" />
+        </div>
+        
+        <div className="relative z-10 text-center text-white px-4 mt-16">
+          <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-4 text-white">Activities & Experiences</h1>
+          <p className="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto">
             Enhance your houseboat stay with our hand-picked activities. Immerse yourself in the local culture and natural beauty.
           </p>
         </div>

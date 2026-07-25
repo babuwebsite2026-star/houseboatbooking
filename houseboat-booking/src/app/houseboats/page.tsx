@@ -11,107 +11,31 @@ export const revalidate = 30;
 export default async function HouseboatsListing() {
   const houseboats = await client.fetch(ALL_HOUSEBOATS_QUERY);
   return (
-    <div className="pt-24 pb-20 bg-gray-50 min-h-screen">
-      {/* Header Banner */}
-      <div className="bg-ocean-blue text-white py-12 mb-8">
-        <div className="container mx-auto px-4 md:px-8">
-          <h1 className="text-3xl md:text-5xl font-bold mb-4">Our Houseboats</h1>
-          <p className="text-gray-300 max-w-2xl text-lg">
+    <div className="pb-20 bg-gray-50 min-h-screen">
+      {/* Hero Section */}
+      <div className="relative h-[40vh] md:h-[50vh] flex items-center justify-center mb-16 mt-0">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="https://images.unsplash.com/photo-1593693397690-3628073262ce?auto=format&fit=crop&w=1920&q=80"
+            alt="All Houseboats"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/80" />
+        </div>
+        
+        <div className="relative z-10 text-center text-white px-4 mt-16">
+          <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-4 text-white">Our Houseboats</h1>
+          <p className="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto">
             Find the perfect houseboat for your Alleppey backwater journey. From intimate luxury suites to grand floating palaces.
           </p>
         </div>
       </div>
 
       <div className="container mx-auto px-4 md:px-8">
-        <div className="flex flex-col lg:flex-row gap-8">
-          
-          {/* Sidebar / Filters */}
-          <aside className="w-full lg:w-1/4">
-            <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 sticky top-28">
-              <div className="flex items-center gap-2 mb-6 pb-4 border-b border-gray-100">
-                <Filter className="h-5 w-5 text-ocean-blue" />
-                <h2 className="text-xl font-bold text-ocean-blue">Filters</h2>
-              </div>
-
-              {/* Search */}
-              <div className="mb-6">
-                <label className="block text-sm font-semibold text-gray-700 mb-2">Search</label>
-                <div className="relative">
-                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
-                  <input 
-                    type="text" 
-                    placeholder="Search by name..." 
-                    className="w-full pl-9 pr-4 py-2 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-ocean-blue/50"
-                  />
-                </div>
-              </div>
-
-              {/* Categories */}
-              <div className="mb-6">
-                <label className="block text-sm font-semibold text-gray-700 mb-2">Category</label>
-                <div className="space-y-2">
-                  {['Luxury', 'Premium', 'Deluxe', 'Shared'].map((cat) => (
-                    <label key={cat} className="flex items-center gap-2 cursor-pointer">
-                      <input type="checkbox" className="rounded text-ocean-blue focus:ring-ocean-blue" />
-                      <span className="text-gray-600">{cat}</span>
-                    </label>
-                  ))}
-                </div>
-              </div>
-
-              {/* Bedrooms */}
-              <div className="mb-6">
-                <label className="block text-sm font-semibold text-gray-700 mb-2">Bedrooms</label>
-                <div className="space-y-2">
-                  {[1, 2, 3, '4+'].map((beds) => (
-                    <label key={beds} className="flex items-center gap-2 cursor-pointer">
-                      <input type="checkbox" className="rounded text-ocean-blue focus:ring-ocean-blue" />
-                      <span className="text-gray-600">{beds} Bedroom{beds !== 1 ? 's' : ''}</span>
-                    </label>
-                  ))}
-                </div>
-              </div>
-
-              {/* Price Range (UI only) */}
-              <div className="mb-6">
-                <label className="block text-sm font-semibold text-gray-700 mb-2">Price Range</label>
-                <input type="range" className="w-full accent-ocean-blue" />
-                <div className="flex justify-between text-xs text-gray-500 mt-2">
-                  <span>₹5,000</span>
-                  <span>₹50,000+</span>
-                </div>
-              </div>
-
-              <Button className="w-full bg-ocean-blue hover:bg-ocean-blue/90 text-white">
-                Apply Filters
-              </Button>
-            </div>
-          </aside>
-
-          {/* Main Content */}
-          <main className="w-full lg:w-3/4">
-            
-            {/* Toolbar */}
-            <div className="flex flex-col sm:flex-row justify-between items-center bg-white p-4 rounded-xl shadow-sm border border-gray-100 mb-6">
-              <p className="text-gray-600 mb-4 sm:mb-0">
-                Showing <span className="font-bold text-ocean-blue">{houseboats.length}</span> houseboats
-              </p>
-              <div className="flex items-center gap-4">
-                <label className="text-sm text-gray-500">Sort by:</label>
-                <select className="border border-gray-200 rounded-md py-2 px-3 text-sm focus:outline-none focus:ring-2 focus:ring-ocean-blue/50">
-                  <option>Recommended</option>
-                  <option>Price: Low to High</option>
-                  <option>Price: High to Low</option>
-                  <option>Rating: High to Low</option>
-                </select>
-                <Button variant="outline" size="icon" className="lg:hidden">
-                  <SlidersHorizontal className="h-4 w-4" />
-                </Button>
-              </div>
-            </div>
-
-            {/* Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {houseboats.map((boat: any) => (
                 <div key={boat._id} className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300 flex flex-col border border-gray-100">
                   <div className="relative h-56 overflow-hidden">
@@ -181,8 +105,6 @@ export default async function HouseboatsListing() {
               </Button>
             </div>
             
-          </main>
-        </div>
       </div>
     </div>
   );

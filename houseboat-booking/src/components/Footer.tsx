@@ -8,10 +8,15 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
           <div className="space-y-4">
-            <Link href="/" className="flex items-center gap-2">
-              <Ship className="h-8 w-8 text-gold" />
-              <span className="text-2xl font-semibold tracking-tight">
-                Alleppey<span className="text-gold">Stay</span>
+            <Link href="/" className="flex flex-col items-start gap-1">
+              <div className="flex items-center gap-2">
+                <Ship className="h-8 w-8 text-gold" />
+                <span className="text-2xl font-semibold tracking-tight">
+                  Kerala<span className="text-gold">Houseboats</span>
+                </span>
+              </div>
+              <span className="text-xs text-gold/80 font-medium tracking-wide">
+                Brahmari Holidays and Backwater Cruises
               </span>
             </Link>
             <p className="text-gray-300 mt-4 leading-relaxed">
@@ -69,14 +74,14 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="h-5 w-5 text-gold shrink-0" />
-                <span>info@alleppeystay.com</span>
+                <span>info@keralahouseboats.co.in</span>
               </li>
             </ul>
           </div>
         </div>
 
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-400">
-          <p>© {new Date().getFullYear()} AlleppeyStay. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Kerala Houseboats. All rights reserved.</p>
           <div className="flex gap-6">
             <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
