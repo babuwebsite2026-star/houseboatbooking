@@ -53,6 +53,9 @@ export function Navbar() {
               <Link href="/activities" className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${isScrolled ? 'text-ocean-blue hover:bg-ocean-blue/10' : 'text-gray-100 hover:text-white hover:bg-white/10'}`}>
                 Activities
               </Link>
+              <Link href="/gallery" className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${isScrolled ? 'text-ocean-blue hover:bg-ocean-blue/10' : 'text-gray-100 hover:text-white hover:bg-white/10'}`}>
+                Gallery
+              </Link>
               <Link href="/about" className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${isScrolled ? 'text-ocean-blue hover:bg-ocean-blue/10' : 'text-gray-100 hover:text-white hover:bg-white/10'}`}>
                 About Us
               </Link>
@@ -82,6 +85,8 @@ export function Navbar() {
           <Link href="/houseboats" onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2 hover:bg-gray-50 rounded-lg">Houseboats</Link>
           <Link href="/packages" onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2 bg-nature-green/10 text-nature-green font-medium rounded-lg">Packages</Link>
           <Link href="/activities" onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2 hover:bg-gray-50 rounded-lg">Activities</Link>
+          <Link href="/gallery" onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2 hover:bg-gray-50 rounded-lg">Gallery</Link>
+          <Link href="/about" onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2 hover:bg-gray-50 rounded-lg">About Us</Link>
           <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2 hover:bg-gray-50 rounded-lg">Contact</Link>
         </div>
       )}
