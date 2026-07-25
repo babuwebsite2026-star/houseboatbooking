@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Ship, MapPin, Phone, Mail } from "lucide-react";
 
 export function Footer() {
@@ -93,9 +94,14 @@ export function Footer() {
       <div className="w-full bg-white border-b-8 border-[#1fb355] py-8 md:py-16 overflow-hidden relative border-t border-gray-100">
         <div className="container mx-auto px-4 flex justify-center items-center relative">
           
-          {/* Decorative Palm Left */}
-          <div className="absolute left-4 md:left-24 text-6xl md:text-8xl opacity-80" style={{ transform: 'scaleX(-1)' }}>
-            🌴
+          {/* Decorative Kathakali Left */}
+          <div className="absolute left-4 md:left-24 bottom-0 opacity-90 w-32 h-48 md:w-48 md:h-72">
+            <Image 
+              src="/kathakali.png" 
+              alt="Kathakali" 
+              fill 
+              className="object-contain object-bottom" 
+            />
           </div>
 
           {/* Banner Text */}
@@ -108,9 +114,14 @@ export function Footer() {
             </h2>
           </div>
 
-          {/* Decorative Palm Right */}
-          <div className="absolute right-4 md:right-24 text-6xl md:text-8xl opacity-80">
-            🌴
+          {/* Decorative Mohiniyattam Right */}
+          <div className="absolute right-4 md:right-24 bottom-0 opacity-90 w-32 h-48 md:w-48 md:h-72">
+            <Image 
+              src="/mohiniyattam.png" 
+              alt="Mohiniyattam" 
+              fill 
+              className="object-contain object-bottom" 
+            />
           </div>
 
         </div>
