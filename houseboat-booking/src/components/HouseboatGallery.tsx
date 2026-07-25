@@ -72,7 +72,7 @@ export function HouseboatGallery({ boat }: HouseboatGalleryProps) {
             <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6 text-white drop-shadow-md">{boat.name}</h1>
             
             <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6 text-base md:text-lg text-gray-100 drop-shadow-md">
-              <span className="flex items-center gap-2"><Star className="h-5 w-5 text-gold fill-gold" /> {boat.rating} ({boat.reviews || 0} reviews)</span>
+              <span className="flex items-center gap-2"><Star className="h-5 w-5 text-gold fill-gold" /> {boat.rating}</span>
               <span className="hidden sm:block text-gray-300">•</span>
               <span className="flex items-center gap-2"><MapPin className="h-5 w-5 text-gold" /> Alleppey Backwaters</span>
             </div>

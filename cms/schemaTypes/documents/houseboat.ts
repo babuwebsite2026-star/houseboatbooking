@@ -54,10 +54,20 @@ export default defineType({
       validation: (Rule) => Rule.min(0),
     }),
     defineField({
+      name: 'dayCruiseTime',
+      title: 'Day Cruise Time (e.g. 1:30 PM - 5:00 PM)',
+      type: 'string',
+    }),
+    defineField({
       name: 'overnightPrice',
       title: 'Overnight Stay Price (₹)',
       type: 'number',
       validation: (Rule) => Rule.min(0),
+    }),
+    defineField({
+      name: 'overnightTime',
+      title: 'Overnight Stay Time (e.g. Check-in 1:30 PM • Check-out 8:30 AM)',
+      type: 'string',
     }),
     defineField({
       name: 'guestCapacity',

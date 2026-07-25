@@ -8,7 +8,9 @@ interface BookingWidgetProps {
     name: string;
     startingPrice: number;
     dayCruisePrice?: number;
+    dayCruiseTime?: string;
     overnightPrice?: number;
+    overnightTime?: string;
     rating?: number;
   };
   whatsappNumber?: string;
@@ -92,7 +94,7 @@ Details:
             </div>
             <span className="font-bold text-gray-900">{formatPrice(dayCruisePrice)}</span>
           </div>
-          <p className="text-gray-400 text-sm ml-8">1:30 PM – 5 PM</p>
+          <p className="text-gray-400 text-sm ml-8">{boat.dayCruiseTime || "1:30 PM – 5 PM"}</p>
         </div>
 
         {/* Overnight Option */}
@@ -114,7 +116,7 @@ Details:
             </div>
             <span className="font-bold text-gray-900">{formatPrice(overnightPrice)}</span>
           </div>
-          <p className="text-gray-400 text-sm ml-8">Check-in 1:30 PM • Check-out 8:30 AM</p>
+          <p className="text-gray-400 text-sm ml-8">{boat.overnightTime || "Check-in 1:30 PM • Check-out 8:30 AM"}</p>
         </div>
       </div>
 
