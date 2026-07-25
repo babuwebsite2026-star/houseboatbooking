@@ -101,10 +101,10 @@ export function Footer() {
           {/* Banner Text */}
           <div className="flex flex-wrap justify-center items-center gap-x-4 gap-y-2 text-center z-10 px-16">
             <h2 className="text-4xl md:text-7xl font-black uppercase tracking-tight text-[#1fb355]">
-              BRAHMARI
+              KERALA
             </h2>
             <h2 className="text-4xl md:text-7xl font-black uppercase tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-gray-800 to-gray-400">
-              HOLIDAYS
+              HOUSEBOATS
             </h2>
           </div>
 
