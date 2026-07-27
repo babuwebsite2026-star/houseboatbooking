@@ -27,20 +27,22 @@ export default async function Home() {
             className="object-cover"
             priority
           />
+          {/* Subtle natural dark gradient for text legibility, without blocking or tinting the image green */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/30 pointer-events-none" />
         </div>
 
-        <div className="relative z-10 container mx-auto px-4 md:px-8 text-center text-text-heading mt-10">
-          <div className="bg-white/80 backdrop-blur-sm p-8 rounded-3xl shadow-lg border border-light-green max-w-4xl mx-auto inline-block">
+        <div className="relative z-10 container mx-auto px-4 md:px-8 text-center mt-10">
+          <div className="max-w-4xl mx-auto w-full">
             <h1 
-              className="text-5xl md:text-7xl font-normal tracking-tight mb-6" 
-              dangerouslySetInnerHTML={{ __html: homePage?.heroTitle?.replace('class="text-gold"', 'class="text-primary-green underline decoration-light-green"') || 'Experience the Magic of <br class="hidden md:block" /><span class="text-primary-green underline decoration-light-green">Kerala Backwaters</span>' }}
+              className="text-5xl md:text-7xl font-normal tracking-tight mb-6 text-white drop-shadow-2xl" 
+              dangerouslySetInnerHTML={{ __html: homePage?.heroTitle?.replace(/class="[^"]*"/, 'class="font-bold"') || 'Experience the Magic of <br class="hidden md:block" /><span class="font-bold">Kerala Backwaters</span>' }}
             />
-            <p className="text-lg md:text-2xl text-text-body mb-8 max-w-2xl mx-auto px-2">
+            <p className="text-lg md:text-2xl text-white/90 mb-12 max-w-2xl mx-auto px-2 drop-shadow-lg font-medium">
               {homePage?.heroSubtitle || "Book premium and luxury houseboats for an unforgettable journey through the serene waters of Alleppey."}
             </p>
 
             {/* Category Quick Links UI */}
-            <div className="bg-white/90 rounded-2xl md:rounded-full p-2 md:p-3 grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3 border border-light-green shadow-sm">
+            <div className="bg-white/95 backdrop-blur-md rounded-2xl md:rounded-full p-2 md:p-3 grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3 border border-white/20 shadow-2xl mx-auto max-w-4xl">
               {[
                 { name: 'Luxury', path: '/category/luxury', icon: Crown, desc: '5-Star Experience' },
                 { name: 'Premium', path: '/category/premium', icon: Star, desc: 'High-End Comfort' },
