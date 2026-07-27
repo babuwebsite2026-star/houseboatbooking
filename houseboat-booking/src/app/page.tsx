@@ -32,15 +32,15 @@ export default async function Home() {
 
         <div className="relative z-10 container mx-auto px-4 md:px-8 text-center text-white">
           <h1 
-            className="text-5xl md:text-7xl font-bold tracking-tight mb-6" 
+            className="text-5xl md:text-7xl font-normal tracking-[-0.04em] mb-6" 
             dangerouslySetInnerHTML={{ __html: homePage?.heroTitle || 'Experience the Magic of <br class="hidden md:block" /><span class="text-gold">Kerala Backwaters</span>' }}
           />
-          <p className="text-lg md:text-2xl text-gray-200 mb-20 md:mb-28 max-w-2xl mx-auto px-2">
+          <p className="text-lg md:text-2xl text-gray-300 mb-20 md:mb-28 max-w-2xl mx-auto px-2">
             {homePage?.heroSubtitle || "Book premium and luxury houseboats for an unforgettable journey through the serene waters of Alleppey."}
           </p>
 
           {/* Category Quick Links UI */}
-          <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl md:rounded-full p-2 md:p-3 max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3 shadow-[0_8px_30px_rgb(0,0,0,0.12)] mt-4">
+          <div className="liquid-glass rounded-2xl md:rounded-full p-2 md:p-3 max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3 mt-4">
             {[
               { name: 'Luxury', path: '/category/luxury', icon: Crown, desc: '5-Star Experience' },
               { name: 'Premium', path: '/category/premium', icon: Star, desc: 'High-End Comfort' },
@@ -50,13 +50,13 @@ export default async function Home() {
               <Link 
                 key={cat.name} 
                 href={cat.path}
-                className="group flex flex-col items-center justify-center gap-1 px-2 py-4 md:py-3 rounded-xl md:rounded-full bg-white/5 hover:bg-gold transition-all duration-300 border border-white/10 hover:border-gold hover:-translate-y-1 hover:shadow-[0_10px_20px_rgba(212,175,55,0.3)]"
+                className="group flex flex-col items-center justify-center gap-1 px-2 py-4 md:py-3 rounded-xl md:rounded-full liquid-glass hover:bg-white/10 transition-all duration-300 border border-transparent hover:border-gold hover:-translate-y-1 hover:shadow-[0_10px_20px_rgba(212,175,55,0.3)]"
               >
-                <cat.icon className="w-5 h-5 md:w-5 md:h-5 text-gold group-hover:text-ocean-blue mb-1 transition-colors" />
-                <span className="text-white font-bold text-[13px] md:text-sm group-hover:text-ocean-blue transition-colors leading-none">
+                <cat.icon className="w-5 h-5 md:w-5 md:h-5 text-gold group-hover:text-white mb-1 transition-colors" />
+                <span className="text-white font-bold text-[13px] md:text-sm group-hover:text-white transition-colors leading-none">
                   {cat.name}
                 </span>
-                <span className="text-white/60 text-[10px] md:text-[11px] group-hover:text-ocean-blue/70 transition-colors hidden md:block mt-0.5">
+                <span className="text-white/60 text-[10px] md:text-[11px] group-hover:text-white/90 transition-colors hidden md:block mt-0.5">
                   {cat.desc}
                 </span>
               </Link>
