@@ -274,7 +274,7 @@ export default async function Home() {
               <div key={idx} className="bg-white p-8 rounded-3xl shadow-sm border border-light-green relative">
                 <Quote className="absolute top-6 right-6 w-8 h-8 text-light-green" />
                 <div className="flex gap-1 mb-4">
-                  {[1,2,3,4,5].map(star => <Star key={star} className="w-4 h-4 fill-secondary-green text-secondary-green" />)}
+                  {[1,2,3,4,5].map(star => <Star key={star} className="w-4 h-4 fill-[#d4af37] text-[#d4af37]" />)}
                 </div>
                 <p className="text-text-body text-sm leading-relaxed mb-6">"{review.text}"</p>
                 <div className="flex items-center justify-between mt-auto">
