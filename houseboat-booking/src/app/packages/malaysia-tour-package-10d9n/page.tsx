@@ -97,7 +97,7 @@ export default function MalaysiaGrandTourPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#faf9f6] font-sans pb-20">
+    <div className="min-h-screen bg-muted-bg font-sans pb-20">
       
       {/* Hero Section */}
       <div className="relative h-[85vh] w-full overflow-hidden group">
@@ -110,12 +110,12 @@ export default function MalaysiaGrandTourPage() {
             priority
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0f3d3e]/90 via-[#0f3d3e]/40 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-primary-green/90 via-primary-green/40 to-transparent"></div>
         
         <div className="absolute bottom-0 inset-x-0 pb-12 pt-32">
           <div className="container mx-auto px-4 md:px-8 max-w-6xl">
             <div className="flex flex-wrap items-center gap-3 mb-6">
-              <div className="bg-gold text-[#0f3d3e] px-3 py-1 text-xs font-black uppercase tracking-widest flex items-center gap-1.5 shadow-[4px_4px_0px_white]">
+              <div className="bg-secondary-green text-primary-green px-3 py-1 text-xs font-black uppercase tracking-widest flex items-center gap-1.5 shadow-[4px_4px_0px_white]">
                 <Star className="w-3 h-3 fill-current" /> Top Rated
               </div>
               <div className="bg-transparent border border-white/50 text-white px-3 py-1 text-xs font-bold uppercase tracking-widest flex items-center gap-1.5 backdrop-blur-sm">
@@ -130,30 +130,30 @@ export default function MalaysiaGrandTourPage() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-12 border-t border-white/20 pt-6">
               <div className="text-white">
                 <div className="flex items-center gap-2 text-white/60 text-sm uppercase tracking-wide font-bold mb-1">
-                  <Clock className="w-4 h-4 text-gold" /> Duration
+                  <Clock className="w-4 h-4 text-secondary-green" /> Duration
                 </div>
                 <div className="text-lg md:text-xl font-bold">10 Days, 9 Nights</div>
               </div>
               <div className="text-white">
                 <div className="flex items-center gap-2 text-white/60 text-sm uppercase tracking-wide font-bold mb-1">
-                  <MapPin className="w-4 h-4 text-gold" /> Location
+                  <MapPin className="w-4 h-4 text-secondary-green" /> Location
                 </div>
                 <div className="text-lg md:text-xl font-bold truncate">Malaysia</div>
               </div>
               <div className="text-white">
                 <div className="flex items-center gap-2 text-white/60 text-sm uppercase tracking-wide font-bold mb-1">
-                  <Star className="w-4 h-4 text-gold" /> Reviews
+                  <Star className="w-4 h-4 text-secondary-green" /> Reviews
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="text-lg md:text-xl font-bold">4.9/5</span>
-                  <div className="flex text-gold">
+                  <div className="flex text-secondary-green">
                     {[1,2,3,4,5].map(i => <Star key={i} className="w-4 h-4 fill-current" />)}
                   </div>
                 </div>
               </div>
               <div className="text-white">
                 <div className="text-white/60 text-sm uppercase tracking-wide font-bold mb-1">Pricing</div>
-                <div className="text-lg md:text-xl font-bold text-gold">Enquire</div>
+                <div className="text-lg md:text-xl font-bold text-secondary-green">Enquire</div>
               </div>
             </div>
           </div>
@@ -169,13 +169,13 @@ export default function MalaysiaGrandTourPage() {
             
             {/* Overview / Vibe */}
             <div id="overview" className="scroll-mt-24">
-              <h2 className="text-3xl font-black uppercase mb-6 text-[#0f3d3e]">The Vibe</h2>
+              <h2 className="text-3xl font-black uppercase mb-6 text-primary-green">The Vibe</h2>
               <p className="text-xl text-gray-600 leading-relaxed font-light mb-8">
                 A complete 10-day journey through Malaysia's finest - the modern skyline of Kuala Lumpur, the cool tea estates of Cameron Highlands, the UNESCO heritage lanes of Penang, and the island beaches of Langkawi.
               </p>
               
               <div className="bg-white border border-gray-100 shadow-xl shadow-gray-200/50 p-8 rounded-3xl">
-                <h3 className="font-bold text-[#0f3d3e] uppercase tracking-widest mb-6">Trip Highlights</h3>
+                <h3 className="font-bold text-primary-green uppercase tracking-widest mb-6">Trip Highlights</h3>
                 <ul className="grid md:grid-cols-2 gap-5">
                   {[
                     "Kuala Lumpur: Petronas Twin Towers, KL Tower & City Heritage Trail",
@@ -184,7 +184,7 @@ export default function MalaysiaGrandTourPage() {
                     "Langkawi: Island-Hopping Speedboat, Cable Car & Duty-Free Shopping"
                   ].map((highlight, idx) => (
                     <li key={idx} className="flex items-start gap-3">
-                      <span className="text-gold font-bold mt-0.5">•</span>
+                      <span className="text-secondary-green font-bold mt-0.5">•</span>
                       <span className="text-gray-700 font-medium leading-snug">{highlight}</span>
                     </li>
                   ))}
@@ -194,8 +194,8 @@ export default function MalaysiaGrandTourPage() {
 
             {/* Itinerary */}
             <div id="itinerary" className="bg-white p-8 md:p-10 rounded-3xl shadow-xl shadow-gray-200/50 border border-gray-100">
-              <h2 className="text-lg font-black uppercase text-[#0f3d3e] mb-10 flex items-center gap-3">
-                <MapPin className="w-5 h-5 text-gold" /> Trip Itinerary
+              <h2 className="text-lg font-black uppercase text-primary-green mb-10 flex items-center gap-3">
+                <MapPin className="w-5 h-5 text-secondary-green" /> Trip Itinerary
               </h2>
               
               <div className="relative border-l-2 border-gray-100 ml-4 md:ml-6 space-y-10">
@@ -203,7 +203,7 @@ export default function MalaysiaGrandTourPage() {
                   <div key={idx} className="relative pl-8 md:pl-12">
                     {/* Timeline Dot */}
                     <div 
-                      className={`absolute -left-[11px] top-0 w-5 h-5 rounded-full border-4 transition-colors duration-300 ${openDay === day.day ? 'bg-gold border-gold' : 'bg-white border-gold/40'}`}
+                      className={`absolute -left-[11px] top-0 w-5 h-5 rounded-full border-4 transition-colors duration-300 ${openDay === day.day ? 'bg-secondary-green border-secondary-green' : 'bg-white border-secondary-green/40'}`}
                     ></div>
                     
                     {/* Header */}
@@ -212,14 +212,14 @@ export default function MalaysiaGrandTourPage() {
                       className="w-full flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2 group text-left"
                     >
                       <div className="flex flex-col md:flex-row md:items-center gap-3">
-                        <span className="bg-[#0f3d3e] text-gold font-black uppercase text-[10px] px-3 py-1 tracking-widest rounded-md w-fit">
+                        <span className="bg-primary-green text-secondary-green font-black uppercase text-[10px] px-3 py-1 tracking-widest rounded-md w-fit">
                           Day {day.day}
                         </span>
-                        <h3 className={`text-[13px] md:text-sm font-black uppercase transition-colors ${openDay === day.day ? 'text-[#0f3d3e]' : 'text-gray-600 group-hover:text-[#0f3d3e]'}`}>
+                        <h3 className={`text-[13px] md:text-sm font-black uppercase transition-colors ${openDay === day.day ? 'text-primary-green' : 'text-gray-600 group-hover:text-primary-green'}`}>
                           {day.title}
                         </h3>
                       </div>
-                      <ChevronDown className={`w-5 h-5 text-gray-400 transition-transform duration-300 ${openDay === day.day ? 'rotate-180 text-[#0f3d3e]' : ''}`} />
+                      <ChevronDown className={`w-5 h-5 text-gray-400 transition-transform duration-300 ${openDay === day.day ? 'rotate-180 text-primary-green' : ''}`} />
                     </button>
                     
                     {/* Accordion Content */}
@@ -235,14 +235,14 @@ export default function MalaysiaGrandTourPage() {
                           
                           {/* Experiences */}
                           {day.experiences && (
-                            <div className="bg-[#faf9f6] p-5 rounded-2xl border border-gray-100/50">
+                            <div className="bg-muted-bg p-5 rounded-2xl border border-gray-100/50">
                               <h4 className="flex items-center gap-2 font-bold uppercase text-xs tracking-wider text-gray-500 mb-4">
-                                <Sun className="w-4 h-4 text-gold" /> Included Experiences
+                                <Sun className="w-4 h-4 text-secondary-green" /> Included Experiences
                               </h4>
                               <ul className="space-y-3">
                                 {day.experiences.map((exp, expIdx) => (
                                   <li key={expIdx} className="flex items-start gap-2 text-sm font-medium text-gray-800">
-                                    <div className="w-1.5 h-1.5 rounded-full bg-gold mt-1.5 flex-shrink-0"></div>
+                                    <div className="w-1.5 h-1.5 rounded-full bg-secondary-green mt-1.5 flex-shrink-0"></div>
                                     {exp}
                                   </li>
                                 ))}
@@ -253,8 +253,8 @@ export default function MalaysiaGrandTourPage() {
                           {/* Accommodation & Meals */}
                           <div className="space-y-4">
                             {day.accommodation && (
-                              <div className="flex items-start gap-4 p-4 border border-gray-100 rounded-2xl hover:border-gold/30 transition-colors bg-white shadow-sm">
-                                <div className="w-10 h-10 bg-ocean-blue/10 text-ocean-blue rounded-full flex items-center justify-center flex-shrink-0">
+                              <div className="flex items-start gap-4 p-4 border border-gray-100 rounded-2xl hover:border-secondary-green/30 transition-colors bg-white shadow-sm">
+                                <div className="w-10 h-10 bg-light-green text-primary-green rounded-full flex items-center justify-center flex-shrink-0">
                                   <Moon className="w-5 h-5" />
                                 </div>
                                 <div>
@@ -265,7 +265,7 @@ export default function MalaysiaGrandTourPage() {
                             )}
                             
                             {day.meals && (
-                              <div className="flex items-start gap-4 p-4 border border-gray-100 rounded-2xl hover:border-gold/30 transition-colors bg-white shadow-sm">
+                              <div className="flex items-start gap-4 p-4 border border-gray-100 rounded-2xl hover:border-secondary-green/30 transition-colors bg-white shadow-sm">
                                 <div className="w-10 h-10 bg-green-50 text-green-600 rounded-full flex items-center justify-center flex-shrink-0">
                                   <Coffee className="w-5 h-5" />
                                 </div>
@@ -290,14 +290,14 @@ export default function MalaysiaGrandTourPage() {
 
           {/* Right Column: Sticky Booking Widget */}
           <div className="lg:col-span-1">
-            <div className="sticky top-32 bg-[#0f3d3e] p-8 rounded-3xl text-white shadow-2xl shadow-[#0f3d3e]/20 border border-white/10">
+            <div className="sticky top-32 bg-primary-green p-8 rounded-3xl text-white shadow-2xl shadow-primary-green/20 border border-white/10">
               <h3 className="text-2xl font-serif mb-2">Ready to Book?</h3>
               <p className="text-white/70 text-sm mb-8 leading-relaxed">Let us handle the details. Enquire now to get a customized quote for this Malaysia Grand Tour.</p>
               
               <div className="space-y-6 mb-8">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center">
-                    <CheckCircle2 className="w-6 h-6 text-gold" />
+                    <CheckCircle2 className="w-6 h-6 text-secondary-green" />
                   </div>
                   <div>
                     <p className="text-xs text-white/50 uppercase tracking-widest font-semibold mb-1">Status</p>
@@ -306,7 +306,7 @@ export default function MalaysiaGrandTourPage() {
                 </div>
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center">
-                    <Users className="w-6 h-6 text-gold" />
+                    <Users className="w-6 h-6 text-secondary-green" />
                   </div>
                   <div>
                     <p className="text-xs text-white/50 uppercase tracking-widest font-semibold mb-1">Group Size</p>
