@@ -77,15 +77,15 @@ export default async function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+          <div className="flex overflow-x-auto md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 pb-6 snap-x snap-mandatory md:snap-none hide-scrollbar -mx-4 px-4 md:mx-0 md:px-0">
             {[
-              { title: "Private Houseboat", rating: "4.8", tag: "EXCLUSIVE", desc: "Rent an entire boat exclusively for your group. Choose from Deluxe, Premium, or Luxury setups with complete privacy", price: "9000", icon: Crown },
-              { title: "Sharing Houseboat", rating: "4.8", tag: "Budget Friendly", desc: "Book a private cabin on a shared boat. Same route, same Kerala meals, same crew — at a fraction of the private charter price.", price: "5999", icon: Users },
-              { title: "Shikara", rating: "4.9", tag: "Day Trip", desc: "Experience Alleppey Backwaters without heavy budget", price: "1200", icon: Sun },
-              { title: "Kayaking", rating: "4.8", tag: "Experience", desc: "Paddle through narrow village canals that houseboats can't reach. Guided tours through coconut groves, paddy fields, and local life.", price: "500", icon: Waves },
-              { title: "Speedboat", rating: "4.9", tag: "Adventure", desc: "Cover more of Alleppey in less time. Punnamada Lake, Nehru Trophy race course, and the open backwaters at full speed.", price: "900", icon: Zap }
+              { title: "Private Houseboat", slug: "private", rating: "4.8", tag: "EXCLUSIVE", desc: "Rent an entire boat exclusively for your group with complete privacy and dedicated staff.", price: "9000", icon: Crown },
+              { title: "Shared Houseboat", slug: "shared", rating: "4.8", tag: "BUDGET FRIENDLY", desc: "Book a private cabin on a shared boat. Same route, same Kerala meals, same crew.", price: "5999", icon: Users },
+              { title: "Luxury Houseboat", slug: "luxury", rating: "5.0", tag: "5-STAR", desc: "Experience the pinnacle of backwater cruising with glass walls, premium AC, and a jacuzzi.", price: "15000", icon: Star },
+              { title: "Premium Houseboat", slug: "premium", rating: "4.9", tag: "HIGH-END", desc: "Upgraded interiors, full-time AC, and premium menu for a highly comfortable stay.", price: "12000", icon: ShieldCheck },
+              { title: "Deluxe Houseboat", slug: "deluxe", rating: "4.7", tag: "GREAT VALUE", desc: "Comfortable night stay with AC during sleeping hours and authentic Kerala cuisine.", price: "7000", icon: BedDouble }
             ].map((offer, idx) => (
-              <div key={idx} className="bg-white rounded-2xl p-6 border border-light-green shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group hover:-translate-y-2">
+              <div key={idx} className="min-w-[85vw] md:min-w-0 snap-center bg-white rounded-2xl p-6 border border-light-green shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group hover:-translate-y-2">
                 <div className="flex justify-between items-start mb-6">
                   <div className="w-12 h-12 rounded-xl bg-light-green flex items-center justify-center group-hover:bg-primary-green transition-colors duration-300 shrink-0">
                     <offer.icon className="w-6 h-6 text-primary-green group-hover:text-white transition-colors duration-300" />
@@ -109,7 +109,7 @@ export default async function Home() {
                   <p className="text-[10px] text-text-body uppercase font-bold tracking-wider mb-1">From</p>
                   <p className="text-2xl font-black text-primary-green mb-4">₹{offer.price}</p>
                   
-                  <Link href={`/activities/${offer.title.toLowerCase().replace(' ', '-')}`}>
+                  <Link href={`/category/${offer.slug}`}>
                     <Button className="w-full bg-white border-2 border-primary-green text-primary-green hover:bg-primary-green hover:text-white font-bold rounded-xl transition-colors">
                       Book Now
                     </Button>
@@ -131,9 +131,9 @@ export default async function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+          <div className="flex overflow-x-auto md:grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 pb-6 snap-x snap-mandatory md:snap-none hide-scrollbar -mx-4 px-4 md:mx-0 md:px-0">
             {featuredBoats.slice(0, 4).map((boat: any) => (
-              <div key={boat._id} className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300 group border border-light-green">
+              <div key={boat._id} className="min-w-[85vw] md:min-w-0 snap-center bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300 group border border-light-green">
                 <div className="relative h-64 overflow-hidden">
                   {boat.image && (
                     <Image

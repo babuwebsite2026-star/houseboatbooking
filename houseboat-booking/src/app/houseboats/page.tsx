@@ -34,6 +34,25 @@ export default async function HouseboatsListing() {
       </div>
 
       <div className="container mx-auto px-4 md:px-8">
+        {/* Mobile-friendly Category Filters */}
+        <div className="flex overflow-x-auto gap-3 mb-8 pb-4 snap-x snap-mandatory hide-scrollbar -mx-4 px-4 md:mx-0 md:px-0">
+          {[
+            { name: 'All', path: '/houseboats' },
+            { name: 'Luxury', path: '/category/luxury' },
+            { name: 'Premium', path: '/category/premium' },
+            { name: 'Deluxe', path: '/category/deluxe' },
+            { name: 'Shared', path: '/category/shared' }
+          ].map((cat) => (
+            <Link 
+              key={cat.name} 
+              href={cat.path}
+              className="snap-center shrink-0 whitespace-nowrap px-6 py-2.5 rounded-full border-2 border-ocean-blue/10 bg-white text-ocean-blue hover:border-ocean-blue hover:bg-ocean-blue hover:text-white transition-all font-semibold text-sm shadow-sm"
+            >
+              {cat.name}
+            </Link>
+          ))}
+        </div>
+
         {/* Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {houseboats.map((boat: any) => (
