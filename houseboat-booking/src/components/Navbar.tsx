@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, Ship } from "lucide-react";
+import { Menu, Ship, PhoneCall } from "lucide-react";
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -34,7 +34,7 @@ export function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group shrink-0">
             <Ship className={`h-7 w-7 md:h-8 md:w-8 transition-colors duration-300 ${isTransparent ? 'text-white' : 'text-primary-green'}`} />
-            <span className={`text-xl md:text-2xl font-bold tracking-tight transition-colors duration-300 ${isTransparent ? 'text-white' : 'text-text-heading group-hover:text-primary-green'}`}>
+            <span className={`font-podium text-xl md:text-2xl font-bold tracking-tight transition-colors duration-300 ${isTransparent ? 'text-white' : 'text-text-heading group-hover:text-primary-green'}`}>
               KeralaHouseboats
             </span>
           </Link>
@@ -66,16 +66,14 @@ export function Navbar() {
           </div>
 
           <div className="flex items-center gap-4 shrink-0">
-            {/* Book Now Button (Desktop) */}
-            <Link 
-              href="/houseboats" 
-              className={`hidden lg:flex items-center justify-center px-6 py-2.5 font-bold rounded-full transition-all duration-300 ${
-                isTransparent
-                  ? 'bg-white text-text-heading hover:bg-white/90 shadow-lg'
-                  : 'bg-primary-green text-white hover:bg-secondary-green hover:shadow-md'
+            <Link
+              href="/contact"
+              className={`flex items-center justify-center w-10 h-10 rounded-full transition-colors ${
+                isTransparent ? 'text-white hover:bg-white/10' : 'text-text-heading hover:bg-black/5'
               }`}
+              aria-label="Contact Us"
             >
-              Book Now
+              <PhoneCall className="w-5 h-5" />
             </Link>
 
             {/* Mobile Menu Toggle */}
@@ -112,13 +110,7 @@ export function Navbar() {
               {link.name}
             </Link>
           ))}
-          <Link 
-            href="/houseboats" 
-            onClick={() => setIsMobileMenuOpen(false)} 
-            className="mt-2 px-4 py-3 text-center bg-primary-green text-white font-bold rounded-xl shadow-sm"
-          >
-            Book Now
-          </Link>
+
         </div>
       </div>
     </nav>

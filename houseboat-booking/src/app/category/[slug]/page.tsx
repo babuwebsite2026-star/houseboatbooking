@@ -18,39 +18,11 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
   // Fetch houseboats for this category
   const houseboats = await client.fetch(HOUSEBOATS_BY_CATEGORY_QUERY, { category: slug });
   
-  // Choose hero image based on category
-  const getHeroImage = () => {
-    switch (slug.toLowerCase()) {
-      case 'luxury': return 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1920&q=80';
-      case 'premium': return 'https://images.unsplash.com/photo-1596701062351-8c2c14d1fdd0?auto=format&fit=crop&w=1920&q=80';
-      case 'deluxe': return 'https://images.unsplash.com/photo-1629851416480-16b7f9d85420?auto=format&fit=crop&w=1920&q=80';
-      case 'shared': return 'https://images.unsplash.com/photo-1632304918237-7f9754f73801?auto=format&fit=crop&w=1920&q=80';
-      default: return 'https://images.unsplash.com/photo-1593693397690-3628073262ce?auto=format&fit=crop&w=1920&q=80';
-    }
-  };
+
 
   return (
     <div className="pt-20 pb-24 bg-gray-50 min-h-screen">
-      {/* Category Hero Section */}
-      <div className="relative h-[40vh] md:h-[50vh] flex items-center justify-center mb-16">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src={getHeroImage()}
-            alt={`${categoryTitle} Houseboats`}
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/80" />
-        </div>
-        
-        <div className="relative z-10 text-center text-white px-4">
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-4">{categoryTitle} Houseboats</h1>
-          <p className="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto">
-            Experience the backwaters of Alleppey in our exquisite {slug} collection.
-          </p>
-        </div>
-      </div>
+
 
       <div className="container mx-auto px-4 md:px-8">
         <div className="mb-12 flex justify-between items-center">
