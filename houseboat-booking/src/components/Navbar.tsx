@@ -2,11 +2,13 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, Ship } from "lucide-react";
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,70 +18,109 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const isHome = pathname === "/";
+  const isTransparent = isHome && !isScrolled;
+
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-white border-b border-light-green ${isScrolled ? 'shadow-sm' : ''}`}>
-      <div className="relative z-10 container mx-auto px-4 md:px-6 transition-all duration-500">
-        <div className={`flex items-center gap-2 md:gap-4 transition-all duration-500 ${isScrolled ? 'h-16' : 'h-20'}`}>
+    <nav 
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isTransparent 
+          ? 'bg-transparent py-6' 
+          : 'bg-white shadow-[0_4px_20px_rgb(0,0,0,0.05)] border-b border-black/5 py-3'
+      }`}
+    >
+      <div className="container mx-auto px-4 md:px-8">
+        <div className="flex items-center justify-between gap-4">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group shrink-0">
-            <Ship className="h-6 w-6 md:h-8 md:w-8 transition-colors text-primary-green" />
-            <span className="text-xl md:text-2xl font-semibold tracking-tight text-primary-green">
+            <Ship className={`h-7 w-7 md:h-8 md:w-8 transition-colors duration-300 ${isTransparent ? 'text-white' : 'text-primary-green'}`} />
+            <span className={`text-xl md:text-2xl font-bold tracking-tight transition-colors duration-300 ${isTransparent ? 'text-white' : 'text-text-heading group-hover:text-primary-green'}`}>
               KeralaHouseboats
             </span>
           </Link>
 
           <div className="flex-1 flex items-center justify-center min-w-0">
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center gap-1">
-              <Link href="/" className="px-4 py-2 rounded-full text-sm font-medium text-text-heading hover:text-secondary-green transition-colors hover:underline decoration-secondary-green decoration-2 underline-offset-4">
-                Home
-              </Link>
-              
-              <Link href="/houseboats" className="px-4 py-2 rounded-full text-sm font-medium text-text-heading hover:text-secondary-green transition-colors hover:underline decoration-secondary-green decoration-2 underline-offset-4">
-                Houseboats
-              </Link>
-
-
-              <Link href="/activities" className="px-4 py-2 rounded-full text-sm font-medium text-text-heading hover:text-secondary-green transition-colors hover:underline decoration-secondary-green decoration-2 underline-offset-4">
-                Activities
-              </Link>
-              <Link href="/gallery" className="px-4 py-2 rounded-full text-sm font-medium text-text-heading hover:text-secondary-green transition-colors hover:underline decoration-secondary-green decoration-2 underline-offset-4">
-                Gallery
-              </Link>
-              <Link href="/about" className="px-4 py-2 rounded-full text-sm font-medium text-text-heading hover:text-secondary-green transition-colors hover:underline decoration-secondary-green decoration-2 underline-offset-4">
-                About Us
-              </Link>
-              <Link href="/contact" className="px-4 py-2 rounded-full text-sm font-medium text-text-heading hover:text-secondary-green transition-colors hover:underline decoration-secondary-green decoration-2 underline-offset-4">
-                Contact
-              </Link>
+            <div className="hidden lg:flex items-center gap-6">
+              {[
+                { name: 'Home', path: '/' },
+                { name: 'Houseboats', path: '/houseboats' },
+                { name: 'Activities', path: '/activities' },
+                { name: 'Gallery', path: '/gallery' },
+                { name: 'About Us', path: '/about' },
+                { name: 'Contact', path: '/contact' },
+              ].map((link) => (
+                <Link 
+                  key={link.name} 
+                  href={link.path} 
+                  className={`text-sm font-semibold transition-colors duration-300 ${
+                    isTransparent 
+                      ? 'text-white/90 hover:text-white' 
+                      : 'text-text-heading hover:text-primary-green'
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              ))}
             </div>
           </div>
 
-          <div className="flex items-center gap-2 shrink-0">
+          <div className="flex items-center gap-4 shrink-0">
+            {/* Book Now Button (Desktop) */}
+            <Link 
+              href="/houseboats" 
+              className={`hidden lg:flex items-center justify-center px-6 py-2.5 font-bold rounded-full transition-all duration-300 ${
+                isTransparent
+                  ? 'bg-white text-text-heading hover:bg-white/90 shadow-lg'
+                  : 'bg-primary-green text-white hover:bg-secondary-green hover:shadow-md'
+              }`}
+            >
+              Book Now
+            </Link>
+
             {/* Mobile Menu Toggle */}
             <button 
-              className="lg:hidden flex items-center justify-center w-10 h-10 bg-white hover:bg-light-green border border-light-green rounded-full transition-all shadow-sm shrink-0"
+              className={`lg:hidden flex items-center justify-center w-10 h-10 rounded-full transition-colors ${
+                isTransparent ? 'text-white hover:bg-white/10' : 'text-text-heading hover:bg-black/5'
+              }`}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label="Toggle Menu"
             >
-              <Menu className="w-5 h-5 text-primary-green" />
+              <Menu className="w-6 h-6" />
             </button>
           </div>
         </div>
       </div>
 
       {/* Mobile Nav Content */}
-      {isMobileMenuOpen && (
-        <div className="lg:hidden absolute top-full left-0 right-0 bg-white shadow-lg py-4 px-4 flex flex-col gap-4 text-text-heading border-t border-light-green">
-          <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2 hover:bg-light-green hover:text-primary-green rounded-lg transition-colors">Home</Link>
-          <Link href="/houseboats" onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2 hover:bg-light-green hover:text-primary-green rounded-lg transition-colors">Houseboats</Link>
-
-          <Link href="/activities" onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2 hover:bg-light-green hover:text-primary-green rounded-lg transition-colors">Activities</Link>
-          <Link href="/gallery" onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2 hover:bg-light-green hover:text-primary-green rounded-lg transition-colors">Gallery</Link>
-          <Link href="/about" onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2 hover:bg-light-green hover:text-primary-green rounded-lg transition-colors">About Us</Link>
-          <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2 hover:bg-light-green hover:text-primary-green rounded-lg transition-colors">Contact</Link>
+      <div className={`lg:hidden absolute top-full left-0 right-0 bg-white shadow-xl transition-all duration-300 overflow-hidden ${isMobileMenuOpen ? 'max-h-[500px] border-t border-black/5' : 'max-h-0'}`}>
+        <div className="py-4 px-4 flex flex-col gap-1">
+          {[
+            { name: 'Home', path: '/' },
+            { name: 'Houseboats', path: '/houseboats' },
+            { name: 'Activities', path: '/activities' },
+            { name: 'Gallery', path: '/gallery' },
+            { name: 'About Us', path: '/about' },
+            { name: 'Contact', path: '/contact' },
+          ].map((link) => (
+            <Link 
+              key={link.name} 
+              href={link.path} 
+              onClick={() => setIsMobileMenuOpen(false)} 
+              className="px-4 py-3 font-semibold text-text-heading hover:bg-light-green hover:text-primary-green rounded-xl transition-colors"
+            >
+              {link.name}
+            </Link>
+          ))}
+          <Link 
+            href="/houseboats" 
+            onClick={() => setIsMobileMenuOpen(false)} 
+            className="mt-2 px-4 py-3 text-center bg-primary-green text-white font-bold rounded-xl shadow-sm"
+          >
+            Book Now
+          </Link>
         </div>
-      )}
+      </div>
     </nav>
   );
 }

@@ -1,12 +1,23 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { Calendar, Search, Users, Crown, Star, ShieldCheck, BedDouble, Coffee, PhoneCall, Quote, Ship, Sun, Waves, Zap, Map, ArrowRight, Bookmark } from "lucide-react";
+import { Calendar, Search, Users, Crown, Star, ShieldCheck, BedDouble, Coffee, PhoneCall, Quote, Ship, Sun, Waves, Zap, Map, ArrowRight } from "lucide-react";
 import { client } from "@/sanity/lib/client";
 import { FEATURED_HOUSEBOATS_QUERY, HOME_PAGE_QUERY, SITE_SETTINGS_QUERY } from "@/sanity/lib/queries";
 import { urlFor } from "@/sanity/lib/image";
 
 export const revalidate = 30;
+
+function GoogleLogo(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" {...props}>
+      <path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"/>
+      <path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"/>
+      <path fill="#4CAF50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"/>
+      <path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"/>
+    </svg>
+  );
+}
 
 export default async function Home() {
   const [featuredBoats, homePage, siteSettings] = await Promise.all([
@@ -115,11 +126,6 @@ export default async function Home() {
                 {/* Gradient Overlay for Text */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                 
-                {/* Top Right Icon */}
-                <div className="absolute top-4 right-4 w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md z-10">
-                  <Bookmark className="w-5 h-5 text-primary-green fill-primary-green" />
-                </div>
-                
                 {/* Title and Rating on Image */}
                 <div className="absolute bottom-6 left-6 right-6 z-10">
                   <div className="flex items-center gap-1.5 mb-2">
@@ -187,7 +193,7 @@ export default async function Home() {
               Don't just take our word for it. Here are some reviews from our recent travelers.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar gap-6 pb-8 pt-4 px-4 md:px-0">
             {[
               { name: "Rahul Sharma", time: "2 weeks ago", text: "Amazing experience! The 3-bedroom houseboat was luxurious and the food was incredible. Highly recommended for families." },
               { name: "Sarah Jenkins", time: "3 weeks ago", text: "The crew was so polite and the backwater views were mesmerizing. The 24/7 support really helped us coordinate our arrival." },
@@ -196,15 +202,21 @@ export default async function Home() {
               { name: "David Miller", time: "3 months ago", text: "Authentic Kerala food! The chef on board was fantastic. The whole booking process was smooth and transparent." },
               { name: "Neha Gupta", time: "3 months ago", text: "Safe, secure, and beautiful. Traveling with kids was a breeze thanks to the attentive staff." },
             ].map((review, idx) => (
-              <div key={idx} className="bg-white p-8 rounded-3xl shadow-sm border border-light-green relative">
-                <Quote className="absolute top-6 right-6 w-8 h-8 text-light-green" />
-                <div className="flex gap-1 mb-4">
-                  {[1,2,3,4,5].map(star => <Star key={star} className="w-4 h-4 fill-[#d4af37] text-[#d4af37]" />)}
+              <div key={idx} className="w-[85vw] md:w-[400px] shrink-0 snap-center bg-white p-8 rounded-3xl shadow-[0_4px_20px_rgb(0,0,0,0.06)] border border-light-green relative flex flex-col h-full hover:-translate-y-1 transition-transform duration-300">
+                <Quote className="absolute top-6 right-6 w-8 h-8 text-light-green/50" />
+                
+                <div className="flex items-center gap-2 mb-6">
+                  <GoogleLogo className="w-6 h-6" />
+                  <div className="flex gap-0.5">
+                    {[1,2,3,4,5].map(star => <Star key={star} className="w-4 h-4 fill-[#facc15] text-[#facc15]" />)}
+                  </div>
                 </div>
-                <p className="text-text-body text-sm leading-relaxed mb-6">"{review.text}"</p>
-                <div className="flex items-center justify-between mt-auto">
+                
+                <p className="text-text-body text-[15px] leading-relaxed mb-8 flex-1 italic">"{review.text}"</p>
+                
+                <div className="flex items-center justify-between mt-auto pt-4 border-t border-light-green/50">
                   <h4 className="font-bold text-text-heading">{review.name}</h4>
-                  <span className="text-xs text-text-body/60">{review.time}</span>
+                  <span className="text-xs font-medium text-text-body/60">{review.time}</span>
                 </div>
               </div>
             ))}
