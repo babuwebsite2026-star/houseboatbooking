@@ -26,15 +26,10 @@ export function Footer() {
           
           {/* Brand & Socials (takes up more space) */}
           <div className="md:col-span-5 lg:col-span-4">
-            <Link href="/" className="flex flex-col items-start gap-1 mb-4">
-              <div className="flex items-center gap-2">
-                <Ship className="h-7 w-7 text-white" />
-                <span className="text-xl font-bold tracking-tight text-white">
-                  Kerala<span className="text-light-green">Houseboats</span>
-                </span>
-              </div>
-              <span className="text-[10px] text-light-green font-bold tracking-widest uppercase opacity-80">
-                Brahmari Holidays
+            <Link href="/" className="flex items-center gap-2 mb-4">
+              <Ship className="h-7 w-7 text-white" />
+              <span className="text-xl font-bold tracking-tight text-white">
+                Kerala<span className="text-light-green">Houseboats</span>
               </span>
             </Link>
             <p className="text-white/70 text-sm leading-relaxed mb-6 max-w-sm">

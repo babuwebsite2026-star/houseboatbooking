@@ -21,8 +21,16 @@ export default async function GalleryPage() {
     }
   });
 
+  // Add local static images
+  images.push(
+    { src: '/images/gallery/img1.jpg', alt: 'Alleppey Backwaters View', isLocal: true },
+    { src: '/images/gallery/img2.jpg', alt: 'Houseboat Cruising', isLocal: true },
+    { src: '/images/gallery/img3.jpg', alt: 'Scenic Kerala', isLocal: true },
+    { src: '/images/gallery/img4.jpg', alt: 'Beautiful Backwaters', isLocal: true }
+  );
+
   return (
-    <div className="pb-20 bg-gray-50 min-h-screen">
+    <div className="pb-20 bg-[#FAF7F0] min-h-screen">
       {/* Hero Section */}
       <div className="relative h-[40vh] md:h-[50vh] flex items-center justify-center mb-16 mt-0">
         <div className="absolute inset-0 z-0">
@@ -48,17 +56,14 @@ export default async function GalleryPage() {
         {images.length > 0 ? (
           <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
             {images.map((imgData, i) => (
-              <div key={i} className="break-inside-avoid relative rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group">
+              <div key={i} className="break-inside-avoid relative rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group cursor-pointer border border-light-green">
                 <Image
-                  src={urlFor(imgData.src).url()}
+                  src={imgData.isLocal ? imgData.src : urlFor(imgData.src).url()}
                   alt={imgData.alt}
                   width={600}
                   height={800} // This height will adjust because of the layout
-                  className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                  <p className="text-white font-medium text-lg capitalize">{imgData.alt}</p>
-                </div>
               </div>
             ))}
           </div>

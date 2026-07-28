@@ -41,34 +41,12 @@ export default async function Home() {
               {homePage?.heroSubtitle || "Book premium and luxury houseboats for an unforgettable journey through the serene waters of Alleppey."}
             </p>
 
-            {/* Category Quick Links UI */}
-            <div className="bg-white/95 backdrop-blur-md rounded-2xl md:rounded-full p-2 md:p-3 grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3 border border-white/20 shadow-2xl mx-auto max-w-4xl">
-              {[
-                { name: 'Luxury', path: '/category/luxury', icon: Crown, desc: '5-Star Experience' },
-                { name: 'Premium', path: '/category/premium', icon: Star, desc: 'High-End Comfort' },
-                { name: 'Deluxe', path: '/category/deluxe', icon: ShieldCheck, desc: 'Great Value' },
-                { name: 'Shared', path: '/category/shared', icon: Users, desc: 'Budget Friendly' }
-              ].map((cat) => (
-                <Link 
-                  key={cat.name} 
-                  href={cat.path}
-                  className="group flex flex-col items-center justify-center gap-1 px-2 py-4 md:py-3 rounded-xl md:rounded-full bg-white hover:bg-light-green transition-all duration-300 border border-transparent hover:border-secondary-green hover:-translate-y-1 shadow-sm hover:shadow-md"
-                >
-                  <cat.icon className="w-5 h-5 md:w-5 md:h-5 text-secondary-green group-hover:text-primary-green mb-1 transition-colors" />
-                  <span className="text-primary-green font-bold text-[13px] md:text-sm transition-colors leading-none">
-                    {cat.name}
-                  </span>
-                  <span className="text-text-body text-[10px] md:text-[11px] group-hover:text-text-heading transition-colors hidden md:block mt-0.5">
-                    {cat.desc}
-                  </span>
-                </Link>
-              ))}
-            </div>
+
           </div>
         </div>
       </section>
       {/* What We Offer Section */}
-      <section className="py-24 bg-white relative z-20">
+      <section className="py-24 bg-[#FAF7F0] relative z-20">
         <div className="container mx-auto px-4 md:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-normal tracking-wide text-text-heading mb-4 inline-block border-b-2 border-secondary-green pb-2">What we offer</h2>
@@ -79,22 +57,37 @@ export default async function Home() {
 
           <div className="flex overflow-x-auto md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 pb-6 snap-x snap-mandatory md:snap-none hide-scrollbar -mx-4 px-4 md:mx-0 md:px-0">
             {[
-              { title: "Private Houseboat", slug: "private", rating: "4.8", tag: "EXCLUSIVE", desc: "Rent an entire boat exclusively for your group with complete privacy and dedicated staff.", price: "9000", icon: Crown },
-              { title: "Shared Houseboat", slug: "shared", rating: "4.8", tag: "BUDGET FRIENDLY", desc: "Book a private cabin on a shared boat. Same route, same Kerala meals, same crew.", price: "5999", icon: Users },
-              { title: "Luxury Houseboat", slug: "luxury", rating: "5.0", tag: "5-STAR", desc: "Experience the pinnacle of backwater cruising with glass walls, premium AC, and a jacuzzi.", price: "15000", icon: Star },
-              { title: "Premium Houseboat", slug: "premium", rating: "4.9", tag: "HIGH-END", desc: "Upgraded interiors, full-time AC, and premium menu for a highly comfortable stay.", price: "12000", icon: ShieldCheck },
-              { title: "Deluxe Houseboat", slug: "deluxe", rating: "4.7", tag: "GREAT VALUE", desc: "Comfortable night stay with AC during sleeping hours and authentic Kerala cuisine.", price: "7000", icon: BedDouble }
+              { 
+                title: "Private Houseboat", slug: "private", rating: "4.8", tag: "EXCLUSIVE", desc: "Rent an entire boat exclusively for your group with complete privacy and dedicated staff.", price: "9000", icon: Crown,
+                colors: { iconBg: 'bg-[#E4EEED]', iconHoverBg: 'group-hover:bg-[#1B4B4A]', iconColor: 'text-[#1B4B4A]', badgeBg: 'bg-[#E4EEED]', badgeColor: 'text-[#1B4B4A]', badgeStar: 'fill-[#1B4B4A]', tagBg: 'bg-[#E4EEED]', tagColor: 'text-[#1B4B4A]' }
+              },
+              { 
+                title: "Shared Houseboat", slug: "shared", rating: "4.8", tag: "BUDGET FRIENDLY", desc: "Book a private cabin on a shared boat. Same route, same Kerala meals, same crew.", price: "5999", icon: Users,
+                colors: { iconBg: 'bg-[#FBF1DF]', iconHoverBg: 'group-hover:bg-[#D4A24C]', iconColor: 'text-[#D4A24C]', badgeBg: 'bg-[#FBF1DF]', badgeColor: 'text-[#D4A24C]', badgeStar: 'fill-[#D4A24C]', tagBg: 'bg-[#FBF1DF]', tagColor: 'text-[#D4A24C]' }
+              },
+              { 
+                title: "Luxury Houseboat", slug: "luxury", rating: "5.0", tag: "5-STAR", desc: "Experience the pinnacle of backwater cruising with glass walls, premium AC, and a jacuzzi.", price: "15000", icon: Star,
+                colors: { iconBg: 'bg-[#F0E6EF]', iconHoverBg: 'group-hover:bg-[#5B3A5C]', iconColor: 'text-[#5B3A5C]', badgeBg: 'bg-[#F0E6EF]', badgeColor: 'text-[#5B3A5C]', badgeStar: 'fill-[#5B3A5C]', tagBg: 'bg-[#F0E6EF]', tagColor: 'text-[#5B3A5C]' }
+              },
+              { 
+                title: "Premium Houseboat", slug: "premium", rating: "4.9", tag: "HIGH-END", desc: "Upgraded interiors, full-time AC, and premium menu for a highly comfortable stay.", price: "12000", icon: ShieldCheck,
+                colors: { iconBg: 'bg-[#EDEDED]', iconHoverBg: 'group-hover:bg-[#2B2B2B]', iconColor: 'text-[#2B2B2B]', badgeBg: 'bg-[#EDEDED]', badgeColor: 'text-[#2B2B2B]', badgeStar: 'fill-[#2B2B2B]', tagBg: 'bg-[#EDEDED]', tagColor: 'text-[#2B2B2B]' }
+              },
+              { 
+                title: "Deluxe Houseboat", slug: "deluxe", rating: "4.7", tag: "GREAT VALUE", desc: "Comfortable night stay with AC during sleeping hours and authentic Kerala cuisine.", price: "7000", icon: BedDouble,
+                colors: { iconBg: 'bg-light-green', iconHoverBg: 'group-hover:bg-primary-green', iconColor: 'text-primary-green', badgeBg: 'bg-light-green', badgeColor: 'text-primary-green', badgeStar: 'fill-primary-green', tagBg: 'bg-secondary-green/10', tagColor: 'text-secondary-green' }
+              }
             ].map((offer, idx) => (
               <div key={idx} className="min-w-[85vw] md:min-w-0 snap-center bg-white rounded-2xl p-6 border border-light-green shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group hover:-translate-y-2">
                 <div className="flex justify-between items-start mb-6">
-                  <div className="w-12 h-12 rounded-xl bg-light-green flex items-center justify-center group-hover:bg-primary-green transition-colors duration-300 shrink-0">
-                    <offer.icon className="w-6 h-6 text-primary-green group-hover:text-white transition-colors duration-300" />
+                  <div className={`w-12 h-12 rounded-xl ${offer.colors.iconBg} flex items-center justify-center ${offer.colors.iconHoverBg} transition-colors duration-300 shrink-0`}>
+                    <offer.icon className={`w-6 h-6 ${offer.colors.iconColor} group-hover:text-white transition-colors duration-300`} />
                   </div>
                   <div className="flex flex-col items-end gap-2">
-                    <div className="flex items-center gap-1 bg-light-green text-primary-green px-2 py-1 rounded text-xs font-bold">
-                      <Star className="w-3 h-3 fill-primary-green" /> {offer.rating}
+                    <div className={`flex items-center gap-1 ${offer.colors.badgeBg} ${offer.colors.badgeColor} px-2 py-1 rounded text-xs font-bold`}>
+                      <Star className={`w-3 h-3 ${offer.colors.badgeStar}`} /> {offer.rating}
                     </div>
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-secondary-green bg-secondary-green/10 px-2 py-1 rounded-full">
+                    <span className={`text-[10px] font-bold uppercase tracking-wider ${offer.colors.tagColor} ${offer.colors.tagBg} px-2 py-1 rounded-full`}>
                       {offer.tag}
                     </span>
                   </div>
@@ -143,9 +136,6 @@ export default async function Home() {
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                   )}
-                  <div className="absolute top-4 right-4 bg-light-green text-primary-green px-3 py-1 rounded-full text-xs font-bold capitalize">
-                    {boat.category}
-                  </div>
                 </div>
                 <div className="p-6">
                   <div className="flex justify-between items-start mb-2">
@@ -350,23 +340,18 @@ export default async function Home() {
               </div>
             </div>
             
-            <div className="w-full md:w-1/2">
-              <div className="bg-white p-8 rounded-3xl shadow-lg border border-light-green">
-                <h3 className="text-2xl font-bold text-text-heading mb-6">Send us a Message</h3>
-                <form className="space-y-4">
-                  <div>
-                    <input type="text" placeholder="Your Name" className="w-full px-4 py-3 rounded-lg border border-light-green focus:outline-none focus:ring-2 focus:ring-secondary-green text-text-heading placeholder-text-body/50 bg-white" />
-                  </div>
-                  <div>
-                    <input type="email" placeholder="Your Email" className="w-full px-4 py-3 rounded-lg border border-light-green focus:outline-none focus:ring-2 focus:ring-secondary-green text-text-heading placeholder-text-body/50 bg-white" />
-                  </div>
-                  <div>
-                    <textarea rows={4} placeholder="Your Message" className="w-full px-4 py-3 rounded-lg border border-light-green focus:outline-none focus:ring-2 focus:ring-secondary-green text-text-heading placeholder-text-body/50 bg-white"></textarea>
-                  </div>
-                  <Button className="w-full bg-primary-green hover:bg-secondary-green text-white font-bold py-4 rounded-xl transition-colors">
-                    Submit Enquiry
-                  </Button>
-                </form>
+            <div className="w-full md:w-1/2 flex items-stretch">
+              <div className="bg-white p-2 rounded-3xl shadow-lg border border-light-green w-full min-h-[400px] flex">
+                <iframe
+                  width="100%"
+                  height="100%"
+                  className="rounded-2xl border-0 flex-grow"
+                  src="https://maps.google.com/maps?q=Finishing%20Point,%20Alleppey,%20Kerala&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Kerala Houseboats Location"
+                ></iframe>
               </div>
             </div>
           </div>

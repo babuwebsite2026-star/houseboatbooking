@@ -5,6 +5,7 @@ export interface Activity {
   duration: string;
   image: string;
   description: string;
+  objectPosition?: string;
 }
 
 export const mockActivities: Activity[] = [
@@ -13,23 +14,26 @@ export const mockActivities: Activity[] = [
     name: 'Shikara Ride',
     price: 800,
     duration: '1 Hour',
-    image: 'https://images.unsplash.com/photo-1629851416480-16b7f9d85420?auto=format&fit=crop&w=800&q=80',
+    image: '/images/activities/shikara.jpg',
     description: 'Navigate through the narrow canals of Alleppey in a traditional Shikara boat, getting a closer look at village life.',
+    objectPosition: 'center bottom',
   },
   {
-    id: 'act-002',
-    name: 'Canoeing',
-    price: 500,
+    id: 'act-004',
+    name: 'Kayaking',
+    price: 600,
     duration: '2 Hours',
-    image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80',
-    description: 'Paddle through the serene backwaters at your own pace. A quiet and peaceful way to explore the surroundings.',
+    image: '/images/activities/kayaking.jpg',
+    description: 'Explore the serene backwaters up close in a kayak. A perfect way to navigate the smaller canals and enjoy nature.',
+    objectPosition: 'center bottom',
   },
   {
-    id: 'act-003',
-    name: 'Village Walk & Tour',
-    price: 300,
-    duration: '3 Hours',
-    image: 'https://images.unsplash.com/photo-1596701062351-8c2c14d1fdd0?auto=format&fit=crop&w=800&q=80',
-    description: 'A guided walk through the local villages, interacting with the friendly locals and experiencing their daily lifestyle.',
+    id: 'act-005',
+    name: 'Speed Boat',
+    price: 1500,
+    duration: '1 Hour',
+    image: '/images/activities/speedboat.jpg',
+    description: 'Feel the thrill of speed as you zip across the larger lakes and backwaters in a powerful speed boat.',
+    objectPosition: 'center 75%',
   }
 ];

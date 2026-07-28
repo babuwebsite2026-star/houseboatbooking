@@ -21,15 +21,10 @@ export function Navbar() {
       <div className="relative z-10 container mx-auto px-4 md:px-6 transition-all duration-500">
         <div className={`flex items-center gap-2 md:gap-4 transition-all duration-500 ${isScrolled ? 'h-16' : 'h-20'}`}>
           {/* Logo */}
-          <Link href="/" className="flex flex-col items-start gap-1 group shrink-0 pt-1">
-            <div className="flex items-center gap-2">
-              <Ship className="h-6 w-6 md:h-8 md:w-8 transition-colors text-primary-green" />
-              <span className="text-xl md:text-2xl font-semibold tracking-tight text-primary-green">
-                KeralaHouseboats
-              </span>
-            </div>
-            <span className="text-[8px] sm:text-[10px] md:text-xs font-medium tracking-wide text-text-body">
-              Brahmari Holidays and Backwater Cruises
+          <Link href="/" className="flex items-center gap-2 group shrink-0">
+            <Ship className="h-6 w-6 md:h-8 md:w-8 transition-colors text-primary-green" />
+            <span className="text-xl md:text-2xl font-semibold tracking-tight text-primary-green">
+              KeralaHouseboats
             </span>
           </Link>
 
