@@ -59,9 +59,9 @@ export function HouseboatGallery({ boat }: HouseboatGalleryProps) {
       </div>
 
       {/* Image Grid */}
-      <div className="flex flex-col md:flex-row gap-2 md:gap-4 h-[40vh] md:h-[60vh]">
+      <div className="flex flex-col md:flex-row gap-2 md:gap-4 h-[60vh] md:h-[60vh]">
         {/* Main Image */}
-        <div className="w-full md:w-1/2 relative h-full rounded-2xl md:rounded-r-none md:rounded-l-2xl overflow-hidden group cursor-pointer">
+        <div className="w-full md:w-1/2 relative h-1/2 md:h-full rounded-t-2xl md:rounded-tr-none md:rounded-l-2xl overflow-hidden group cursor-pointer">
           {mainImage && (
             <Image
               src={getImageSrc(mainImage)}
@@ -73,14 +73,16 @@ export function HouseboatGallery({ boat }: HouseboatGalleryProps) {
           )}
         </div>
         
-        {/* Sub Images (Desktop only) */}
-        <div className="hidden md:grid w-1/2 grid-cols-2 grid-rows-2 gap-4 h-full">
+        {/* Sub Images (2x2 Grid) */}
+        <div className="grid w-full md:w-1/2 grid-cols-2 grid-rows-2 gap-2 md:gap-4 h-1/2 md:h-full">
           {subImages.map((img: any, idx: number) => (
             <div 
               key={idx} 
               className={`relative h-full overflow-hidden group cursor-pointer 
-                ${idx === 1 ? 'rounded-tr-2xl' : ''} 
-                ${idx === 3 ? 'rounded-br-2xl' : ''}`
+                ${idx === 0 ? 'md:rounded-none' : ''} 
+                ${idx === 1 ? 'rounded-tr-2xl md:rounded-tr-2xl' : ''} 
+                ${idx === 2 ? 'rounded-bl-2xl md:rounded-none' : ''}
+                ${idx === 3 ? 'rounded-br-2xl md:rounded-br-2xl' : ''}`
               }
             >
               {img && (

@@ -11,29 +11,8 @@ export const revalidate = 30;
 export default async function HouseboatsListing() {
   const houseboats = await client.fetch(ALL_HOUSEBOATS_QUERY);
   return (
-    <div className="pb-20 bg-[#FAF7F0] min-h-screen">
-      {/* Hero Section */}
-      <div className="relative h-[40vh] md:h-[50vh] flex items-center justify-center mb-16 mt-0">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="https://images.unsplash.com/photo-1593693397690-3628073262ce?auto=format&fit=crop&w=1920&q=80"
-            alt="All Houseboats"
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/80" />
-        </div>
-        
-        <div className="relative z-10 text-center text-white px-4 mt-16">
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-4 text-white">Our Houseboats</h1>
-          <p className="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto">
-            Find the perfect houseboat for your Alleppey backwater journey. From intimate luxury suites to grand floating palaces.
-          </p>
-        </div>
-      </div>
-
-      <div className="container mx-auto px-4 md:px-8">
+    <div className="pb-20 bg-muted-bg min-h-screen">
+      <div className="container mx-auto px-4 md:px-8 pt-32">
         {/* Mobile-friendly Category Filters */}
         <div className="flex overflow-x-auto gap-3 mb-8 pb-4 snap-x snap-mandatory hide-scrollbar -mx-4 px-4 md:mx-0 md:px-0">
           {[

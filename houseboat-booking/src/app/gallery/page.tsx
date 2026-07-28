@@ -30,10 +30,10 @@ export default async function GalleryPage() {
   );
 
   return (
-    <div className="pb-20 bg-[#FAF7F0] min-h-screen">
+    <div className="pb-20 bg-muted-bg min-h-screen">
       <div className="container mx-auto px-4 md:px-8 pt-32">
         {images.length > 0 ? (
-          <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
+          <div className="columns-2 lg:columns-3 gap-3 md:gap-6 space-y-3 md:space-y-6">
             {images.map((imgData, i) => (
               <div key={i} className="break-inside-avoid relative rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group cursor-pointer border border-light-green">
                 <Image

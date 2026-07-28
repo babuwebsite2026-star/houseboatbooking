@@ -5,7 +5,7 @@ import { CheckCircle2 } from "lucide-react";
 
 export default function AboutPage() {
   return (
-    <div className="bg-[#FAF7F0] min-h-screen pb-20">
+    <div className="bg-muted-bg min-h-screen pb-20">
       {/* Hero Section */}
       <div className="relative h-[40vh] md:h-[50vh] flex items-center justify-center mb-20 mt-0">
         <div className="absolute inset-0 z-0">

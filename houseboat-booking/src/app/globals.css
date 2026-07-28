@@ -46,17 +46,17 @@
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
-  --color-primary-green: #1F5C3F;
-  --color-secondary-green: #3E8E5A;
-  --color-light-green: #E6F2E9;
-  --color-text-heading: #1C2B22;
-  --color-text-body: #4B5A50;
-  --color-muted-bg: #F7FAF7;
+  --color-primary-green: #7FA85A; /* Lemon Balm */
+  --color-secondary-green: #678B48; /* Darker Lemon Balm for hover */
+  --color-light-green: #F8F9ED; /* Linen Cloud */
+  --color-text-heading: #2D3A22;
+  --color-text-body: #506143;
+  --color-muted-bg: #F8F9ED; /* Linen Cloud */
 }
 
 :root {
   --background: #FFFFFF;
-  --foreground: #4B5A50;
+  --foreground: #506143;
   --card: #FFFFFF;
   --card-foreground: #4B5A50;
   --popover: #FFFFFF;
