@@ -3,6 +3,7 @@ import { Inter, Bebas_Neue } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { MobileBottomNav } from "@/components/MobileBottomNav";
 
 const inter = Inter({
   variable: "--font-sans",
@@ -34,7 +35,8 @@ export default function RootLayout({
         className={`${inter.variable} ${bebas.variable} font-sans bg-background text-foreground antialiased selection:bg-primary-green selection:text-white`}
       >
         <Navbar />
-        <main className="min-h-screen">
+        <MobileBottomNav />
+        <main className="min-h-screen pb-24 lg:pb-0">
           {children}
         </main>
         <Footer />
