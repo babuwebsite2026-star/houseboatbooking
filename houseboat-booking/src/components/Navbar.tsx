@@ -53,7 +53,7 @@ export function Navbar() {
         {/* Right: Contact Button (Desktop) & Mobile Toggle */}
         <div className="flex items-center gap-2">
           <Link href="/contact" className="hidden lg:flex items-center justify-center bg-white text-[#1A1A1A] px-6 py-3 rounded-full text-[13px] font-bold hover:bg-gray-100 transition-colors">
-            info@keralahouseboats.co.in
+            Contact
           </Link>
           
           <button 
