@@ -2,8 +2,9 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Menu, Ship } from "lucide-react";
+import { Menu } from "lucide-react";
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -23,8 +24,8 @@ export function Navbar() {
       <nav className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[95%] lg:w-auto lg:min-w-[700px] max-w-5xl bg-[#1A1A1A] rounded-full p-2 flex items-center justify-between shadow-[0_20px_40px_rgba(0,0,0,0.2)] transition-all duration-300 ${isScrolled ? 'backdrop-blur-md bg-[#1A1A1A]/95' : ''}`}>
         
         {/* Left: Logo */}
-        <Link href="/" className="bg-white text-[#1A1A1A] w-12 h-12 rounded-full flex items-center justify-center shrink-0 hover:scale-105 transition-transform" aria-label="Home">
-          <Ship className="w-6 h-6" />
+        <Link href="/" className="bg-white w-12 h-12 rounded-full flex items-center justify-center shrink-0 hover:scale-105 transition-transform overflow-hidden p-1" aria-label="Home">
+          <Image src="/logo.png" alt="Logo" width={40} height={40} className="w-full h-full object-contain grayscale" />
         </Link>
 
         {/* Center: Links (Desktop) */}
