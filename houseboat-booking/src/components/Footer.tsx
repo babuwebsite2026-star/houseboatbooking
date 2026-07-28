@@ -4,7 +4,7 @@ import { Ship, MapPin, Phone, Mail, ArrowRight } from "lucide-react";
 function PapercutWaves() {
   return (
     <div className="absolute top-0 left-0 w-full overflow-hidden leading-[0] z-0 -translate-y-full">
-      <svg className="relative block w-full h-[60px] md:h-[150px] lg:h-[200px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+      <svg className="relative block w-full h-[40px] md:h-[80px] lg:h-[120px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
         <defs>
           <filter id="papercut-shadow" x="-20%" y="-20%" width="140%" height="140%">
             <feDropShadow dx="0" dy="-8" stdDeviation="6" floodColor="#000000" floodOpacity="0.15"/>
@@ -26,25 +26,14 @@ function PapercutWaves() {
 
 export function Footer() {
   return (
-    <footer className="bg-[#2D3A22] relative mt-16 md:mt-[150px] lg:mt-[200px]">
+    <footer className="bg-[#2D3A22] relative mt-12 md:mt-[80px] lg:mt-[120px]">
       <PapercutWaves />
       
-      <div className="container mx-auto px-4 md:px-8 pb-8 pt-8 md:pt-12 relative z-10">
+      <div className="container mx-auto px-4 md:px-8 pb-6 pt-6 md:pt-8 relative z-10">
         
-        {/* Snake Boat Race Highlight Banner */}
-        <div className="mb-12 bg-white/10 backdrop-blur-md border border-white/10 rounded-3xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6 hover:bg-white/15 transition-colors shadow-lg">
-          <div>
-            <span className="text-[#A3C686] text-xs font-bold uppercase tracking-widest mb-1 block">Annual Spectacle</span>
-            <h3 className="text-2xl md:text-3xl font-normal text-white">Nehru Trophy Snake Boat Race</h3>
-            <p className="text-white/80 mt-2 text-sm max-w-xl">Experience the adrenaline of Alleppey's most legendary event. Book your exclusive viewing houseboat today before spots fill up.</p>
-          </div>
-          <Link href="/activities/snake-boat-race" className="shrink-0 flex items-center gap-2 bg-[#7FA85A] text-white font-bold px-6 py-3 rounded-full hover:bg-[#678B48] shadow-md transition-colors">
-            Reserve a Spot <ArrowRight className="w-4 h-4" />
-          </Link>
-        </div>
 
         {/* Compact Main Footer */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 mb-10">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-8 mb-6">
           
           {/* Brand & Socials */}
           <div className="md:col-span-5 lg:col-span-4">

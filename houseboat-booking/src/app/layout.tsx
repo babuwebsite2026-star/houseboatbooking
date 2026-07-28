@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Bebas_Neue } from "next/font/google";
+import { Inter, Bebas_Neue, Kaushan_Script } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -18,6 +18,13 @@ const bebas = Bebas_Neue({
   display: 'swap',
 });
 
+const kaushan = Kaushan_Script({
+  variable: "--font-kaushan",
+  weight: "400",
+  subsets: ["latin"],
+  display: 'swap',
+});
+
 export const metadata: Metadata = {
   title: "Kerala Houseboats | Brahmari Holidays and Backwater Cruises",
   description: "Book premium and luxury houseboats in Kerala with Brahmari Holidays and Backwater Cruises.",
@@ -31,7 +38,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${inter.variable} ${bebas.variable} font-sans bg-background text-foreground antialiased selection:bg-primary-green selection:text-white`}
+        className={`${inter.variable} ${bebas.variable} ${kaushan.variable} font-sans bg-background text-foreground antialiased selection:bg-primary-green selection:text-white`}
       >
         <Navbar />
         <main className="min-h-screen">

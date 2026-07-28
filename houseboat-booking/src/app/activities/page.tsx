@@ -20,8 +20,8 @@ export default function Activities() {
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/80" />
         </div>
         
-        <div className="relative z-10 text-center text-white px-4 mt-16">
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-4 text-white">Activities & Experiences</h1>
+        <div className="relative z-10 text-center text-white px-4 mt-20 md:mt-16">
+          <h1 className="text-5xl md:text-7xl font-podium font-black tracking-wide mb-4 text-white">Activities & Experiences</h1>
           <p className="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto">
             Enhance your houseboat stay with our hand-picked activities. Immerse yourself in the local culture and natural beauty.
           </p>

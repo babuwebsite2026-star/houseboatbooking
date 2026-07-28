@@ -21,11 +21,17 @@ export function Navbar() {
 
   return (
     <>
-      <nav className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[95%] lg:w-auto lg:min-w-[700px] max-w-5xl bg-[#1A1A1A] rounded-full p-2 flex items-center justify-between shadow-[0_20px_40px_rgba(0,0,0,0.2)] transition-all duration-300 ${isScrolled ? 'backdrop-blur-md bg-[#1A1A1A]/95' : ''}`}>
+      <nav className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[95%] lg:w-auto lg:min-w-[700px] max-w-5xl rounded-full p-2 flex items-center justify-between transition-all duration-300 ${isScrolled ? 'bg-[#1A1A1A]/95 backdrop-blur-md shadow-[0_20px_40px_rgba(0,0,0,0.2)]' : 'bg-transparent shadow-none'}`}>
         
         {/* Left: Logo */}
-        <Link href="/" className="bg-white w-12 h-12 rounded-full flex items-center justify-center shrink-0 hover:scale-105 transition-transform overflow-hidden" aria-label="Home">
-          <Image src="/logo.jpg" alt="Logo" width={48} height={48} className="w-full h-full object-cover grayscale scale-[1.3]" />
+        <Link href="/" className="flex items-center gap-3 shrink-0 hover:scale-105 transition-transform group" aria-label="Home">
+          <div className="bg-white w-12 h-12 rounded-full flex items-center justify-center overflow-hidden">
+            <Image src="/logo.jpg" alt="Logo" width={48} height={48} className="w-full h-full object-cover grayscale scale-[1.3]" />
+          </div>
+          <span className="font-kaushan text-2xl md:text-3xl font-bold tracking-tight">
+            <span className="text-white">Kerala</span>
+            <span className="text-[#7FA85A]">Houseboats</span>
+          </span>
         </Link>
 
         {/* Center: Links (Desktop) */}

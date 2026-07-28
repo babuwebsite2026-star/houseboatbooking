@@ -59,7 +59,7 @@ export default async function Home() {
         </div>
       </section>
       {/* What We Offer */}
-      <section className="py-24 bg-muted-bg">
+      <section className="py-16 md:py-24 bg-muted-bg">
         <div className="container mx-auto px-4 md:px-8">
           <div className="text-left mb-12">
             <span className="text-primary-green font-bold tracking-widest text-[11px] uppercase mb-2 block">WHAT WE OFFER</span>
@@ -149,10 +149,10 @@ export default async function Home() {
 
 
       {/* Gallery Section */}
-      <section className="py-24 bg-white">
+      <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4 md:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-normal tracking-wide text-text-heading mb-4 inline-block border-b-2 border-secondary-green pb-2">{homePage?.galleryTitle || "Glimpses of Paradise"}</h2>
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-4xl md:text-5xl font-podium font-black tracking-wide text-text-heading mb-4 inline-block border-b-2 border-secondary-green pb-2">{homePage?.galleryTitle || "Glimpses of Paradise"}</h2>
             <p className="text-text-body max-w-2xl mx-auto mt-4">
               {homePage?.gallerySubtitle || "Take a visual journey through our luxurious houseboats and the breathtaking Alleppey backwaters."}
             </p>
@@ -185,7 +185,7 @@ export default async function Home() {
 
 
       {/* Customer Reviews */}
-      <section className="py-24 bg-white">
+      <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4 md:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-normal tracking-wide text-text-heading mb-4 inline-block border-b-2 border-secondary-green pb-2">What Our Guests Say</h2>
@@ -225,7 +225,7 @@ export default async function Home() {
       </section>
 
       {/* FAQs */}
-      <section className="py-24 bg-muted-bg">
+      <section className="py-16 md:py-24 bg-muted-bg">
         <div className="container mx-auto px-4 md:px-8 max-w-4xl">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-normal tracking-wide text-text-heading mb-4 inline-block border-b-2 border-secondary-green pb-2">Frequently Asked Questions</h2>
@@ -256,7 +256,7 @@ export default async function Home() {
       </section>
 
       {/* Contact Quick Section */}
-      <section className="py-24 bg-white">
+      <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4 md:px-8 max-w-6xl">
           <div className="flex flex-col md:flex-row gap-16 items-center">
             <div className="w-full md:w-1/2">
