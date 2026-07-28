@@ -42,72 +42,57 @@ export function HouseboatGallery({ boat }: HouseboatGalleryProps) {
   // If there are still no extra images, we mock different images
   const displayImages = allImages.length > 1 ? allImages : [boat.image, ...mockImages].filter(Boolean);
 
-  const [activeIndex, setActiveIndex] = useState(0);
-  const activeImage = displayImages[activeIndex];
+  // Take the first 5 images for the grid
+  const mainImage = displayImages[0];
+  const subImages = displayImages.slice(1, 5);
 
   return (
-    <div className="relative w-full bg-black">
-      {/* Hero Section */}
-      <div className="relative h-[40vh] md:h-[60vh] flex items-center justify-center">
-        <div className="absolute inset-0 z-0 transition-opacity duration-500 ease-in-out">
-          {activeImage && (
+    <div className="container mx-auto px-4 md:px-8 pt-32 pb-8">
+      {/* Title and Info */}
+      <div className="mb-6">
+        <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-text-heading mb-4">{boat.name}</h1>
+        <div className="flex flex-wrap items-center gap-4 text-sm font-medium text-text-body">
+          <span className="flex items-center gap-1.5"><Star className="h-4 w-4 text-secondary-green fill-secondary-green" /> {boat.rating}</span>
+          <span className="flex items-center gap-1.5"><MapPin className="h-4 w-4 text-primary-green" /> Alleppey Backwaters</span>
+          <span className="bg-light-green text-primary-green px-3 py-1 rounded-full uppercase tracking-wider text-xs font-bold">{boat.category} Houseboat</span>
+        </div>
+      </div>
+
+      {/* Image Grid */}
+      <div className="flex flex-col md:flex-row gap-2 md:gap-4 h-[40vh] md:h-[60vh]">
+        {/* Main Image */}
+        <div className="w-full md:w-1/2 relative h-full rounded-2xl md:rounded-r-none md:rounded-l-2xl overflow-hidden group cursor-pointer">
+          {mainImage && (
             <Image
-              src={getImageSrc(activeImage)}
-              alt={`${boat.name} - image ${activeIndex + 1}`}
+              src={getImageSrc(mainImage)}
+              alt={`${boat.name} main image`}
               fill
-              className="object-cover"
+              className="object-cover group-hover:scale-105 transition-transform duration-700"
               priority
             />
           )}
-          {activeIndex === 0 && (
-            <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/80" />
-          )}
         </div>
         
-        {activeIndex === 0 && (
-          <div className="relative z-10 text-center text-white px-4 mt-8 md:mt-16 pointer-events-none">
-            <div className="inline-block bg-white/20 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-bold text-gold uppercase tracking-wider mb-4 border border-white/30 shadow-sm pointer-events-auto">
-              {boat.category} Houseboat
+        {/* Sub Images (Desktop only) */}
+        <div className="hidden md:grid w-1/2 grid-cols-2 grid-rows-2 gap-4 h-full">
+          {subImages.map((img: any, idx: number) => (
+            <div 
+              key={idx} 
+              className={`relative h-full overflow-hidden group cursor-pointer 
+                ${idx === 1 ? 'rounded-tr-2xl' : ''} 
+                ${idx === 3 ? 'rounded-br-2xl' : ''}`
+              }
+            >
+              {img && (
+                <Image
+                  src={getImageSrc(img)}
+                  alt={`${boat.name} sub image ${idx + 1}`}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+              )}
             </div>
-            <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6 text-white drop-shadow-md">{boat.name}</h1>
-            
-            <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6 text-base md:text-lg text-gray-100 drop-shadow-md">
-              <span className="flex items-center gap-2"><Star className="h-5 w-5 text-gold fill-gold" /> {boat.rating}</span>
-              <span className="hidden sm:block text-gray-300">•</span>
-              <span className="flex items-center gap-2"><MapPin className="h-5 w-5 text-gold" /> Alleppey Backwaters</span>
-            </div>
-          </div>
-        )}
-      </div>
-
-      {/* Thumbnail Strip */}
-      <div className="w-full bg-[#111111] py-4 border-b border-[#222]">
-        <div className="container mx-auto px-4 md:px-8">
-          <div className="flex gap-3 overflow-x-auto pb-2 snap-x snap-mandatory hide-scrollbar items-center">
-            {displayImages.map((img: any, idx: number) => {
-              const isActive = idx === activeIndex;
-              return (
-                <button
-                  key={idx}
-                  onClick={() => setActiveIndex(idx)}
-                  className={`relative h-20 w-32 shrink-0 rounded-xl overflow-hidden snap-center transition-all duration-300 ${
-                    isActive 
-                      ? 'ring-2 ring-white ring-offset-2 ring-offset-[#111111] scale-105 opacity-100' 
-                      : 'opacity-50 hover:opacity-100'
-                  }`}
-                >
-                  {img && (
-                    <Image
-                      src={getImageSrc(img)}
-                      alt={`${boat.name} thumbnail ${idx + 1}`}
-                      fill
-                      className="object-cover"
-                    />
-                  )}
-                </button>
-              );
-            })}
-          </div>
+          ))}
         </div>
       </div>
     </div>

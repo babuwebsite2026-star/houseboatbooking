@@ -31,28 +31,7 @@ export default async function GalleryPage() {
 
   return (
     <div className="pb-20 bg-[#FAF7F0] min-h-screen">
-      {/* Hero Section */}
-      <div className="relative h-[40vh] md:h-[50vh] flex items-center justify-center mb-16 mt-0">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="https://images.unsplash.com/photo-1596706917637-23f2f811de52?auto=format&fit=crop&w=1920&q=80"
-            alt="Gallery"
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/80" />
-        </div>
-        
-        <div className="relative z-10 text-center text-white px-4 mt-16">
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-4 text-white">Our Gallery</h1>
-          <p className="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto">
-            Explore the beauty of our premium houseboats and the mesmerizing Kerala backwaters.
-          </p>
-        </div>
-      </div>
-
-      <div className="container mx-auto px-4 md:px-8">
+      <div className="container mx-auto px-4 md:px-8 pt-32">
         {images.length > 0 ? (
           <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
             {images.map((imgData, i) => (
