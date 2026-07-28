@@ -357,22 +357,6 @@ export default async function Home() {
           </div>
         </div>
       </section>
-
-      {/* CTA Section */}
-      <section className="py-24 relative overflow-hidden bg-primary-green">
-        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '40px 40px' }}></div>
-        <div className="relative z-10 container mx-auto px-4 text-center text-white">
-          <h2 className="text-4xl md:text-5xl font-normal tracking-wide mb-6">Ready for an Unforgettable Journey?</h2>
-          <p className="text-xl text-light-green mb-10 max-w-2xl mx-auto">
-            Book your dream houseboat experience today and create memories that will last a lifetime.
-          </p>
-          <Link href="/houseboats">
-            <Button className="bg-white hover:bg-light-green text-primary-green font-bold px-10 py-6 rounded-full text-lg shadow-lg hover:shadow-xl transition-all">
-              Explore Available Boats
-            </Button>
-          </Link>
-        </div>
-      </section>
     </>
   );
 }
