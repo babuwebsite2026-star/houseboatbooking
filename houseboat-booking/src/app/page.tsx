@@ -29,7 +29,7 @@ export default async function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center pt-20">
+      <section className="relative h-screen flex items-center justify-center pt-20 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <video
             autoPlay
@@ -47,7 +47,7 @@ export default async function Home() {
         <div className="relative z-10 container mx-auto px-4 md:px-8 text-center mt-10">
           <div className="max-w-4xl mx-auto w-full">
             <h1 
-              className="font-podium text-7xl md:text-9xl font-normal tracking-wide mb-4 text-white drop-shadow-2xl uppercase" 
+              className="font-podium text-5xl sm:text-7xl md:text-9xl font-normal tracking-wide mb-4 text-white drop-shadow-2xl uppercase break-words" 
               dangerouslySetInnerHTML={{ __html: homePage?.heroTitle?.replace(/class="[^"]*"/, 'class="font-normal"') || 'Experience the Magic of <br class="hidden md:block" />Kerala Backwaters' }}
             />
             <p className="text-lg md:text-2xl text-white/90 mb-12 max-w-2xl mx-auto px-2 drop-shadow-lg font-medium">
