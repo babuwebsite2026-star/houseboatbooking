@@ -36,8 +36,8 @@ export default async function Home() {
         <div className="relative z-10 container mx-auto px-4 md:px-8 text-center mt-10">
           <div className="max-w-4xl mx-auto w-full">
             <h1 
-              className="text-5xl md:text-7xl font-normal tracking-tight mb-6 text-white drop-shadow-2xl" 
-              dangerouslySetInnerHTML={{ __html: homePage?.heroTitle?.replace(/class="[^"]*"/, 'class="font-bold"') || 'Experience the Magic of <br class="hidden md:block" /><span class="font-bold">Kerala Backwaters</span>' }}
+              className="font-bebas text-7xl md:text-9xl font-normal tracking-wide mb-4 text-white drop-shadow-2xl uppercase" 
+              dangerouslySetInnerHTML={{ __html: homePage?.heroTitle?.replace(/class="[^"]*"/, 'class="font-normal"') || 'Experience the Magic of <br class="hidden md:block" />Kerala Backwaters' }}
             />
             <p className="text-lg md:text-2xl text-white/90 mb-12 max-w-2xl mx-auto px-2 drop-shadow-lg font-medium">
               {homePage?.heroSubtitle || "Book premium and luxury houseboats for an unforgettable journey through the serene waters of Alleppey."}
