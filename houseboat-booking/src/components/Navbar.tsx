@@ -25,7 +25,7 @@ export function Navbar() {
         
         {/* Left: Logo */}
         <Link href="/" className="bg-white w-12 h-12 rounded-full flex items-center justify-center shrink-0 hover:scale-105 transition-transform overflow-hidden" aria-label="Home">
-          <Image src="/logo.jpg" alt="Logo" width={48} height={48} className="w-full h-full object-cover grayscale" />
+          <Image src="/logo.jpg" alt="Logo" width={48} height={48} className="w-full h-full object-cover grayscale scale-[1.3]" />
         </Link>
 
         {/* Center: Links (Desktop) */}
