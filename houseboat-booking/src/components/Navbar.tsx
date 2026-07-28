@@ -39,9 +39,7 @@ export function Navbar() {
                 Houseboats
               </Link>
 
-              <Link href="/packages" className="px-4 py-2 rounded-full text-sm font-medium transition-all bg-primary-green text-white shadow-sm hover:bg-secondary-green">
-                Packages
-              </Link>
+
               <Link href="/activities" className="px-4 py-2 rounded-full text-sm font-medium text-text-heading hover:text-secondary-green transition-colors hover:underline decoration-secondary-green decoration-2 underline-offset-4">
                 Activities
               </Link>
@@ -75,7 +73,7 @@ export function Navbar() {
         <div className="lg:hidden absolute top-full left-0 right-0 bg-white shadow-lg py-4 px-4 flex flex-col gap-4 text-text-heading border-t border-light-green">
           <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2 hover:bg-light-green hover:text-primary-green rounded-lg transition-colors">Home</Link>
           <Link href="/houseboats" onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2 hover:bg-light-green hover:text-primary-green rounded-lg transition-colors">Houseboats</Link>
-          <Link href="/packages" onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2 bg-light-green text-primary-green font-medium rounded-lg">Packages</Link>
+
           <Link href="/activities" onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2 hover:bg-light-green hover:text-primary-green rounded-lg transition-colors">Activities</Link>
           <Link href="/gallery" onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2 hover:bg-light-green hover:text-primary-green rounded-lg transition-colors">Gallery</Link>
           <Link href="/about" onClick={() => setIsMobileMenuOpen(false)} className="px-4 py-2 hover:bg-light-green hover:text-primary-green rounded-lg transition-colors">About Us</Link>

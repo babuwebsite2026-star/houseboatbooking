@@ -51,7 +51,7 @@ export function Footer() {
             <h3 className="text-sm font-bold tracking-widest uppercase text-white/50 mb-5">Explore</h3>
             <div className="grid grid-cols-2 gap-y-3 gap-x-4 text-sm text-white/80 font-medium">
               <Link href="/houseboats" className="hover:text-white transition-colors">Houseboats</Link>
-              <Link href="/packages" className="hover:text-white transition-colors">Packages</Link>
+
               <Link href="/activities" className="hover:text-white transition-colors">Activities</Link>
               <Link href="/gallery" className="hover:text-white transition-colors">Gallery</Link>
               <Link href="/about" className="hover:text-white transition-colors">About Us</Link>
@@ -82,7 +82,7 @@ export function Footer() {
 
         {/* Bottom Bar */}
         <div className="border-t border-white/10 pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white/50 font-medium">
-          <p>© {new Date().getFullYear()} Brahmari Holidays. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} KeralaHouseboats. All rights reserved.</p>
           <div className="flex gap-6">
             <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>
             <Link href="/terms" className="hover:text-white transition-colors">Terms</Link>
