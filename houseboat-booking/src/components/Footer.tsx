@@ -18,7 +18,7 @@ export function Footer() {
         </div>
 
         {/* Center Heading */}
-        <div className="relative z-10 px-4 text-center bg-white/40 backdrop-blur-[2px] rounded-2xl py-2 px-6">
+        <div className="relative z-10 px-4 text-center mb-16 md:mb-24">
           <h2 className="font-serif font-bold uppercase text-[20px] leading-none tracking-wide flex flex-col md:flex-row md:gap-2 justify-center items-center drop-shadow-md">
             <span className="bg-gradient-to-b from-[#D97706] to-[#92400E] text-transparent bg-clip-text pb-0">
               KERALA
