@@ -18,8 +18,11 @@ export function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+  // Normalize pathname to handle any potential production quirks (trailing slashes, null, etc)
+  const currentPath = pathname ? (pathname.endsWith('/') && pathname.length > 1 ? pathname.slice(0, -1) : pathname) : '/';
+  
   // Determine if the current page has a dark hero section at the top
-  const hasDarkHero = pathname === '/' || pathname === '/houseboats' || pathname === '/activities' || pathname === '/about';
+  const hasDarkHero = currentPath === '/' || currentPath === '/houseboats' || currentPath === '/activities' || currentPath === '/about';
   
   // Text should be dark if we are on a page without a dark hero. 
   // (Even when scrolled, pages without a dark hero will have a light navbar)
