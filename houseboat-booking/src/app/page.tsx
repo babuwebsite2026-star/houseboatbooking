@@ -59,11 +59,11 @@ export default async function Home() {
         </div>
       </section>
       {/* What We Offer */}
-      <section className="py-16 md:py-24 bg-muted-bg">
+      <section className="py-12 md:py-16 bg-muted-bg">
         <div className="container mx-auto px-4 md:px-8">
           <div className="text-left mb-12">
             <span className="text-primary-green font-bold tracking-widest text-[11px] uppercase mb-2 block">WHAT WE OFFER</span>
-            <h2 className="text-3xl md:text-5xl font-black tracking-tight text-text-heading mb-4">Every way to explore the backwaters</h2>
+            <h2 className="text-3xl md:text-5xl font-serif font-bold tracking-tight text-text-heading mb-4">Every way to explore the backwaters</h2>
           </div>
           
           <div className="flex flex-col md:flex-row md:overflow-x-auto gap-4 md:gap-6 pb-6 md:snap-x snap-mandatory hide-scrollbar">
@@ -114,8 +114,8 @@ export default async function Home() {
                 image: "/images/offers/sharing.jpg"
               }
             ].map((feature, idx) => (
-              <Link href={`/category/${feature.slug}`} key={idx} className="block relative w-full md:w-[380px] shrink-0 h-[360px] rounded-[32px] overflow-hidden group cursor-pointer shadow-sm hover:shadow-xl transition-all duration-300 md:snap-center">
-                {/* Background Image */}
+              <Link href={`/category/${feature.slug}`} key={idx} className="block relative w-full md:w-[320px] shrink-0 h-[460px] rounded-[24px] overflow-hidden group cursor-pointer shadow-md hover:shadow-xl transition-all duration-300 md:snap-center">
+                {/* Background Image (Full height) */}
                 <Image
                   src={feature.image}
                   alt={feature.title}
@@ -124,19 +124,35 @@ export default async function Home() {
                 />
                 
                 {/* Gradient Overlay for Text */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-0" />
+
+                {/* Bookmark Icon */}
+                <div className="absolute top-4 right-4 bg-black/20 backdrop-blur-md rounded-full p-2 z-10">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                </div>
                 
-                {/* Title and Rating on Image */}
-                <div className="absolute bottom-6 left-6 right-6 z-10">
-                  <div className="flex items-center gap-1.5 mb-2">
-                    <div className="flex gap-0.5">
-                      {[1, 2, 3, 4, 5].map((star) => (
-                        <Star key={star} className="w-3.5 h-3.5 fill-[#facc15] text-[#facc15]" />
-                      ))}
+                {/* Content Section (Overlay at bottom) */}
+                <div className="absolute bottom-0 left-0 right-0 p-5 flex flex-col justify-end text-white z-10">
+                  <div>
+                    <div className="flex justify-between items-start mb-2 gap-2">
+                      <h3 className="font-bold text-[18px] leading-tight text-white drop-shadow-md">{feature.title}</h3>
+                      <span className="font-bold text-xs bg-white/20 backdrop-blur-md px-2.5 py-1 rounded-full whitespace-nowrap">From ₹{feature.price}</span>
                     </div>
-                    <span className="text-white font-bold text-sm ml-1">{feature.rating}</span>
+                    <p className="text-white/80 text-[12px] line-clamp-2 mb-4 leading-relaxed drop-shadow-sm">
+                      {feature.desc}
+                    </p>
+                    
+                    {/* Tags */}
+                    <div className="flex gap-1.5 mb-2 overflow-x-auto hide-scrollbar">
+                      <div className="flex items-center gap-1 bg-white/20 backdrop-blur-md rounded-full px-2.5 py-1.5 text-[10px] font-semibold whitespace-nowrap border border-white/10">
+                        <Star className="w-2.5 h-2.5 fill-[#facc15] text-[#facc15]" />
+                        <span>{feature.rating}</span>
+                      </div>
+                      <div className="bg-white/20 backdrop-blur-md rounded-full px-2.5 py-1.5 text-[10px] font-semibold whitespace-nowrap border border-white/10">
+                        {feature.category}
+                      </div>
+                    </div>
                   </div>
-                  <h3 className="text-2xl font-bold text-white leading-tight drop-shadow-md">{feature.title}</h3>
                 </div>
               </Link>
             ))}
@@ -149,10 +165,10 @@ export default async function Home() {
 
 
       {/* Gallery Section */}
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-12 md:py-16 bg-white">
         <div className="container mx-auto px-4 md:px-8">
           <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-4xl md:text-5xl font-podium font-black tracking-wide text-text-heading mb-4 inline-block border-b-2 border-secondary-green pb-2">{homePage?.galleryTitle || "Glimpses of Paradise"}</h2>
+            <h2 className="text-4xl md:text-5xl font-serif font-bold tracking-wide text-text-heading mb-4 inline-block border-b-2 border-secondary-green pb-2">{homePage?.galleryTitle || "Glimpses of Paradise"}</h2>
             <p className="text-text-body max-w-2xl mx-auto mt-4">
               {homePage?.gallerySubtitle || "Take a visual journey through our luxurious houseboats and the breathtaking Alleppey backwaters."}
             </p>
@@ -185,10 +201,10 @@ export default async function Home() {
 
 
       {/* Customer Reviews */}
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-12 md:py-16 bg-white">
         <div className="container mx-auto px-4 md:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-normal tracking-wide text-text-heading mb-4 inline-block border-b-2 border-secondary-green pb-2">What Our Guests Say</h2>
+            <h2 className="text-4xl font-serif font-bold tracking-wide text-text-heading mb-4 inline-block border-b-2 border-secondary-green pb-2">What Our Guests Say</h2>
             <p className="text-text-body max-w-2xl mx-auto mt-4">
               Don't just take our word for it. Here are some reviews from our recent travelers.
             </p>
@@ -225,10 +241,10 @@ export default async function Home() {
       </section>
 
       {/* FAQs */}
-      <section className="py-16 md:py-24 bg-muted-bg">
+      <section className="py-12 md:py-16 bg-muted-bg">
         <div className="container mx-auto px-4 md:px-8 max-w-4xl">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-normal tracking-wide text-text-heading mb-4 inline-block border-b-2 border-secondary-green pb-2">Frequently Asked Questions</h2>
+            <h2 className="text-4xl font-serif font-bold tracking-wide text-text-heading mb-4 inline-block border-b-2 border-secondary-green pb-2">Frequently Asked Questions</h2>
             <p className="text-text-body mt-4">Got questions? We've got answers.</p>
           </div>
           <div className="space-y-4">
@@ -256,11 +272,11 @@ export default async function Home() {
       </section>
 
       {/* Contact Quick Section */}
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-12 md:py-16 bg-white">
         <div className="container mx-auto px-4 md:px-8 max-w-6xl">
           <div className="flex flex-col md:flex-row gap-16 items-center">
             <div className="w-full md:w-1/2">
-              <h2 className="text-4xl font-normal tracking-wide text-text-heading mb-6 border-b-2 border-secondary-green pb-2 inline-block">Need Help Planning Your Trip?</h2>
+              <h2 className="text-4xl font-serif font-bold tracking-wide text-text-heading mb-6 border-b-2 border-secondary-green pb-2 inline-block">Need Help Planning Your Trip?</h2>
               <p className="text-text-body mb-8 leading-relaxed">
                 {siteSettings?.contactDescription || "Our local experts are here to help you customize the perfect backwater experience. Reach out to us for any queries, special requests, or immediate bookings."}
               </p>

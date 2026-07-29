@@ -10,12 +10,6 @@ export default function ContactPage() {
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-secondary-green/5 blur-[80px] rounded-full pointer-events-none" />
         
         <div className="relative max-w-4xl mx-auto px-5 text-center z-10">
-          <nav aria-label="Breadcrumb" className="flex items-center justify-center gap-2 mb-6 text-xs font-medium text-text-body/80 uppercase tracking-widest">
-            <Link href="/" className="hover:text-primary-green transition-colors">Home</Link>
-            <ChevronRight className="w-3 h-3" />
-            <span className="text-primary-green font-bold">Contact</span>
-          </nav>
-          
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-normal tracking-tight text-text-heading leading-tight mb-6">
             Let's Plan Your <br className="hidden md:block" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-green to-secondary-green">Houseboat Adventure</span>

@@ -19,6 +19,11 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Determine if the current page has a dark hero section at the top
+  const hasDarkHero = pathname === '/' || pathname === '/houseboats' || pathname === '/activities';
+  // Use dark text (black) if we are not scrolled AND the page doesn't have a dark hero
+  const useDarkText = !isScrolled && !hasDarkHero;
+
   return (
     <>
       <nav className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[95%] lg:w-auto lg:min-w-[700px] max-w-5xl rounded-full p-2 flex items-center justify-between transition-all duration-300 ${isScrolled ? 'bg-[#1A1A1A]/95 backdrop-blur-md shadow-[0_20px_40px_rgba(0,0,0,0.2)]' : 'bg-transparent shadow-none'}`}>
@@ -29,8 +34,8 @@ export function Navbar() {
             <Image src="/logo.jpg" alt="Logo" width={48} height={48} className="w-full h-full object-cover grayscale scale-[1.3]" />
           </div>
           <span className="font-sans text-xl md:text-2xl tracking-wide">
-            <span className="text-white font-medium">Kerala</span>
-            <span className="bg-gradient-to-r from-[#FACC15] to-[#D97706] text-transparent bg-clip-text font-bold">houseboats</span>
+            <span className={`${useDarkText ? 'text-black' : 'text-white'} font-medium transition-colors`}>Kerala</span>
+            <span className={`${useDarkText ? 'text-black' : 'text-white'} font-bold transition-colors`}>houseboats</span>
           </span>
         </Link>
 
@@ -48,8 +53,8 @@ export function Navbar() {
               href={link.path} 
               className={`text-sm font-medium transition-colors duration-300 ${
                 pathname === link.path 
-                  ? 'text-white' 
-                  : 'text-white/60 hover:text-white'
+                  ? (useDarkText ? 'text-black font-bold' : 'text-white font-bold') 
+                  : (useDarkText ? 'text-black/60 hover:text-black' : 'text-white/60 hover:text-white')
               }`}
             >
               {link.name}
@@ -59,12 +64,12 @@ export function Navbar() {
 
         {/* Right: Contact Button (Desktop) & Mobile Toggle */}
         <div className="flex items-center gap-2">
-          <Link href="/contact" className="hidden lg:flex items-center justify-center bg-white text-[#1A1A1A] px-6 py-3 rounded-full text-[13px] font-bold hover:bg-gray-100 transition-colors">
+          <Link href="/contact" className={`hidden lg:flex items-center justify-center px-6 py-3 rounded-full text-[13px] font-bold transition-colors ${useDarkText ? 'bg-[#1A1A1A] text-white hover:bg-gray-800' : 'bg-white text-[#1A1A1A] hover:bg-gray-100'}`}>
             Contact
           </Link>
           
           <button 
-            className="lg:hidden bg-white/10 text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors mr-1"
+            className={`lg:hidden w-12 h-12 rounded-full flex items-center justify-center transition-colors mr-1 ${useDarkText ? 'bg-black/10 text-black hover:bg-black/20' : 'bg-white/10 text-white hover:bg-white/20'}`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle Menu"
           >
