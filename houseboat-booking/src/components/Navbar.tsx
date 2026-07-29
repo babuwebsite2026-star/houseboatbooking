@@ -28,9 +28,9 @@ export function Navbar() {
           <div className="bg-white w-12 h-12 rounded-full flex items-center justify-center overflow-hidden">
             <Image src="/logo.jpg" alt="Logo" width={48} height={48} className="w-full h-full object-cover grayscale scale-[1.3]" />
           </div>
-          <span className="font-kaushan text-2xl md:text-3xl font-bold tracking-tight">
-            <span className="text-white">Kerala</span>
-            <span className="text-[#7FA85A]">Houseboats</span>
+          <span className="font-sans text-xl md:text-2xl tracking-wide">
+            <span className="text-white font-medium">Kerala</span>
+            <span className="bg-gradient-to-r from-[#FACC15] to-[#D97706] text-transparent bg-clip-text font-bold">houseboats</span>
           </span>
         </Link>
 
