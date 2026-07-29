@@ -25,15 +25,11 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
 
 
       <div className="container mx-auto px-4 md:px-8">
-        <div className="mb-12 flex justify-between items-center">
-          <h2 className="text-3xl font-bold text-ocean-blue">Available Boats in {categoryTitle}</h2>
-          <p className="text-gray-500 font-medium">{houseboats.length} houseboats found</p>
-        </div>
-
+        <div className="mb-8"></div>
         {houseboats.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {houseboats.map((boat: any) => (
-              <div key={boat._id} className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300 flex flex-col border border-gray-100 group">
+              <Link href={`/houseboats/${boat.id}`} key={boat._id} className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300 flex flex-col border border-gray-100 group cursor-pointer block">
                 <div className="relative h-64 overflow-hidden">
                   {boat.image && (
                     <Image
@@ -70,14 +66,9 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
                       <p className="text-xs text-gray-500 font-medium">Starting from</p>
                       <p className="text-lg font-bold text-ocean-blue">₹{boat.startingPrice.toLocaleString('en-IN')} <span className="text-xs font-normal text-gray-500">/ night</span></p>
                     </div>
-                    <Link href={`/houseboats/${boat.id}`}>
-                      <Button className="bg-ocean-blue hover:bg-ocean-blue/90 text-white font-bold px-6 py-2 rounded-lg">
-                        View Details
-                      </Button>
-                    </Link>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         ) : (
