@@ -48,7 +48,7 @@ export default function RootLayout({
         
         {/* Global Animated WhatsApp Button */}
         <a 
-          href="https://wa.me/919846046322" 
+          href="https://wa.me/919846046322?text=Hi%2C%20I'm%20interested%20in%20booking%20a%20houseboat%20in%20Alleppey." 
           target="_blank" 
           rel="noopener noreferrer" 
           className="fixed bottom-6 right-6 z-50 flex items-center justify-center group"

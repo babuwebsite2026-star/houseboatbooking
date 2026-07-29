@@ -12,6 +12,7 @@ interface BookingWidgetProps {
     overnightPrice?: number;
     overnightTime?: string;
     rating?: number;
+    bedrooms?: number;
   };
   whatsappNumber?: string;
 }
@@ -41,6 +42,7 @@ export function BookingWidget({ boat, whatsappNumber = "919846046322" }: Booking
 Details:
 - Date: ${date || "Not selected"}
 - Type: ${cruiseType === 'day' ? 'Day Cruise' : 'Overnight Stay'}
+- Bedrooms: ${boat.bedrooms || "Not specified"}
 - Guests: ${guests}
 - Estimated Price: ${formatPrice(totalPrice)}`;
     
