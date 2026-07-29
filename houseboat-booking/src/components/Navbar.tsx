@@ -18,15 +18,26 @@ export function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
   // Determine if the current page has a dark hero section at the top
-  const hasDarkHero = pathname === '/' || pathname === '/houseboats' || pathname === '/activities';
-  // Use dark text (black) if we are not scrolled AND the page doesn't have a dark hero
-  const useDarkText = !isScrolled && !hasDarkHero;
+  const hasDarkHero = pathname === '/' || pathname === '/houseboats' || pathname === '/activities' || pathname === '/about';
+  
+  // Text should be dark if we are on a page without a dark hero. 
+  // (Even when scrolled, pages without a dark hero will have a light navbar)
+  const useDarkText = !hasDarkHero;
+
+  // Background styling based on scroll and theme
+  let navBackgroundClass = 'bg-transparent shadow-none';
+  if (isScrolled) {
+    if (hasDarkHero) {
+      navBackgroundClass = 'bg-[#1A1A1A]/95 backdrop-blur-md shadow-[0_20px_40px_rgba(0,0,0,0.2)]';
+    } else {
+      navBackgroundClass = 'bg-white/95 backdrop-blur-md shadow-[0_10px_30px_rgba(0,0,0,0.08)]';
+    }
+  }
 
   return (
     <>
-      <nav className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[95%] lg:w-auto lg:min-w-[700px] max-w-5xl rounded-full p-2 flex items-center justify-between transition-all duration-300 ${isScrolled ? 'bg-[#1A1A1A]/95 backdrop-blur-md shadow-[0_20px_40px_rgba(0,0,0,0.2)]' : 'bg-transparent shadow-none'}`}>
+      <nav className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[95%] lg:w-auto lg:min-w-[700px] max-w-5xl rounded-full p-2 flex items-center justify-between transition-all duration-300 ${navBackgroundClass}`}>
         
         {/* Left: Logo */}
         <Link href="/" className="flex items-center gap-3 shrink-0 hover:scale-105 transition-transform group" aria-label="Home">
