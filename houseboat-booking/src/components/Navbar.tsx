@@ -9,24 +9,34 @@ import { Menu } from "lucide-react";
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
+    setMounted(true);
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
   // Normalize pathname to handle any potential production quirks (trailing slashes, null, etc)
-  const currentPath = pathname ? (pathname.endsWith('/') && pathname.length > 1 ? pathname.slice(0, -1) : pathname) : '/';
+  const currentPath = pathname ? pathname.toLowerCase() : '/';
   
   // Determine if the current page has a dark hero section at the top
-  const hasDarkHero = currentPath === '/' || currentPath === '/houseboats' || currentPath === '/activities' || currentPath === '/about';
+  const hasDarkHero = 
+    currentPath === '/' || 
+    currentPath === '/index' || 
+    currentPath === '' || 
+    currentPath.includes('/houseboats') || 
+    currentPath.includes('/activities') || 
+    currentPath.includes('/about');
+
   
-  // Text should be dark if we are on a page without a dark hero. 
-  // (Even when scrolled, pages without a dark hero will have a light navbar)
-  const useDarkText = !hasDarkHero;
+  // Default to white text on the server (which matches the homepage and most pages)
+  // On the client, accurately calculate based on the pathname
+  const useDarkText = mounted ? !hasDarkHero : false;
 
   // Background styling based on scroll and theme
   let navBackgroundClass = 'bg-transparent shadow-none';
