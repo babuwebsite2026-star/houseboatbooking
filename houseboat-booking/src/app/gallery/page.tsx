@@ -1,15 +1,26 @@
 import Image from "next/image";
 import { client } from "@/sanity/lib/client";
-import { ALL_HOUSEBOATS_QUERY } from "@/sanity/lib/queries";
+import { ALL_HOUSEBOATS_QUERY, HOME_PAGE_QUERY } from "@/sanity/lib/queries";
 import { urlFor } from "@/sanity/lib/image";
 
 export const revalidate = 30;
 
 export default async function GalleryPage() {
-  const houseboats = await client.fetch(ALL_HOUSEBOATS_QUERY);
+  const [houseboats, homePage] = await Promise.all([
+    client.fetch(ALL_HOUSEBOATS_QUERY),
+    client.fetch(HOME_PAGE_QUERY)
+  ]);
 
   // Extract all main images and gallery images from all houseboats
   const images: any[] = [];
+  
+  // Add Home Page Gallery Images first
+  if (homePage?.galleryImages && Array.isArray(homePage.galleryImages)) {
+    homePage.galleryImages.forEach((img: any, idx: number) => {
+      images.push({ src: img, alt: `Home Page Gallery Image ${idx + 1}` });
+    });
+  }
+
   houseboats.forEach((boat: any) => {
     const categoryStr = boat.category ? boat.category.charAt(0).toUpperCase() + boat.category.slice(1) : '';
     const boatName = boat.bedrooms && categoryStr
