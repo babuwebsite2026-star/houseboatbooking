@@ -3,13 +3,24 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Filter, Search, Users, BedDouble, SlidersHorizontal } from "lucide-react";
 import { client } from "@/sanity/lib/client";
-import { ALL_HOUSEBOATS_QUERY } from "@/sanity/lib/queries";
+import { PAGINATED_HOUSEBOATS_QUERY, HOUSEBOATS_COUNT_QUERY } from "@/sanity/lib/queries";
 import { urlFor } from "@/sanity/lib/image";
 
 export const revalidate = 30;
 
-export default async function HouseboatsListing() {
-  const houseboats = await client.fetch(ALL_HOUSEBOATS_QUERY);
+export default async function HouseboatsListing({ searchParams }: { searchParams: { page?: string } }) {
+  const page = parseInt(searchParams.page || "1", 10);
+  const pageSize = 6;
+  const start = (page - 1) * pageSize;
+  const end = start + pageSize;
+
+  const [houseboats, totalHouseboats] = await Promise.all([
+    client.fetch(PAGINATED_HOUSEBOATS_QUERY, { start, end }),
+    client.fetch(HOUSEBOATS_COUNT_QUERY)
+  ]);
+  
+  const totalPages = Math.ceil(totalHouseboats / pageSize);
+
   return (
     <div className="bg-muted-bg min-h-screen">
       
@@ -107,25 +118,51 @@ export default async function HouseboatsListing() {
               ))}
             </div>
 
-            {/* Pagination (UI only) */}
-            <div className="flex justify-center items-center gap-2 mt-16 mb-8">
-              <Button variant="outline" disabled className="w-10 h-10 p-0 border-light-green text-text-heading/50 rounded-xl">
-                &lt;
-              </Button>
-              <Button className="w-10 h-10 p-0 bg-primary-green text-white hover:bg-secondary-green font-bold rounded-xl shadow-md">
-                1
-              </Button>
-              <Button variant="outline" className="w-10 h-10 p-0 border-light-green text-primary-green hover:bg-light-green hover:border-primary-green font-bold rounded-xl transition-colors">
-                2
-              </Button>
-              <Button variant="outline" className="w-10 h-10 p-0 border-light-green text-primary-green hover:bg-light-green hover:border-primary-green font-bold rounded-xl transition-colors">
-                3
-              </Button>
-              <span className="text-text-body/60 mx-1 font-bold">...</span>
-              <Button variant="outline" className="w-10 h-10 p-0 border-light-green text-primary-green hover:bg-light-green hover:border-primary-green font-bold rounded-xl transition-colors">
-                &gt;
-              </Button>
-            </div>
+            {/* Pagination */}
+            {totalPages > 1 && (
+              <div className="flex justify-center items-center gap-2 mt-16 mb-8">
+                {page > 1 ? (
+                  <Link href={`/houseboats?page=${page - 1}`}>
+                    <Button variant="outline" className="w-10 h-10 p-0 border-light-green text-primary-green hover:bg-light-green hover:border-primary-green font-bold rounded-xl transition-colors">
+                      &lt;
+                    </Button>
+                  </Link>
+                ) : (
+                  <Button variant="outline" disabled className="w-10 h-10 p-0 border-light-green text-text-heading/50 rounded-xl">
+                    &lt;
+                  </Button>
+                )}
+                
+                {Array.from({ length: totalPages }).map((_, i) => {
+                  const pageNum = i + 1;
+                  // Only show current, first, last, and immediate neighbors
+                  if (pageNum === 1 || pageNum === totalPages || Math.abs(pageNum - page) <= 1) {
+                    return (
+                      <Link key={pageNum} href={`/houseboats?page=${pageNum}`}>
+                        <Button className={`w-10 h-10 p-0 font-bold rounded-xl ${page === pageNum ? 'bg-primary-green text-white hover:bg-secondary-green shadow-md' : 'bg-transparent border-2 border-light-green text-primary-green hover:bg-light-green hover:border-primary-green transition-colors'}`}>
+                          {pageNum}
+                        </Button>
+                      </Link>
+                    );
+                  } else if (pageNum === page - 2 || pageNum === page + 2) {
+                    return <span key={pageNum} className="text-text-body/60 mx-1 font-bold">...</span>;
+                  }
+                  return null;
+                })}
+
+                {page < totalPages ? (
+                  <Link href={`/houseboats?page=${page + 1}`}>
+                    <Button variant="outline" className="w-10 h-10 p-0 border-light-green text-primary-green hover:bg-light-green hover:border-primary-green font-bold rounded-xl transition-colors">
+                      &gt;
+                    </Button>
+                  </Link>
+                ) : (
+                  <Button variant="outline" disabled className="w-10 h-10 p-0 border-light-green text-text-heading/50 rounded-xl">
+                    &gt;
+                  </Button>
+                )}
+              </div>
+            )}
             
       </div>
     </div>

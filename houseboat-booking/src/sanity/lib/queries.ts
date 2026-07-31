@@ -18,6 +18,21 @@ export const ALL_HOUSEBOATS_QUERY = groq`*[_type == "houseboat"] | order(startin
   itinerary
 }`
 
+export const PAGINATED_HOUSEBOATS_QUERY = groq`*[_type == "houseboat"] | order(startingPrice asc) [$start...$end] {
+  _id,
+  name,
+  "id": slug.current,
+  category,
+  startingPrice,
+  guestCapacity,
+  bedrooms,
+  rating,
+  image,
+  description
+}`
+
+export const HOUSEBOATS_COUNT_QUERY = groq`count(*[_type == "houseboat"])`
+
 export const HOUSEBOATS_BY_CATEGORY_QUERY = groq`*[_type == "houseboat" && category == $category] | order(startingPrice asc) {
   _id,
   name,
