@@ -29,7 +29,7 @@ export default async function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative h-[82vh] md:h-screen flex items-center justify-center pt-20 overflow-hidden">
+      <section className="relative h-[82vh] md:h-screen flex items-center justify-center pt-20 overflow-hidden rounded-[40px] md:rounded-[80px] shadow-2xl m-2 md:m-4">
         <div className="absolute inset-0 z-0">
           <video
             autoPlay
@@ -50,19 +50,43 @@ export default async function Home() {
               className="font-podium text-5xl sm:text-7xl md:text-9xl font-normal tracking-wide mb-4 text-white drop-shadow-2xl uppercase break-words" 
               dangerouslySetInnerHTML={{ __html: homePage?.heroTitle?.replace(/class="[^"]*"/, 'class="font-normal"') || 'Experience the Magic of <br class="hidden md:block" />Kerala Backwaters' }}
             />
-            <p className="text-lg md:text-2xl text-white/90 mb-12 max-w-2xl mx-auto px-2 drop-shadow-lg font-medium">
+            <p className="text-lg md:text-2xl text-white/90 mb-10 max-w-2xl mx-auto px-2 drop-shadow-lg font-medium">
               {homePage?.heroSubtitle || "Book premium and luxury houseboats for an unforgettable journey through the serene waters of Alleppey."}
             </p>
 
+          </div>
+        </div>
 
+        {/* Call to Book Floating Button */}
+        <div className="absolute bottom-4 left-4 md:bottom-12 md:left-12 z-20 origin-bottom-left">
+          <a href={`tel:${siteSettings?.phoneNumber || '+919846046322'}`}>
+            <Button className="bg-[#25D366] hover:bg-[#128C7E] text-white font-bold text-sm md:text-lg px-5 py-5 md:px-6 rounded-full shadow-lg transition-all hover:scale-105 flex items-center gap-2 border-none">
+              <PhoneCall className="w-4 h-4 md:w-5 md:h-5" />
+              Call to Book
+            </Button>
+          </a>
+        </div>
+
+        {/* Google Rating Floating Badge */}
+        <div className="absolute bottom-4 right-4 md:bottom-12 md:right-12 z-20 flex items-center gap-3 drop-shadow-lg scale-90 md:scale-100 origin-bottom-right">
+          <GoogleLogo className="w-7 h-7 md:w-8 md:h-8" />
+          <div className="flex flex-col">
+            <div className="flex items-center gap-1">
+              <span className="text-white font-bold text-xl md:text-2xl leading-none">4.8</span>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 md:w-6 md:h-6 text-white -mt-0.5">
+                <path fillRule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clipRule="evenodd" />
+              </svg>
+            </div>
+            <p className="text-white/90 text-[11px] md:text-sm font-medium uppercase tracking-widest mt-0.5">Google Rating</p>
           </div>
         </div>
       </section>
+
       {/* What We Offer */}
       <section className="py-12 md:py-16 bg-muted-bg">
         <div className="container mx-auto px-4 md:px-8">
           <div className="text-left mb-12">
-            <span className="text-primary-green font-bold tracking-widest text-[11px] uppercase mb-2 block">WHAT WE OFFER</span>
+            <span className="text-primary-green font-bold tracking-widest text-[11px] uppercase mb-2 block">CURATED EXPERIENCES</span>
             <h2 className="text-3xl md:text-5xl font-serif font-bold tracking-tight text-text-heading mb-4">Every way to explore the backwaters</h2>
           </div>
           

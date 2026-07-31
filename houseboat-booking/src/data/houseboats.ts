@@ -1,6 +1,5 @@
 export interface Houseboat {
   id: string;
-  name: string;
   category: 'Luxury' | 'Premium' | 'Deluxe' | 'Shared';
   bedrooms: number;
   guestCapacity: number;
@@ -15,7 +14,6 @@ export interface Houseboat {
 export const mockHouseboats: Houseboat[] = [
   {
     id: 'hb-001',
-    name: 'Ocean Pearl Suite',
     category: 'Luxury',
     bedrooms: 2,
     guestCapacity: 6,
@@ -28,7 +26,6 @@ export const mockHouseboats: Houseboat[] = [
   },
   {
     id: 'hb-002',
-    name: 'Emerald Glide',
     category: 'Premium',
     bedrooms: 3,
     guestCapacity: 8,
@@ -41,7 +38,6 @@ export const mockHouseboats: Houseboat[] = [
   },
   {
     id: 'hb-003',
-    name: 'Backwater Breeze',
     category: 'Deluxe',
     bedrooms: 1,
     guestCapacity: 3,
@@ -54,7 +50,6 @@ export const mockHouseboats: Houseboat[] = [
   },
   {
     id: 'hb-004',
-    name: 'Royal Heritage',
     category: 'Luxury',
     bedrooms: 4,
     guestCapacity: 12,

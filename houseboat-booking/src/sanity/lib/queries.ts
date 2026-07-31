@@ -37,6 +37,25 @@ export const HOUSEBOATS_BY_CATEGORY_QUERY = groq`*[_type == "houseboat" && categ
   itinerary
 }`
 
+export const PRIVATE_HOUSEBOATS_QUERY = groq`*[_type == "houseboat" && isPrivate == true] | order(startingPrice asc) {
+  _id,
+  "id": slug.current,
+  category,
+  description,
+  startingPrice,
+  dayCruisePrice,
+  dayCruiseTime,
+  overnightPrice,
+  overnightTime,
+  guestCapacity,
+  bedrooms,
+  rating,
+  image,
+  amenities,
+  itinerary,
+  isPrivate
+}`
+
 export const SINGLE_HOUSEBOAT_QUERY = groq`*[_type == "houseboat" && slug.current == $slug][0] {
   _id,
   name,

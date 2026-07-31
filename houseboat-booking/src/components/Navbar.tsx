@@ -52,12 +52,9 @@ export function Navbar() {
     <>
       <nav className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[95%] lg:w-auto lg:min-w-[700px] max-w-5xl rounded-full p-2 flex items-center justify-between transition-all duration-300 ${navBackgroundClass}`}>
         
-        {/* Left: Logo */}
+        {/* Left: Brand Name */}
         <Link href="/" className="flex items-center gap-3 shrink-0 hover:scale-105 transition-transform group" aria-label="Home">
-          <div className="bg-white w-12 h-12 rounded-full flex items-center justify-center overflow-hidden">
-            <Image src="/logo.jpg" alt="Logo" width={48} height={48} className="w-full h-full object-cover grayscale scale-[1.3]" />
-          </div>
-          <span className="font-sans text-xl md:text-2xl tracking-wide">
+          <span className="font-sans text-lg md:text-xl tracking-wide ml-4">
             <span className={`${useDarkText ? 'text-black' : 'text-white'} font-medium transition-colors`}>Kerala</span>
             <span className={`${useDarkText ? 'text-black' : 'text-white'} font-bold transition-colors`}>houseboats</span>
           </span>

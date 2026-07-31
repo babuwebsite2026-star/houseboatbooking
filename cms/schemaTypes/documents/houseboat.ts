@@ -6,17 +6,10 @@ export default defineType({
   type: 'document',
   fields: [
     defineField({
-      name: 'name',
-      title: 'Name',
-      type: 'string',
-      validation: (Rule) => Rule.required(),
-    }),
-    defineField({
       name: 'slug',
       title: 'Slug',
       type: 'slug',
       options: {
-        source: 'name',
         maxLength: 96,
       },
       validation: (Rule) => Rule.required(),
@@ -34,6 +27,13 @@ export default defineType({
         ],
       },
       validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'isPrivate',
+      title: 'Private',
+      type: 'boolean',
+      description: 'Check if this is a private houseboat',
+      initialValue: false,
     }),
     defineField({
       name: 'description',
@@ -126,9 +126,19 @@ export default defineType({
   ],
   preview: {
     select: {
-      title: 'name',
-      subtitle: 'category',
+      category: 'category',
+      bedrooms: 'bedrooms',
       media: 'image',
     },
+    prepare(selection) {
+      const { category, bedrooms, media } = selection
+      const title = category && bedrooms 
+        ? `${bedrooms} Bedroom ${category.charAt(0).toUpperCase() + category.slice(1)} Houseboat`
+        : 'Houseboat'
+      return {
+        title: title,
+        media: media,
+      }
+    }
   },
 })

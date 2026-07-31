@@ -43,7 +43,8 @@ export default async function HouseboatsListing() {
             { name: 'Luxury', path: '/category/luxury' },
             { name: 'Premium', path: '/category/premium' },
             { name: 'Deluxe', path: '/category/deluxe' },
-            { name: 'Shared', path: '/category/shared' }
+            { name: 'Shared', path: '/category/shared' },
+            { name: 'Private', path: '/category/private' }
           ].map((cat) => (
             <Link 
               key={cat.name} 
@@ -63,7 +64,7 @@ export default async function HouseboatsListing() {
                     {boat.image && (
                       <Image
                         src={urlFor(boat.image).url()}
-                        alt={boat.name}
+                        alt={`${boat.bedrooms || ''} Bedroom ${boat.category || ''} Houseboat`}
                         fill
                         className="object-cover group-hover:scale-110 transition-transform duration-700"
                       />
@@ -72,7 +73,10 @@ export default async function HouseboatsListing() {
                   
                   <div className="p-6 flex flex-col flex-1">
                     <div className="flex justify-between items-start mb-2">
-                      <h3 className="text-xl font-bold text-text-heading line-clamp-1 group-hover:text-primary-green transition-colors">{boat.name}</h3>
+                      <h3 className="text-xl font-bold text-text-heading line-clamp-1 group-hover:text-primary-green transition-colors capitalize">
+                        {boat.bedrooms ? `${boat.bedrooms} Bedroom ` : ''} 
+                        {boat.category ? `${boat.category} Houseboat` : 'Houseboat'}
+                      </h3>
                       <div className="flex items-center gap-1 bg-light-green text-black px-2 py-1 rounded text-sm font-semibold shrink-0">
                         <span className="text-[#facc15]">★</span> {boat.rating}
                       </div>

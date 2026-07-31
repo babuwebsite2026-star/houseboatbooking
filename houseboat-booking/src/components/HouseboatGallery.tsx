@@ -3,13 +3,20 @@
 import { useState } from "react";
 import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
-import { Star, MapPin } from "lucide-react";
+import { Star, MapPin, X } from "lucide-react";
 
 interface HouseboatGalleryProps {
   boat: any;
 }
 
 export function HouseboatGallery({ boat }: HouseboatGalleryProps) {
+  const categoryStr = boat.category ? boat.category.charAt(0).toUpperCase() + boat.category.slice(1) : '';
+  const boatName = boat.bedrooms && categoryStr
+    ? `${boat.bedrooms} Bedroom ${categoryStr} Houseboat`
+    : 'Houseboat';
+
+  const [showAll, setShowAll] = useState(false);
+
   // Combine the main image with the gallery images (if any)
   const allImages = boat.image ? [boat.image] : [];
   if (boat.gallery && Array.isArray(boat.gallery)) {
@@ -45,12 +52,13 @@ export function HouseboatGallery({ boat }: HouseboatGalleryProps) {
   // Take the first 5 images for the grid
   const mainImage = displayImages[0];
   const subImages = displayImages.slice(1, 5);
+  const remainingCount = Math.max(0, displayImages.length - 5);
 
   return (
     <div className="container mx-auto px-4 md:px-8 pt-32 pb-8">
       {/* Title and Info */}
       <div className="mb-6">
-        <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-text-heading mb-4">{boat.name}</h1>
+        <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-text-heading mb-4">{boatName}</h1>
         <div className="flex flex-wrap items-center gap-4 text-sm font-medium text-text-body">
           <span className="flex items-center gap-1.5"><Star className="h-4 w-4 text-secondary-green fill-secondary-green" /> {boat.rating}</span>
           <span className="flex items-center gap-1.5"><MapPin className="h-4 w-4 text-primary-green" /> Alleppey Backwaters</span>
@@ -61,11 +69,14 @@ export function HouseboatGallery({ boat }: HouseboatGalleryProps) {
       {/* Image Grid */}
       <div className="flex flex-col md:flex-row gap-2 md:gap-4 h-[60vh] md:h-[60vh]">
         {/* Main Image */}
-        <div className="w-full md:w-1/2 relative h-1/2 md:h-full rounded-t-2xl md:rounded-tr-none md:rounded-l-2xl overflow-hidden group cursor-pointer">
+        <div 
+          onClick={() => setShowAll(true)}
+          className="w-full md:w-1/2 relative h-1/2 md:h-full rounded-t-2xl md:rounded-tr-none md:rounded-l-2xl overflow-hidden group cursor-pointer"
+        >
           {mainImage && (
             <Image
               src={getImageSrc(mainImage)}
-              alt={`${boat.name} main image`}
+              alt={`${boatName} main image`}
               fill
               className="object-cover group-hover:scale-105 transition-transform duration-700"
               priority
@@ -75,28 +86,68 @@ export function HouseboatGallery({ boat }: HouseboatGalleryProps) {
         
         {/* Sub Images (2x2 Grid) */}
         <div className="grid w-full md:w-1/2 grid-cols-2 grid-rows-2 gap-2 md:gap-4 h-1/2 md:h-full">
-          {subImages.map((img: any, idx: number) => (
-            <div 
-              key={idx} 
-              className={`relative h-full overflow-hidden group cursor-pointer 
-                ${idx === 0 ? 'md:rounded-none' : ''} 
-                ${idx === 1 ? 'rounded-tr-2xl md:rounded-tr-2xl' : ''} 
-                ${idx === 2 ? 'rounded-bl-2xl md:rounded-none' : ''}
-                ${idx === 3 ? 'rounded-br-2xl md:rounded-br-2xl' : ''}`
-              }
-            >
-              {img && (
-                <Image
-                  src={getImageSrc(img)}
-                  alt={`${boat.name} sub image ${idx + 1}`}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-700"
-                />
-              )}
-            </div>
-          ))}
+          {subImages.map((img: any, idx: number) => {
+            const isLast = idx === 3;
+            const hasMore = remainingCount > 0;
+            return (
+              <div 
+                key={idx} 
+                onClick={() => setShowAll(true)}
+                className={`relative h-full overflow-hidden group cursor-pointer 
+                  ${idx === 0 ? 'md:rounded-none' : ''} 
+                  ${idx === 1 ? 'rounded-tr-2xl md:rounded-tr-2xl' : ''} 
+                  ${idx === 2 ? 'rounded-bl-2xl md:rounded-none' : ''}
+                  ${idx === 3 ? 'rounded-br-2xl md:rounded-br-2xl' : ''}`
+                }
+              >
+                {img && (
+                  <>
+                    <Image
+                      src={getImageSrc(img)}
+                      alt={`${boatName} sub image ${idx + 1}`}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                    {isLast && hasMore && (
+                      <div className="absolute inset-0 bg-black/50 flex items-center justify-center group-hover:bg-black/40 transition-colors">
+                        <span className="text-white text-xl md:text-2xl font-bold text-center drop-shadow-md">+{remainingCount} photos</span>
+                      </div>
+                    )}
+                  </>
+                )}
+              </div>
+            );
+          })}
         </div>
       </div>
+
+      {/* Lightbox / All Images Modal */}
+      {showAll && (
+        <div className="fixed inset-0 z-50 bg-white overflow-y-auto">
+          <div className="sticky top-0 z-10 bg-white/90 backdrop-blur-md p-4 flex justify-between items-center border-b">
+            <h2 className="text-xl font-bold text-gray-900 ml-4">All Photos</h2>
+            <button 
+              onClick={() => setShowAll(false)}
+              className="p-2 rounded-full hover:bg-gray-200 transition-colors"
+            >
+              <X className="w-6 h-6 text-gray-900" />
+            </button>
+          </div>
+          <div className="p-4 md:p-8 columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
+            {displayImages.map((img: any, idx: number) => (
+              <div key={idx} className="break-inside-avoid relative w-full h-auto mb-4 rounded-xl overflow-hidden shadow-sm border border-gray-100">
+                <Image
+                  src={getImageSrc(img)}
+                  alt={`${boatName} image ${idx + 1}`}
+                  width={800}
+                  height={600}
+                  className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 }

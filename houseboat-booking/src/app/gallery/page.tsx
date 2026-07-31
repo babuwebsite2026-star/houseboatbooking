@@ -11,12 +11,17 @@ export default async function GalleryPage() {
   // Extract all main images and gallery images from all houseboats
   const images: any[] = [];
   houseboats.forEach((boat: any) => {
+    const categoryStr = boat.category ? boat.category.charAt(0).toUpperCase() + boat.category.slice(1) : '';
+    const boatName = boat.bedrooms && categoryStr
+      ? `${boat.bedrooms} Bedroom ${categoryStr} Houseboat`
+      : 'Houseboat';
+
     if (boat.image) {
-      images.push({ src: boat.image, alt: boat.name });
+      images.push({ src: boat.image, alt: boatName });
     }
     if (boat.gallery && Array.isArray(boat.gallery)) {
       boat.gallery.forEach((img: any, idx: number) => {
-        images.push({ src: img, alt: `${boat.name} gallery image ${idx + 1}` });
+        images.push({ src: img, alt: `${boatName} gallery image ${idx + 1}` });
       });
     }
   });
