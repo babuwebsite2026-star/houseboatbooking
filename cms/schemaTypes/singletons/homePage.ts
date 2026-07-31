@@ -39,10 +39,10 @@ export default defineType({
     }),
     defineField({
       name: 'galleryImages',
-      title: 'Gallery Images (Exactly 4)',
+      title: 'Gallery Images',
       type: 'array',
       of: [{ type: 'image', options: { hotspot: true } }],
-      validation: (Rule) => Rule.required().min(4).max(4),
+      validation: (Rule) => Rule.required(),
     }),
   ],
 })

@@ -198,19 +198,17 @@ export default async function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-            <div className="col-span-2 row-span-2 relative h-64 md:h-full rounded-2xl overflow-hidden group">
-              <Image src={homePage?.galleryImages?.[0] ? urlFor(homePage.galleryImages[0]).url() : "https://images.unsplash.com/photo-1593693397690-3628073262ce?auto=format&fit=crop&w=1920&q=80"} alt="Gallery 1" fill className="object-cover group-hover:scale-110 transition-transform duration-700" />
-            </div>
-            <div className="relative h-48 md:h-64 rounded-2xl overflow-hidden group">
-              <Image src={homePage?.galleryImages?.[1] ? urlFor(homePage.galleryImages[1]).url() : "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80"} alt="Gallery 2" fill className="object-cover group-hover:scale-110 transition-transform duration-700" />
-            </div>
-            <div className="relative h-48 md:h-64 rounded-2xl overflow-hidden group">
-              <Image src={homePage?.galleryImages?.[2] ? urlFor(homePage.galleryImages[2]).url() : "https://images.unsplash.com/photo-1596701062351-8c2c14d1fdd0?auto=format&fit=crop&w=800&q=80"} alt="Gallery 3" fill className="object-cover group-hover:scale-110 transition-transform duration-700" />
-            </div>
-            <div className="col-span-2 relative h-48 md:h-64 rounded-2xl overflow-hidden group">
-              <Image src={homePage?.galleryImages?.[3] ? urlFor(homePage.galleryImages[3]).url() : "https://images.unsplash.com/photo-1629851416480-16b7f9d85420?auto=format&fit=crop&w=800&q=80"} alt="Gallery 4" fill className="object-cover group-hover:scale-110 transition-transform duration-700" />
-            </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+            {homePage?.galleryImages?.map((image: any, index: number) => (
+              <div key={index} className={`relative rounded-2xl overflow-hidden group ${index === 0 ? 'col-span-2 row-span-2 h-64 md:h-full' : 'h-48 md:h-64'}`}>
+                <Image 
+                  src={urlFor(image).url()} 
+                  alt={`Gallery ${index + 1}`} 
+                  fill 
+                  className="object-cover group-hover:scale-110 transition-transform duration-700" 
+                />
+              </div>
+            ))}
           </div>
           
           <div className="mt-12 text-center">
