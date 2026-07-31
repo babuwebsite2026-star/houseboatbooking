@@ -199,7 +199,7 @@ export default async function Home() {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
-            {homePage?.galleryImages?.map((image: any, index: number) => (
+            {homePage?.galleryImages?.slice(0, 6).map((image: any, index: number) => (
               <div key={index} className={`relative rounded-2xl overflow-hidden group ${index === 0 ? 'col-span-2 row-span-2 h-64 md:h-full' : 'h-48 md:h-64'}`}>
                 <Image 
                   src={urlFor(image).url()} 
