@@ -93,15 +93,6 @@ export default async function Home() {
           <div className="flex flex-col md:flex-row md:overflow-x-auto gap-4 md:gap-6 pb-6 md:snap-x snap-mandatory hide-scrollbar">
             {[
               { 
-                category: "EXCLUSIVE",
-                title: "Private Houseboat", 
-                slug: "private",
-                desc: "Rent an entire boat exclusively for your group. Complete privacy and dedicated staff.", 
-                price: "9000",
-                rating: "4.8",
-                image: "/images/offers/private.jpg"
-              },
-              { 
                 category: "5-STAR",
                 title: "Luxury Houseboat", 
                 slug: "luxury",
@@ -136,6 +127,15 @@ export default async function Home() {
                 price: "5999",
                 rating: "4.8",
                 image: "/images/offers/sharing.jpg"
+              },
+              { 
+                category: "EXCLUSIVE",
+                title: "Private Houseboat", 
+                slug: "private",
+                desc: "Rent an entire boat exclusively for your group. Complete privacy and dedicated staff.", 
+                price: "9000",
+                rating: "4.8",
+                image: "/images/offers/private.jpg"
               }
             ].map((feature, idx) => (
               <Link href={`/category/${feature.slug}`} key={idx} className="block relative w-full md:w-[320px] shrink-0 h-[460px] rounded-[24px] overflow-hidden group cursor-pointer shadow-md hover:shadow-xl transition-all duration-300 md:snap-center">
