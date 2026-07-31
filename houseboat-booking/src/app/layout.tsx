@@ -28,6 +28,9 @@ const kaushan = Kaushan_Script({
 export const metadata: Metadata = {
   title: "Kerala Houseboats | Brahmari Holidays and Backwater Cruises",
   description: "Book premium and luxury houseboats in Kerala with Brahmari Holidays and Backwater Cruises.",
+  verification: {
+    google: "f4809e6a03327d34",
+  },
 };
 
 export default function RootLayout({
