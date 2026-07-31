@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
@@ -5,6 +6,11 @@ import { Calendar, Search, Users, Crown, Star, ShieldCheck, BedDouble, Coffee, P
 import { client } from "@/sanity/lib/client";
 import { FEATURED_HOUSEBOATS_QUERY, HOME_PAGE_QUERY, SITE_SETTINGS_QUERY } from "@/sanity/lib/queries";
 import { urlFor } from "@/sanity/lib/image";
+
+export const metadata: Metadata = {
+  title: "Book Houseboat Alleppey Online | Brahmari Backwater Cruises",
+  description: "Book the best luxury, premium, and deluxe Kerala houseboat packages online. Enjoy family, honeymoon, and group backwater cruises in Alleppey.",
+};
 
 export const revalidate = 30;
 

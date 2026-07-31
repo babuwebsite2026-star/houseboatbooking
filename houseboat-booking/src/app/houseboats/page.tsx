@@ -1,8 +1,14 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Filter, Search, Users, BedDouble, SlidersHorizontal } from "lucide-react";
 import { client } from "@/sanity/lib/client";
+
+export const metadata: Metadata = {
+  title: "Kerala Houseboat Package Price | All Fleet Options",
+  description: "Compare Kerala houseboat package prices, from budget and shared options to luxury Alleppey houseboats. Find the perfect cruise for your group or family.",
+};
 import { PAGINATED_HOUSEBOATS_QUERY, HOUSEBOATS_COUNT_QUERY } from "@/sanity/lib/queries";
 import { urlFor } from "@/sanity/lib/image";
 

@@ -7,10 +7,30 @@ import { HouseboatGallery } from "@/components/HouseboatGallery";
 import { client } from "@/sanity/lib/client";
 import { SINGLE_HOUSEBOAT_QUERY, SITE_SETTINGS_QUERY } from "@/sanity/lib/queries";
 import { urlFor } from "@/sanity/lib/image";
+import type { Metadata } from "next";
 import { 
   Users, BedDouble, Check, Calendar, Star, Info, 
   MapPin, Wind, Coffee, Wifi, Tv
 } from "lucide-react";
+
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+  const resolvedParams = await params;
+  const boat = await client.fetch(SINGLE_HOUSEBOAT_QUERY, { slug: resolvedParams.id });
+  
+  if (!boat) {
+    return { title: 'Houseboat Not Found' };
+  }
+
+  const categoryStr = boat.category ? boat.category.charAt(0).toUpperCase() + boat.category.slice(1) : '';
+  const boatName = boat.bedrooms && categoryStr 
+    ? `${boat.bedrooms} Bedroom ${categoryStr} Houseboat Alleppey` 
+    : (boat.name || 'Kerala Houseboat');
+
+  return {
+    title: `${boatName} | Book Online`,
+    description: `Book the ${boatName} package. Features ${boat.guestCapacity || 2} guests capacity, ${boat.bedrooms || 1} AC bedrooms, and authentic Kerala meals.`,
+  };
+}
 
 export default async function HouseboatDetails({ params }: { params: Promise<{ id: string }> }) {
   const resolvedParams = await params;
