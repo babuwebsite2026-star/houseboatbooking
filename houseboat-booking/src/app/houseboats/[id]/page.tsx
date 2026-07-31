@@ -29,6 +29,13 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
   return {
     title: `${boatName} | Book Online`,
     description: `Book the ${boatName} package. Features ${boat.guestCapacity || 2} guests capacity, ${boat.bedrooms || 1} AC bedrooms, and authentic Kerala meals.`,
+    openGraph: {
+      title: `${boatName} | Brahmari Houseboats`,
+      description: `Book the ${boatName} package. Features ${boat.guestCapacity || 2} guests capacity, ${boat.bedrooms || 1} AC bedrooms.`,
+      url: `https://www.keralahouseboats.co.in/houseboats/${resolvedParams.id}`,
+      images: boat.image ? [{ url: urlFor(boat.image).url() }] : [],
+      type: 'website',
+    },
   };
 }
 
@@ -45,8 +52,33 @@ export default async function HouseboatDetails({ params }: { params: Promise<{ i
     notFound();
   }
 
+  const categoryStr = boat.category ? boat.category.charAt(0).toUpperCase() + boat.category.slice(1) : '';
+  const boatName = boat.bedrooms && categoryStr 
+    ? `${boat.bedrooms} Bedroom ${categoryStr} Houseboat Alleppey` 
+    : (boat.name || 'Kerala Houseboat');
+
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: boatName,
+    image: boat.image ? [urlFor(boat.image).url()] : [],
+    description: boat.description || `Book the ${boatName} package in Alleppey.`,
+    offers: {
+      '@type': 'Offer',
+      url: `https://www.keralahouseboats.co.in/houseboats/${id}`,
+      priceCurrency: 'INR',
+      price: boat.startingPrice || 0,
+      availability: 'https://schema.org/InStock',
+    },
+  };
+
   return (
-    <div className="pb-20 bg-gray-50 min-h-screen">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <div className="pb-20 bg-gray-50 min-h-screen">
       <HouseboatGallery boat={boat} />
 
       <div className="container mx-auto px-4 md:px-8">
@@ -197,5 +229,6 @@ export default async function HouseboatDetails({ params }: { params: Promise<{ i
         </div>
       </div>
     </div>
+    </>
   );
 }
