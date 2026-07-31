@@ -136,3 +136,24 @@ export const HOME_PAGE_QUERY = groq`*[_type == "homePage"][0] {
   gallerySubtitle,
   galleryImages
 }`
+
+export const ALL_BLOG_POSTS_QUERY = groq`*[_type == "blogPost"] | order(publishedAt desc) {
+  _id,
+  title,
+  "slug": slug.current,
+  mainImage,
+  publishedAt,
+  excerpt
+}`
+
+export const SINGLE_BLOG_POST_QUERY = groq`*[_type == "blogPost" && slug.current == $slug][0] {
+  _id,
+  title,
+  "slug": slug.current,
+  mainImage,
+  publishedAt,
+  excerpt,
+  body,
+  seoTitle,
+  seoDescription
+}`
