@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   // Replace this with your actual live domain URL
-  const baseUrl = 'https://www.yourdomain.com'
+  const baseUrl = 'https://www.keralahouseboats.co.in'
 
   return [
     {
