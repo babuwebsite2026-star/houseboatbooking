@@ -35,7 +35,7 @@ export default async function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative h-[82vh] md:h-screen flex items-center justify-center pt-20 overflow-hidden rounded-[40px] md:rounded-[80px] shadow-2xl m-2 md:m-4">
+      <section className="relative h-[82svh] md:h-[100svh] min-h-[500px] flex items-center justify-center pt-20 overflow-hidden rounded-[40px] md:rounded-[80px] shadow-2xl m-2 md:m-4">
         <div className="absolute inset-0 z-0">
           <video
             autoPlay
