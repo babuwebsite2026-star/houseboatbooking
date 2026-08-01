@@ -19,15 +19,17 @@ export default async function BlogIndex() {
   return (
     <div className="pb-20 bg-muted-bg min-h-screen">
       {/* Hero Section */}
-      <div className="relative h-[30vh] md:h-[40vh] flex items-center justify-center mb-16 mt-0">
+      <div className="relative w-full pt-32 pb-16 md:pt-40 md:pb-24 flex flex-col items-center justify-center mb-16">
         <div className="absolute inset-0 z-0 bg-primary-green">
           {/* We use a solid color background since we don't have a specific blog hero image yet */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-black/10" />
         </div>
         
-        <div className="relative z-10 text-center text-white px-4 mt-20 md:mt-16">
-          <h1 className="text-5xl md:text-7xl font-podium font-black tracking-wide mb-4 text-white">Kerala Travel Blog</h1>
-          <p className="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto">
+        <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-podium font-black tracking-wide mb-4 md:mb-6 text-white leading-tight">
+            Kerala Travel Blog
+          </h1>
+          <p className="text-base md:text-lg lg:text-xl text-gray-200 max-w-2xl mx-auto px-2 leading-relaxed">
             Your ultimate guide to exploring the backwaters, choosing the right houseboat, and making the most of your Kerala trip.
           </p>
         </div>
