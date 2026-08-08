@@ -6,8 +6,8 @@ import { Filter, Search, Users, BedDouble, SlidersHorizontal } from "lucide-reac
 import { client } from "@/sanity/lib/client";
 
 export const metadata: Metadata = {
-  title: "Kerala Houseboat Package Price | All Fleet Options",
-  description: "Compare Kerala houseboat package prices, from budget and shared options to luxury Alleppey houseboats. Find the perfect cruise for your group or family.",
+  title: "Luxury Houseboat in Alleppey | Compare Kerala Houseboat Stay Prices",
+  description: "Compare Kerala houseboat stay prices, from budget options to a 5 bedroom luxury house boat in Alleppey. Find the perfect cruise for your group or family.",
 };
 import { PAGINATED_HOUSEBOATS_QUERY, HOUSEBOATS_COUNT_QUERY } from "@/sanity/lib/queries";
 import { urlFor } from "@/sanity/lib/image";

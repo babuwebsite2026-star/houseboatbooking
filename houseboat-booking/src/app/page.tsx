@@ -57,7 +57,7 @@ export default async function Home() {
               dangerouslySetInnerHTML={{ __html: homePage?.heroTitle?.replace(/class="[^"]*"/, 'class="font-normal"') || 'Experience the Magic of <br class="hidden md:block" />Kerala Backwaters' }}
             />
             <p className="text-lg md:text-2xl text-white/90 mb-10 max-w-2xl mx-auto px-2 drop-shadow-lg font-medium">
-              {homePage?.heroSubtitle || "Book premium and luxury houseboats for an unforgettable journey through the serene waters of Alleppey."}
+              {homePage?.heroSubtitle || "Book a premium or luxury houseboat in Alleppey for an unforgettable Kerala houseboat stay through the serene backwaters."}
             </p>
 
           </div>
@@ -93,7 +93,7 @@ export default async function Home() {
         <div className="container mx-auto px-4 md:px-8">
           <div className="text-left mb-12">
             <span className="text-primary-green font-bold tracking-widest text-[11px] uppercase mb-2 block">CURATED EXPERIENCES</span>
-            <h2 className="text-3xl md:text-5xl font-serif font-bold tracking-tight text-text-heading mb-4">Every way to explore the backwaters</h2>
+            <h2 className="text-3xl md:text-5xl font-serif font-bold tracking-tight text-text-heading mb-4">Every way to explore the backwaters on a Kerala houseboat stay</h2>
           </div>
           
           <div className="flex flex-col md:flex-row md:overflow-x-auto gap-4 md:gap-6 pb-6 md:snap-x snap-mandatory hide-scrollbar">
@@ -102,7 +102,7 @@ export default async function Home() {
                 category: "5-STAR",
                 title: "Luxury Houseboat", 
                 slug: "luxury",
-                desc: "Experience the pinnacle of backwater cruising with premium AC, and modern amenities.", 
+                desc: "Experience the pinnacle of backwater cruising on a luxury houseboat in Alleppey with premium AC, and modern amenities.", 
                 price: "15000",
                 rating: "5.0",
                 image: "/images/offers/luxury.jpg"
@@ -138,7 +138,7 @@ export default async function Home() {
                 category: "EXCLUSIVE",
                 title: "Private Houseboat", 
                 slug: "private",
-                desc: "Rent an entire boat exclusively for your group. Complete privacy and dedicated staff.", 
+                desc: "Rent an entire 1 to 5 bedroom luxury house boat exclusively for your group. Complete privacy and dedicated staff.", 
                 price: "9000",
                 rating: "4.8",
                 image: "/images/offers/private.jpg"

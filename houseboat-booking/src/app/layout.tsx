@@ -26,8 +26,8 @@ const kaushan = Kaushan_Script({
 });
 
 export const metadata: Metadata = {
-  title: "Kerala Houseboats | Backwater Cruises",
-  description: "Book premium and luxury houseboats in Kerala with Backwater Cruises.",
+  title: "Luxury Houseboat Alleppey | Book 1 to 5 Bedroom Kerala Houseboat Stay",
+  description: "Experience the ultimate Kerala houseboat stay. Book premium and luxury houseboats in Alleppey, offering private 1 to 5 bedroom luxury house boats.",
   verification: {
     google: "f4809e6a03327d34",
   },
