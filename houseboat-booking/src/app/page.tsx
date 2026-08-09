@@ -57,16 +57,20 @@ export default async function Home() {
               dangerouslySetInnerHTML={{ __html: homePage?.heroTitle?.replace(/class="[^"]*"/, 'class="font-normal"') || 'Experience the Magic of <br class="hidden md:block" />Kerala Backwaters' }}
             />
             <p className="text-lg md:text-2xl text-white/90 mb-10 max-w-2xl mx-auto px-2 drop-shadow-lg font-medium">
-              {homePage?.heroSubtitle || "Book a premium or luxury houseboat in Alleppey for an unforgettable Kerala houseboat stay through the serene backwaters."}
+              {homePage?.heroSubtitle || "With 25 years of experience, book a premium or luxury houseboat in Alleppey for an unforgettable Kerala houseboat stay through the serene backwaters."}
             </p>
 
           </div>
         </div>
 
-        {/* Call to Book Floating Button */}
-        <div className="absolute bottom-4 left-4 md:bottom-12 md:left-12 z-20 origin-bottom-left">
+        {/* Call to Book Floating Button & Experience Badge */}
+        <div className="absolute bottom-4 left-4 md:bottom-12 md:left-12 z-20 flex flex-col gap-3 origin-bottom-left">
+          <div className="bg-black/30 backdrop-blur-md border border-white/20 rounded-full px-4 py-2 flex items-center gap-2 shadow-lg w-fit">
+            <Star className="w-4 h-4 md:w-5 md:h-5 text-[#facc15] fill-[#facc15]" />
+            <span className="text-white text-sm md:text-base font-semibold tracking-wide drop-shadow-md">25+ Years Experience</span>
+          </div>
           <a href={`tel:${siteSettings?.phoneNumber || '+919846046322'}`}>
-            <Button className="bg-[#25D366] hover:bg-[#128C7E] text-white font-bold text-sm md:text-lg px-5 py-5 md:px-6 rounded-full shadow-lg transition-all hover:scale-105 flex items-center gap-2 border-none">
+            <Button className="bg-[#25D366] hover:bg-[#128C7E] text-white font-bold text-sm md:text-lg px-5 py-5 md:px-6 rounded-full shadow-lg transition-all hover:scale-105 flex items-center gap-2 border-none w-fit">
               <PhoneCall className="w-4 h-4 md:w-5 md:h-5" />
               Call to Book
             </Button>

@@ -41,7 +41,7 @@ export default function AboutPage() {
           <div className="w-full md:w-1/2 space-y-6">
             <h2 className="text-3xl font-bold text-primary-green">Our Story</h2>
             <p className="text-text-body leading-relaxed">
-              Based in the beautiful city of Alleppey, known as the Venice of the East, KeralaHouseboats has been crafting unforgettable backwater journeys for over a decade. We believe that a trip to Kerala is incomplete without experiencing the serene beauty of the backwaters from the comfort of a traditional houseboat.
+              Based in the beautiful city of Alleppey, known as the Venice of the East, KeralaHouseboats has been crafting unforgettable backwater journeys with over 25 years of experience. We believe that a trip to Kerala is incomplete without experiencing the serene beauty of the backwaters from the comfort of a traditional houseboat.
             </p>
             <p className="text-text-body leading-relaxed">
               Our fleet includes everything from intimate 1-bedroom houseboats for romantic getaways to expansive 10-bedroom luxury vessels perfect for corporate events and large family gatherings. Each houseboat blends traditional Kerala architecture with modern luxury amenities.
