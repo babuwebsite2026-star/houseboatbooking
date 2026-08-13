@@ -69,7 +69,7 @@ export default async function Home() {
             <Star className="w-4 h-4 md:w-5 md:h-5 text-[#facc15] fill-[#facc15]" />
             <span className="text-white text-sm md:text-base font-semibold tracking-wide drop-shadow-md">25+ Years Experience</span>
           </div>
-          <a href={`tel:${siteSettings?.phoneNumber || '+919846046322'}`}>
+          <a href={`tel:${siteSettings?.phoneNumber || '+916282447261'}`}>
             <Button className="bg-[#25D366] hover:bg-[#128C7E] text-white font-bold text-sm md:text-lg px-5 py-5 md:px-6 rounded-full shadow-lg transition-all hover:scale-105 flex items-center gap-2 border-none w-fit">
               <PhoneCall className="w-4 h-4 md:w-5 md:h-5" />
               Call to Book
@@ -320,7 +320,7 @@ export default async function Home() {
                   </div>
                   <div>
                     <p className="text-sm text-text-body/60 font-semibold uppercase">Call Us</p>
-                    <p className="text-lg font-bold text-text-heading">{siteSettings?.phoneNumber || "+91 98460 46322"}</p>
+                    <p className="text-lg font-bold text-text-heading">{siteSettings?.phoneNumber || "+91 62824 47261"}</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">

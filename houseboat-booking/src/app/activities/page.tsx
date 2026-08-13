@@ -53,7 +53,7 @@ export default function Activities() {
                 </p>
                 <div className="pt-4 border-t border-light-green flex items-center justify-between">
                   <p className="text-xl font-black text-primary-green">₹{act.price.toLocaleString('en-IN')}</p>
-                  <a href={`https://wa.me/919846046322?text=${encodeURIComponent(`I would like to experience the ${act.name} activity`)}`} target="_blank" rel="noopener noreferrer">
+                  <a href={`https://wa.me/916282447261?text=${encodeURIComponent(`I would like to experience the ${act.name} activity`)}`} target="_blank" rel="noopener noreferrer">
                     <Button className="bg-white border-2 border-primary-green text-primary-green hover:bg-primary-green hover:text-white font-bold px-6 transition-colors rounded-xl shadow-sm hover:shadow-md">
                       Book Activity
                     </Button>

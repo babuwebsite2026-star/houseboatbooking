@@ -17,7 +17,7 @@ interface BookingWidgetProps {
   whatsappNumber?: string;
 }
 
-export function BookingWidget({ boat, whatsappNumber = "919846046322" }: BookingWidgetProps) {
+export function BookingWidget({ boat, whatsappNumber = "916282447261" }: BookingWidgetProps) {
   const categoryStr = boat.category ? boat.category.charAt(0).toUpperCase() + boat.category.slice(1) : '';
   const boatName = boat.bedrooms && categoryStr
     ? `${boat.bedrooms} Bedroom ${categoryStr} Houseboat`
