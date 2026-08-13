@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Inter, Bebas_Neue, Kaushan_Script } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
@@ -45,6 +46,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
+      <head>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-27K6KYPRVG"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-27K6KYPRVG');
+          `}
+        </Script>
+      </head>
       <body
         className={`${inter.variable} ${bebas.variable} ${kaushan.variable} font-sans bg-background text-foreground antialiased selection:bg-primary-green selection:text-white`}
       >
