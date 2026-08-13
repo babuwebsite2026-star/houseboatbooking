@@ -36,6 +36,13 @@ export default defineType({
       initialValue: false,
     }),
     defineField({
+      name: 'isShared',
+      title: 'Shared',
+      type: 'boolean',
+      description: 'Check if this is a shared houseboat',
+      initialValue: false,
+    }),
+    defineField({
       name: 'description',
       title: 'Description',
       type: 'text',
