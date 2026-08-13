@@ -15,7 +15,8 @@ import {
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
   const resolvedParams = await params;
-  const boat = await client.fetch(SINGLE_HOUSEBOAT_QUERY, { slug: resolvedParams.id });
+  const id = decodeURIComponent(resolvedParams.id);
+  const boat = await client.fetch(SINGLE_HOUSEBOAT_QUERY, { slug: id });
   
   if (!boat) {
     return { title: 'Houseboat Not Found' };
@@ -41,7 +42,7 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
 
 export default async function HouseboatDetails({ params }: { params: Promise<{ id: string }> }) {
   const resolvedParams = await params;
-  const id = resolvedParams.id;
+  const id = decodeURIComponent(resolvedParams.id);
   
   const [boat, siteSettings] = await Promise.all([
     client.fetch(SINGLE_HOUSEBOAT_QUERY, { slug: id }),
