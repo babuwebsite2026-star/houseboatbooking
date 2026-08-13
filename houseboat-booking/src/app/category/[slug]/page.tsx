@@ -3,7 +3,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Users, BedDouble } from "lucide-react";
 import { client } from "@/sanity/lib/client";
-import { HOUSEBOATS_BY_CATEGORY_QUERY, PRIVATE_HOUSEBOATS_QUERY } from "@/sanity/lib/queries";
+import { HOUSEBOATS_BY_CATEGORY_QUERY, PRIVATE_HOUSEBOATS_QUERY, SHARED_HOUSEBOATS_QUERY } from "@/sanity/lib/queries";
 import { urlFor } from "@/sanity/lib/image";
 
 export const revalidate = 30;
@@ -18,7 +18,9 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
   // Fetch houseboats for this category
   const houseboats = slug === 'private'
     ? await client.fetch(PRIVATE_HOUSEBOATS_QUERY)
-    : await client.fetch(HOUSEBOATS_BY_CATEGORY_QUERY, { category: slug });
+    : slug === 'shared'
+      ? await client.fetch(SHARED_HOUSEBOATS_QUERY)
+      : await client.fetch(HOUSEBOATS_BY_CATEGORY_QUERY, { category: slug });
   
 
 
