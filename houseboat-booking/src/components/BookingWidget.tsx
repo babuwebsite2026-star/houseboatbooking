@@ -15,9 +15,10 @@ interface BookingWidgetProps {
     bedrooms?: number;
   };
   whatsappNumber?: string;
+  phoneNumber?: string;
 }
 
-export function BookingWidget({ boat, whatsappNumber = "916282447261" }: BookingWidgetProps) {
+export function BookingWidget({ boat, whatsappNumber = "916282447261", phoneNumber = "919846046322" }: BookingWidgetProps) {
   const categoryStr = boat.category ? boat.category.charAt(0).toUpperCase() + boat.category.slice(1) : '';
   const boatName = boat.bedrooms && categoryStr
     ? `${boat.bedrooms} Bedroom ${categoryStr} Houseboat`
@@ -55,7 +56,7 @@ Details:
   };
 
   const handleCall = () => {
-    window.open(`tel:+${whatsappNumber}`, '_self');
+    window.open(`tel:+${phoneNumber}`, '_self');
   };
 
   return (

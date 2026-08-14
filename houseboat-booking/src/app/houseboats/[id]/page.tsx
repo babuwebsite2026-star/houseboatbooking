@@ -224,7 +224,7 @@ export default async function HouseboatDetails({ params }: { params: Promise<{ i
 
           {/* Sticky Booking Widget */}
           <div className="lg:col-span-1">
-            <BookingWidget boat={boat} whatsappNumber={siteSettings?.whatsappNumber} />
+            <BookingWidget boat={boat} whatsappNumber={siteSettings?.whatsappNumber} phoneNumber={siteSettings?.phoneNumber} />
           </div>
 
         </div>
