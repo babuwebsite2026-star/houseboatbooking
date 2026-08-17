@@ -71,7 +71,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
                   <div className="flex items-center justify-between pt-4 border-t border-gray-100 mt-auto">
                     <div>
                       <p className="text-xs text-gray-500 font-medium">Starting from</p>
-                      <p className="text-lg font-bold text-ocean-blue">₹{boat.startingPrice.toLocaleString('en-IN')} <span className="text-xs font-normal text-gray-500">/ night</span></p>
+                      <p className="text-lg font-bold text-ocean-blue">₹{(boat.overnightPrice || boat.dayCruisePrice || boat.startingPrice || 0).toLocaleString('en-IN')} <span className="text-xs font-normal text-gray-500">/ night</span></p>
                     </div>
                   </div>
                 </div>

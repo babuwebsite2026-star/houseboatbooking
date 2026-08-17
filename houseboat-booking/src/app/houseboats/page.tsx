@@ -112,7 +112,7 @@ export default async function HouseboatsListing({ searchParams }: { searchParams
                     <div className="flex items-center justify-between pt-4 border-t border-light-green mt-auto">
                       <div>
                         <p className="text-[10px] text-text-body uppercase font-bold tracking-wider mb-1">Starting from</p>
-                        <p className="text-xl font-black text-black">₹{boat.startingPrice.toLocaleString('en-IN')} <span className="text-xs font-medium text-text-body/60 normal-case">/ night</span></p>
+                        <p className="text-xl font-black text-black">₹{(boat.overnightPrice || boat.dayCruisePrice || boat.startingPrice || 0).toLocaleString('en-IN')} <span className="text-xs font-medium text-text-body/60 normal-case">/ night</span></p>
                       </div>
                       <Link href={`/houseboats/${boat.id}`}>
                         <Button className="bg-white border-2 border-primary-green text-primary-green hover:bg-primary-green hover:text-white font-bold rounded-xl transition-colors px-6">

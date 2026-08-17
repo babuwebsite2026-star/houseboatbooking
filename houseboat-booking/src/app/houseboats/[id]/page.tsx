@@ -70,7 +70,7 @@ export default async function HouseboatDetails({ params }: { params: Promise<{ i
       '@type': 'Offer',
       url: `https://www.keralahouseboats.co.in/houseboats/${id}`,
       priceCurrency: 'INR',
-      price: boat.startingPrice || 0,
+      price: boat.overnightPrice || boat.dayCruisePrice || boat.startingPrice || 0,
       availability: 'https://schema.org/InStock',
     },
   };
