@@ -68,6 +68,9 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
                     <div>
                       <p className="text-xs text-gray-500 font-medium">Starting from</p>
                       <p className="text-lg font-bold text-ocean-blue">₹{(boat.overnightPrice || boat.dayCruisePrice || boat.startingPrice || 0).toLocaleString('en-IN')} <span className="text-xs font-normal text-gray-500">/ night</span></p>
+                      <p className="text-[11px] font-medium text-gray-500 mt-1">
+                        {boat.isShared ? 'Shared boat' : 'Whole boat'} · {boat.bedrooms} {boat.bedrooms === 1 ? 'bedroom' : 'bedrooms'} · {boat.guestCapacity} guests
+                      </p>
                     </div>
                   </div>
                 </div>
