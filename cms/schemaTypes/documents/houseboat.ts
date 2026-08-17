@@ -14,20 +14,7 @@ export default defineType({
       },
       validation: (Rule) => Rule.required(),
     }),
-    defineField({
-      name: 'category',
-      title: 'Category',
-      type: 'string',
-      options: {
-        list: [
-          { title: 'Luxury', value: 'luxury' },
-          { title: 'Premium', value: 'premium' },
-          { title: 'Deluxe', value: 'deluxe' },
-          { title: 'Shared', value: 'shared' },
-        ],
-      },
-      validation: (Rule) => Rule.required(),
-    }),
+
     defineField({
       name: 'isPrivate',
       title: 'Private',
@@ -133,14 +120,13 @@ export default defineType({
   ],
   preview: {
     select: {
-      category: 'category',
       bedrooms: 'bedrooms',
       media: 'image',
     },
     prepare(selection) {
-      const { category, bedrooms, media } = selection
-      const title = category && bedrooms 
-        ? `${bedrooms} Bedroom ${category.charAt(0).toUpperCase() + category.slice(1)} Houseboat`
+      const { bedrooms, media } = selection
+      const title = bedrooms 
+        ? `${bedrooms} Bedroom Houseboat`
         : 'Houseboat'
       return {
         title: title,

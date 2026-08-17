@@ -24,9 +24,8 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
     return { title: 'Houseboat Not Found' };
   }
 
-  const categoryStr = boat.category ? boat.category.charAt(0).toUpperCase() + boat.category.slice(1) : '';
-  const boatName = boat.bedrooms && categoryStr 
-    ? `${boat.bedrooms} Bedroom ${categoryStr} Houseboat Alleppey` 
+  const boatName = boat.bedrooms 
+    ? `${boat.bedrooms} Bedroom Houseboat Alleppey` 
     : (boat.name || 'Kerala Houseboat');
 
   return {
@@ -55,9 +54,8 @@ export default async function HouseboatDetails({ params }: { params: Promise<{ i
     notFound();
   }
 
-  const categoryStr = boat.category ? boat.category.charAt(0).toUpperCase() + boat.category.slice(1) : '';
-  const boatName = boat.bedrooms && categoryStr 
-    ? `${boat.bedrooms} Bedroom ${categoryStr} Houseboat Alleppey` 
+  const boatName = boat.bedrooms 
+    ? `${boat.bedrooms} Bedroom Houseboat Alleppey` 
     : (boat.name || 'Kerala Houseboat');
 
   const jsonLd = {
@@ -118,7 +116,7 @@ export default async function HouseboatDetails({ params }: { params: Promise<{ i
                 </div>
                 <div>
                   <p className="text-xs text-gray-500 font-semibold uppercase">Boat Type</p>
-                  <p className="font-bold text-gray-900">{boat.category} Class</p>
+                  <p className="font-bold text-gray-900">{boat.isPrivate ? 'Private' : boat.isShared ? 'Shared' : 'Premium'} Class</p>
                 </div>
               </div>
             </div>

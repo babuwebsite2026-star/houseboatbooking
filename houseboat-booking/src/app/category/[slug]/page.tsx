@@ -3,7 +3,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Users, BedDouble } from "lucide-react";
 import { client } from "@/sanity/lib/client";
-import { HOUSEBOATS_BY_CATEGORY_QUERY, PRIVATE_HOUSEBOATS_QUERY, SHARED_HOUSEBOATS_QUERY } from "@/sanity/lib/queries";
+import { PRIVATE_HOUSEBOATS_QUERY, SHARED_HOUSEBOATS_QUERY } from "@/sanity/lib/queries";
 import { urlFor } from "@/sanity/lib/image";
 
 export const revalidate = 0;
@@ -20,7 +20,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
     ? await client.fetch(PRIVATE_HOUSEBOATS_QUERY)
     : slug === 'shared'
       ? await client.fetch(SHARED_HOUSEBOATS_QUERY)
-      : await client.fetch(HOUSEBOATS_BY_CATEGORY_QUERY, { category: slug });
+      : [];
   
 
 
@@ -38,21 +38,17 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
                   {boat.image && (
                     <Image
                       src={urlFor(boat.image).url()}
-                      alt={`${boat.bedrooms || ''} Bedroom ${boat.category || ''} Houseboat`}
+                      alt={`${boat.bedrooms || ''} Bedroom Houseboat`}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                   )}
-                  <div className="absolute top-4 right-4 bg-white/90 backdrop-blur text-ocean-blue px-3 py-1 rounded-full text-xs font-bold shadow-sm capitalize">
-                    {boat.category}
-                  </div>
                 </div>
                 
                 <div className="p-6 flex flex-col flex-1">
                   <div className="flex justify-between items-start mb-2">
                     <h3 className="text-xl font-bold text-ocean-blue line-clamp-1 group-hover:text-gold transition-colors capitalize">
-                      {boat.bedrooms ? `${boat.bedrooms} Bedroom ` : ''} 
-                      {boat.category ? `${boat.category} Houseboat` : 'Houseboat'}
+                      {boat.bedrooms ? `${boat.bedrooms} Bedroom Houseboat` : 'Houseboat'}
                     </h3>
                     <div className="flex items-center gap-1 bg-green-50 text-emerald px-2 py-1 rounded text-sm font-semibold shrink-0">
                       <span>★</span> {boat.rating}

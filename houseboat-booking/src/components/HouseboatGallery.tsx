@@ -10,10 +10,9 @@ interface HouseboatGalleryProps {
 }
 
 export function HouseboatGallery({ boat }: HouseboatGalleryProps) {
-  const categoryStr = boat.category ? boat.category.charAt(0).toUpperCase() + boat.category.slice(1) : '';
-  const boatName = boat.bedrooms && categoryStr
-    ? `${boat.bedrooms} Bedroom ${categoryStr} Houseboat`
-    : 'Houseboat';
+  const boatName = boat.bedrooms 
+    ? `${boat.bedrooms} Bedroom Houseboat`
+    : (boat.name || 'Kerala Houseboat');
 
   const [showAll, setShowAll] = useState(false);
 
@@ -62,7 +61,7 @@ export function HouseboatGallery({ boat }: HouseboatGalleryProps) {
         <div className="flex flex-wrap items-center gap-4 text-sm font-medium text-text-body">
           <span className="flex items-center gap-1.5"><Star className="h-4 w-4 text-secondary-green fill-secondary-green" /> {boat.rating}</span>
           <span className="flex items-center gap-1.5"><MapPin className="h-4 w-4 text-primary-green" /> Alleppey Backwaters</span>
-          <span className="bg-light-green text-primary-green px-3 py-1 rounded-full uppercase tracking-wider text-xs font-bold">{boat.category} Houseboat</span>
+          <span className="bg-light-green text-primary-green px-3 py-1 rounded-full uppercase tracking-wider text-xs font-bold">{boat.isPrivate ? 'Private' : boat.isShared ? 'Shared' : 'Premium'} Houseboat</span>
         </div>
       </div>
 

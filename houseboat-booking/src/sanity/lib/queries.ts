@@ -4,7 +4,7 @@ export const ALL_HOUSEBOATS_QUERY = groq`*[_type == "houseboat"] | order(bedroom
   _id,
   name,
   "id": slug.current,
-  category,
+
   startingPrice,
   dayCruisePrice,
   dayCruiseTime,
@@ -22,7 +22,7 @@ export const PAGINATED_HOUSEBOATS_QUERY = groq`*[_type == "houseboat"] | order(b
   _id,
   name,
   "id": slug.current,
-  category,
+
   startingPrice,
   guestCapacity,
   bedrooms,
@@ -33,29 +33,12 @@ export const PAGINATED_HOUSEBOATS_QUERY = groq`*[_type == "houseboat"] | order(b
 
 export const HOUSEBOATS_COUNT_QUERY = groq`count(*[_type == "houseboat"])`
 
-export const HOUSEBOATS_BY_CATEGORY_QUERY = groq`*[_type == "houseboat" && category == $category] | order(bedrooms asc, startingPrice asc) {
-  _id,
-  name,
-  "id": slug.current,
-  category,
-  description,
-  startingPrice,
-  dayCruisePrice,
-  dayCruiseTime,
-  overnightPrice,
-  overnightTime,
-  guestCapacity,
-  bedrooms,
-  rating,
-  image,
-  amenities,
-  itinerary
-}`
+
 
 export const PRIVATE_HOUSEBOATS_QUERY = groq`*[_type == "houseboat" && isPrivate == true] | order(bedrooms asc, startingPrice asc) {
   _id,
   "id": slug.current,
-  category,
+
   description,
   startingPrice,
   dayCruisePrice,
@@ -74,7 +57,7 @@ export const PRIVATE_HOUSEBOATS_QUERY = groq`*[_type == "houseboat" && isPrivate
 export const SHARED_HOUSEBOATS_QUERY = groq`*[_type == "houseboat" && isShared == true] | order(bedrooms asc, startingPrice asc) {
   _id,
   "id": slug.current,
-  category,
+
   description,
   startingPrice,
   dayCruisePrice,
@@ -94,7 +77,7 @@ export const SINGLE_HOUSEBOAT_QUERY = groq`*[_type == "houseboat" && slug.curren
   _id,
   name,
   "id": slug.current,
-  category,
+
   description,
   startingPrice,
   dayCruisePrice,
@@ -114,7 +97,7 @@ export const FEATURED_HOUSEBOATS_QUERY = groq`*[_type == "houseboat"] | order(ra
   _id,
   name,
   "id": slug.current,
-  category,
+
   description,
   startingPrice,
   dayCruisePrice,

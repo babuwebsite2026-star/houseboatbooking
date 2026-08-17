@@ -58,9 +58,6 @@ export default async function HouseboatsListing({ searchParams }: { searchParams
         <div className="flex overflow-x-auto gap-3 mb-8 pb-4 snap-x snap-mandatory hide-scrollbar -mx-4 px-4 md:mx-0 md:px-0">
           {[
             { name: 'All', path: '/houseboats' },
-            { name: 'Luxury', path: '/category/luxury' },
-            { name: 'Premium', path: '/category/premium' },
-            { name: 'Deluxe', path: '/category/deluxe' },
             { name: 'Shared', path: '/category/shared' },
             { name: 'Private', path: '/category/private' }
           ].map((cat) => (
@@ -82,7 +79,7 @@ export default async function HouseboatsListing({ searchParams }: { searchParams
                     {boat.image && (
                       <Image
                         src={urlFor(boat.image).url()}
-                        alt={`${boat.bedrooms || ''} Bedroom ${boat.category || ''} Houseboat`}
+                        alt={`${boat.bedrooms || ''} Bedroom Houseboat`}
                         fill
                         className="object-cover group-hover:scale-110 transition-transform duration-700"
                       />
@@ -92,8 +89,7 @@ export default async function HouseboatsListing({ searchParams }: { searchParams
                   <div className="p-6 flex flex-col flex-1">
                     <div className="flex justify-between items-start mb-2">
                       <h3 className="text-xl font-bold text-text-heading line-clamp-1 group-hover:text-primary-green transition-colors capitalize">
-                        {boat.bedrooms ? `${boat.bedrooms} Bedroom ` : ''} 
-                        {boat.category ? `${boat.category} Houseboat` : 'Houseboat'}
+                        {boat.bedrooms ? `${boat.bedrooms} Bedroom Houseboat` : 'Houseboat'}
                       </h3>
                       <div className="flex items-center gap-1 bg-light-green text-black px-2 py-1 rounded text-sm font-semibold shrink-0">
                         <span className="text-[#facc15]">★</span> {boat.rating}

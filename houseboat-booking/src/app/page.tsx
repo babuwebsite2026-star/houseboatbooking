@@ -103,33 +103,6 @@ export default async function Home() {
           <div className="flex flex-col md:flex-row md:overflow-x-auto gap-4 md:gap-6 pb-6 md:snap-x snap-mandatory hide-scrollbar">
             {[
               { 
-                category: "5-STAR",
-                title: "Luxury Houseboat", 
-                slug: "luxury",
-                desc: "Experience the pinnacle of backwater cruising on a luxury houseboat in Alleppey with premium AC, and modern amenities.", 
-                price: "15000",
-                rating: "5.0",
-                image: "/images/offers/luxury.jpg"
-              },
-              { 
-                category: "HIGH-END",
-                title: "Premium Houseboat", 
-                slug: "premium",
-                desc: "Upgraded interiors, full-time AC, and premium menu for a highly comfortable stay.", 
-                price: "12000",
-                rating: "4.9",
-                image: "/images/offers/premium.jpg"
-              },
-              { 
-                category: "GREAT VALUE",
-                title: "Deluxe Houseboat", 
-                slug: "deluxe",
-                desc: "Comfortable night stay with AC during sleeping hours and authentic Kerala cuisine.", 
-                price: "7000",
-                rating: "4.7",
-                image: "/images/offers/deluxe.jpg"
-              },
-              { 
                 category: "BUDGET FRIENDLY",
                 title: "Sharing Houseboat", 
                 slug: "shared",

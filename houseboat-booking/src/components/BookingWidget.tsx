@@ -6,6 +6,7 @@ import { Calendar, Phone, Sparkles, Star, ShieldCheck } from "lucide-react";
 interface BookingWidgetProps {
   boat: {
     category?: string;
+    name?: string;
     startingPrice: number;
     dayCruisePrice?: number;
     dayCruiseTime?: string;
@@ -19,10 +20,9 @@ interface BookingWidgetProps {
 }
 
 export function BookingWidget({ boat, whatsappNumber = "916282447261", phoneNumber = "919846046322" }: BookingWidgetProps) {
-  const categoryStr = boat.category ? boat.category.charAt(0).toUpperCase() + boat.category.slice(1) : '';
-  const boatName = boat.bedrooms && categoryStr
-    ? `${boat.bedrooms} Bedroom ${categoryStr} Houseboat`
-    : 'Houseboat';
+  const boatName = boat.bedrooms 
+    ? `${boat.bedrooms} Bedroom Houseboat`
+    : (boat.name || 'Kerala Houseboat');
 
   const [date, setDate] = useState("");
   const [cruiseType, setCruiseType] = useState<"day" | "overnight">("day");

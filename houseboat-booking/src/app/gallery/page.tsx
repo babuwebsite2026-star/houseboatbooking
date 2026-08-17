@@ -22,10 +22,9 @@ export default async function GalleryPage() {
   }
 
   houseboats.forEach((boat: any) => {
-    const categoryStr = boat.category ? boat.category.charAt(0).toUpperCase() + boat.category.slice(1) : '';
-    const boatName = boat.bedrooms && categoryStr
-      ? `${boat.bedrooms} Bedroom ${categoryStr} Houseboat`
-      : 'Houseboat';
+    const boatName = boat.bedrooms 
+      ? `${boat.bedrooms} Bedroom Houseboat`
+      : (boat.name || 'Kerala Houseboat');
 
     if (boat.image) {
       images.push({ src: boat.image, alt: boatName });
