@@ -6,7 +6,7 @@ import { client } from "@/sanity/lib/client";
 import { HOUSEBOATS_BY_CATEGORY_QUERY, PRIVATE_HOUSEBOATS_QUERY, SHARED_HOUSEBOATS_QUERY } from "@/sanity/lib/queries";
 import { urlFor } from "@/sanity/lib/image";
 
-export const revalidate = 30;
+export const revalidate = 0;
 
 export default async function CategoryPage({ params }: { params: Promise<{ slug: string }> }) {
   const resolvedParams = await params;

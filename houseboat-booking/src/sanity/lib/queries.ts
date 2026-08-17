@@ -1,6 +1,6 @@
 import { groq } from 'next-sanity'
 
-export const ALL_HOUSEBOATS_QUERY = groq`*[_type == "houseboat"] | order(startingPrice asc) {
+export const ALL_HOUSEBOATS_QUERY = groq`*[_type == "houseboat"] | order(bedrooms asc, startingPrice asc) {
   _id,
   name,
   "id": slug.current,
@@ -18,7 +18,7 @@ export const ALL_HOUSEBOATS_QUERY = groq`*[_type == "houseboat"] | order(startin
   itinerary
 }`
 
-export const PAGINATED_HOUSEBOATS_QUERY = groq`*[_type == "houseboat"] | order(startingPrice asc) [$start...$end] {
+export const PAGINATED_HOUSEBOATS_QUERY = groq`*[_type == "houseboat"] | order(bedrooms asc, startingPrice asc) [$start...$end] {
   _id,
   name,
   "id": slug.current,
@@ -33,7 +33,7 @@ export const PAGINATED_HOUSEBOATS_QUERY = groq`*[_type == "houseboat"] | order(s
 
 export const HOUSEBOATS_COUNT_QUERY = groq`count(*[_type == "houseboat"])`
 
-export const HOUSEBOATS_BY_CATEGORY_QUERY = groq`*[_type == "houseboat" && category == $category] | order(startingPrice asc) {
+export const HOUSEBOATS_BY_CATEGORY_QUERY = groq`*[_type == "houseboat" && category == $category] | order(bedrooms asc, startingPrice asc) {
   _id,
   name,
   "id": slug.current,
@@ -52,7 +52,7 @@ export const HOUSEBOATS_BY_CATEGORY_QUERY = groq`*[_type == "houseboat" && categ
   itinerary
 }`
 
-export const PRIVATE_HOUSEBOATS_QUERY = groq`*[_type == "houseboat" && isPrivate == true] | order(startingPrice asc) {
+export const PRIVATE_HOUSEBOATS_QUERY = groq`*[_type == "houseboat" && isPrivate == true] | order(bedrooms asc, startingPrice asc) {
   _id,
   "id": slug.current,
   category,
@@ -71,7 +71,7 @@ export const PRIVATE_HOUSEBOATS_QUERY = groq`*[_type == "houseboat" && isPrivate
   isPrivate
 }`
 
-export const SHARED_HOUSEBOATS_QUERY = groq`*[_type == "houseboat" && isShared == true] | order(startingPrice asc) {
+export const SHARED_HOUSEBOATS_QUERY = groq`*[_type == "houseboat" && isShared == true] | order(bedrooms asc, startingPrice asc) {
   _id,
   "id": slug.current,
   category,
