@@ -84,6 +84,8 @@ export const SINGLE_HOUSEBOAT_QUERY = groq`*[_type == "houseboat" && slug.curren
   dayCruiseTime,
   overnightPrice,
   overnightTime,
+  isPrivate,
+  isShared,
   guestCapacity,
   bedrooms,
   rating,

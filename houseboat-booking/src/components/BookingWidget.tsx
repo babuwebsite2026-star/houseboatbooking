@@ -12,6 +12,9 @@ interface BookingWidgetProps {
     dayCruiseTime?: string;
     overnightPrice?: number;
     overnightTime?: string;
+    isPrivate?: boolean;
+    isShared?: boolean;
+    guestCapacity?: number;
     rating?: number;
     bedrooms?: number;
   };
@@ -81,7 +84,9 @@ Details:
         <span className="text-4xl font-extrabold text-gray-900 tracking-tight">{formatPrice(totalPrice)}</span>
         <span className="text-gray-400 line-through ml-2 font-medium text-lg">{formatPrice(originalPrice)}</span>
       </div>
-      <p className="text-gray-500 text-sm mb-6 font-medium">Two person • all meals included</p>
+      <p className="text-gray-500 text-sm mb-6 font-medium">
+        {boat.isShared ? 'Shared boat' : 'Whole boat'} · {boat.bedrooms} {boat.bedrooms === 1 ? 'bedroom' : 'bedrooms'} · {boat.guestCapacity} {boat.guestCapacity === 1 ? 'guest' : 'guests'}
+      </p>
 
       <hr className="border-gray-100 mb-6" />
 
