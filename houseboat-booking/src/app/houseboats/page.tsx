@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 import { PAGINATED_HOUSEBOATS_QUERY, HOUSEBOATS_COUNT_QUERY } from "@/sanity/lib/queries";
 import { urlFor } from "@/sanity/lib/image";
 
-export const revalidate = 30;
+export const revalidate = 0;
 
 export default async function HouseboatsListing({ searchParams }: { searchParams: { page?: string } }) {
   const page = parseInt(searchParams.page || "1", 10);

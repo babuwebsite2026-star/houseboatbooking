@@ -35,6 +35,9 @@ export function BookingWidget({ boat, whatsappNumber = "916282447261", phoneNumb
   
   const basePrice = cruiseType === "day" ? dayCruisePrice : overnightPrice;
   const extraGuestPrice = Math.max(0, guests - 2) * 1000;
+  const effectiveDayCruisePrice = dayCruisePrice + extraGuestPrice;
+  const effectiveOvernightPrice = overnightPrice + extraGuestPrice;
+  
   const totalPrice = basePrice + extraGuestPrice;
   const originalPrice = totalPrice + 501; // Fake original price for strikethrough
 
@@ -100,7 +103,7 @@ Details:
               </div>
               <span className="font-bold text-gray-900">Day Cruise</span>
             </div>
-            <span className="font-bold text-gray-900">{formatPrice(dayCruisePrice)}</span>
+            <span className="font-bold text-gray-900">{formatPrice(effectiveDayCruisePrice)}</span>
           </div>
           <p className="text-gray-400 text-sm ml-8">{boat.dayCruiseTime || "1:30 PM – 5 PM"}</p>
         </div>
@@ -122,7 +125,7 @@ Details:
                 <span className="px-2 py-0.5 bg-green-500 text-white text-[10px] font-bold rounded uppercase tracking-wide">Popular</span>
               </div>
             </div>
-            <span className="font-bold text-gray-900">{formatPrice(overnightPrice)}</span>
+            <span className="font-bold text-gray-900">{formatPrice(effectiveOvernightPrice)}</span>
           </div>
           <p className="text-gray-400 text-sm ml-8">{boat.overnightTime || "Check-in 1:30 PM • Check-out 8:30 AM"}</p>
         </div>

@@ -13,6 +13,8 @@ import {
   MapPin, Wind, Coffee, Wifi, Tv
 } from "lucide-react";
 
+export const revalidate = 0;
+
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
   const resolvedParams = await params;
   const id = decodeURIComponent(resolvedParams.id);
